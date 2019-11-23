@@ -22,19 +22,22 @@
         </a>
       </div>
       <div>
-        <b-form-radio-group
-          v-model="value"
-          :options="options"
-          :state="state"
-          name="radio-validation"
-        >
-          <b-form-invalid-feedback :state="state"
-            >Please select one</b-form-invalid-feedback
+        <div v-for="(question, key) in questions" :key="key">
+          {{ question.text }}
+          <b-form-radio-group
+            v-model="value"
+            :options="options"
+            :state="state"
+            name="radio-validation"
           >
-          <b-form-valid-feedback :state="state"
-            >Thank you</b-form-valid-feedback
-          >
-        </b-form-radio-group>
+            <b-form-invalid-feedback :state="state"
+              >Please select one</b-form-invalid-feedback
+            >
+            <b-form-valid-feedback :state="state"
+              >Thank you</b-form-valid-feedback
+            >
+          </b-form-radio-group>
+        </div>
       </div>
     </div>
   </div>
@@ -43,6 +46,7 @@
 <script>
 import Logo from '~/components/Logo.vue'
 import Chart from '~/components/Chart.vue'
+import jsonData from '~/assets/en-questions.json'
 
 export default {
   components: {
@@ -56,7 +60,8 @@ export default {
         { text: 'First radio', value: 'first' },
         { text: 'Second radio', value: 'second' },
         { text: 'Third radio', value: 'third' }
-      ]
+      ],
+      questions: jsonData
     }
   },
   head() {
