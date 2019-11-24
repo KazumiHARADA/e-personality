@@ -22,52 +22,13 @@
         </a>
       </div>
       <div>
-        <radio-input title="tes" name="test" :selected-item="selectedItem" />
-        <radio-input title="tes" name="test2" />
-        <b-form-radio-group
-          v-model="value"
-          :options="options"
-          :state="state"
-          name="radio-validation3"
-          @change="selectedItem()"
-        >
-          <b-form-invalid-feedback :state="state"
-            >Please select one
-          </b-form-invalid-feedback>
-          <b-form-valid-feedback :state="state"
-            >Thank you
-          </b-form-valid-feedback>
-        </b-form-radio-group>
-        <b-form-radio-group
-          v-model="value2"
-          :options="options"
-          :state="state"
-          name="radio-validation2"
-          @change="selectedItem()"
-        >
-          <b-form-invalid-feedback :state="state"
-            >Please select one
-          </b-form-invalid-feedback>
-          <b-form-valid-feedback :state="state"
-            >Thank you
-          </b-form-valid-feedback>
-        </b-form-radio-group>
         <div v-for="(question, key) in questions" :key="key">
-          {{ question.text }}
-          <b-form-radio-group
-            v-model="value"
-            :options="options"
-            :state="state"
-            name="radio-validation"
-            @change="selectedItem()"
-          >
-            <b-form-invalid-feedback :state="state"
-              >Please select one
-            </b-form-invalid-feedback>
-            <b-form-valid-feedback :state="state"
-              >Thank you
-            </b-form-valid-feedback>
-          </b-form-radio-group>
+          <radio-input
+            :keyed="question.keyed"
+            :title="question.text"
+            :name="key"
+            :selected-item="selectedItem"
+          />
         </div>
       </div>
     </div>
@@ -77,7 +38,7 @@
 <script>
 import Logo from '~/components/Logo.vue'
 import Chart from '~/components/Chart.vue'
-import jsonData from '~/assets/en-questions.json'
+import Questions from '~/assets/ja-edited-questions.json'
 import RadioInput from '~/components/RadioInput.vue'
 
 export default {
@@ -96,7 +57,7 @@ export default {
         { text: 'Second radio', value: 'second' },
         { text: 'Third radio', value: 'third' }
       ],
-      questions: jsonData
+      questions: Questions
     }
   },
   head() {

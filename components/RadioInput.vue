@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import Choices from '../assets/choices.json'
+
 export default {
   name: 'RadioInput',
   props: {
@@ -28,6 +30,10 @@ export default {
       type: String,
       default: ''
     },
+    keyed: {
+      type: String,
+      default: ''
+    },
     selectedItem: {
       type: Function,
       default() {}
@@ -36,11 +42,7 @@ export default {
   data() {
     return {
       value: null,
-      options: [
-        { text: 'First radio', value: 'first' },
-        { text: 'Second radio', value: 'second' },
-        { text: 'Third radio', value: 'third' }
-      ]
+      options: Choices[this.keyed]
     }
   }
 }
