@@ -21,6 +21,7 @@
           GitHub
         </a>
       </div>
+      <nuxt-link to="/input">input page</nuxt-link>
       <div v-for="(question, key) in questions" :key="key">
         <radio-input
           :question-id="question.id"
@@ -54,14 +55,6 @@ export default {
   },
   data() {
     return {
-      result: [],
-      value: null,
-      value2: 1,
-      options: [
-        { text: 'First radio', value: 'first' },
-        { text: 'Second radio', value: 'second' },
-        { text: 'Third radio', value: 'third' }
-      ],
       questions: Questions
     }
   },
@@ -94,14 +87,9 @@ export default {
         facet: questionInfo.facet,
         score: selectedScore
       }
-      const resultIndex = this.result.findIndex(
-        (entry) => entry.id === questionId
-      )
-      if (resultIndex === -1) {
-        this.result.push(entry)
-      } else {
-        this.result.splice(resultIndex, 1, entry)
-      }
+      this.$store.commit('inputs/upsert', entry)
+
+      console.log(this.$store.state.inputs.answerList)
     },
     calc() {
       const entry = {
