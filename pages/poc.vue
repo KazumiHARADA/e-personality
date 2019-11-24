@@ -21,48 +21,42 @@
           GitHub
         </a>
       </div>
-      <div v-for="(question, key) in questions" :key="key">
-        <radio-input
-          :question-id="question.id"
-          :keyed="question.keyed"
-          :title="question.text"
-          :callback="selectedItem"
-        />
-      </div>
       <div>
-        <b-button block variant="primary" @click="calc"
-          >Block Level Button</b-button
+        <b-form-radio-group
+          v-model="value"
+          :options="options"
+          :state="state"
+          name="radio-validation"
         >
+          <b-form-invalid-feedback :state="state"
+            >Please select one</b-form-invalid-feedback
+          >
+          <b-form-valid-feedback :state="state"
+            >Thank you</b-form-valid-feedback
+          >
+        </b-form-radio-group>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import calculateScore from 'b5-calculate-score'
 import Logo from '~/components/Logo.vue'
 import Chart from '~/components/Chart.vue'
-import Questions from '~/assets/ja-edited-questions.json'
-import RadioInput from '~/components/RadioInput.vue'
-import TestResult from '~/assets/test-data.json'
 
 export default {
   components: {
     Logo,
-    Chart,
-    RadioInput
+    Chart
   },
   data() {
     return {
-      result: [],
       value: null,
-      value2: 1,
       options: [
         { text: 'First radio', value: 'first' },
         { text: 'Second radio', value: 'second' },
         { text: 'Third radio', value: 'third' }
-      ],
-      questions: Questions
+      ]
     }
   },
   head() {
@@ -81,34 +75,6 @@ export default {
   computed: {
     state() {
       return Boolean(this.value)
-    }
-  },
-  methods: {
-    selectedItem(questionId, selectedScore) {
-      const questionInfo = this.questions.find(
-        (question) => questionId === question.id
-      )
-      const entry = {
-        id: questionId,
-        domain: questionInfo.domain,
-        facet: questionInfo.facet,
-        score: selectedScore
-      }
-      const resultIndex = this.result.findIndex(
-        (entry) => entry.id === questionId
-      )
-      if (resultIndex === -1) {
-        this.result.push(entry)
-      } else {
-        this.result.splice(resultIndex, 1, entry)
-      }
-    },
-    calc() {
-      const entry = {
-        answers: TestResult
-      }
-      console.log(TestResult)
-      console.log(calculateScore(entry))
     }
   }
 }
