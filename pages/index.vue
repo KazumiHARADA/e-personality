@@ -22,6 +22,36 @@
         </a>
       </div>
       <div>
+        <radio-input title="tes" name="test" :selected-item="selectedItem" />
+        <radio-input title="tes" name="test2" />
+        <b-form-radio-group
+          v-model="value"
+          :options="options"
+          :state="state"
+          name="radio-validation3"
+          @change="selectedItem()"
+        >
+          <b-form-invalid-feedback :state="state"
+            >Please select one
+          </b-form-invalid-feedback>
+          <b-form-valid-feedback :state="state"
+            >Thank you
+          </b-form-valid-feedback>
+        </b-form-radio-group>
+        <b-form-radio-group
+          v-model="value2"
+          :options="options"
+          :state="state"
+          name="radio-validation2"
+          @change="selectedItem()"
+        >
+          <b-form-invalid-feedback :state="state"
+            >Please select one
+          </b-form-invalid-feedback>
+          <b-form-valid-feedback :state="state"
+            >Thank you
+          </b-form-valid-feedback>
+        </b-form-radio-group>
         <div v-for="(question, key) in questions" :key="key">
           {{ question.text }}
           <b-form-radio-group
@@ -29,13 +59,14 @@
             :options="options"
             :state="state"
             name="radio-validation"
+            @change="selectedItem()"
           >
             <b-form-invalid-feedback :state="state"
-              >Please select one</b-form-invalid-feedback
-            >
+              >Please select one
+            </b-form-invalid-feedback>
             <b-form-valid-feedback :state="state"
-              >Thank you</b-form-valid-feedback
-            >
+              >Thank you
+            </b-form-valid-feedback>
           </b-form-radio-group>
         </div>
       </div>
@@ -47,15 +78,19 @@
 import Logo from '~/components/Logo.vue'
 import Chart from '~/components/Chart.vue'
 import jsonData from '~/assets/en-questions.json'
+import RadioInput from '~/components/RadioInput.vue'
 
 export default {
   components: {
     Logo,
-    Chart
+    Chart,
+    RadioInput
   },
   data() {
     return {
+      result: [],
       value: null,
+      value2: 1,
       options: [
         { text: 'First radio', value: 'first' },
         { text: 'Second radio', value: 'second' },
@@ -80,6 +115,13 @@ export default {
   computed: {
     state() {
       return Boolean(this.value)
+    }
+  },
+  methods: {
+    selectedItem() {
+      console.log(this)
+      this.result.push('test')
+      console.log(this.result)
     }
   }
 }
