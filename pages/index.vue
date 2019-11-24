@@ -21,25 +21,30 @@
           GitHub
         </a>
       </div>
+      <div v-for="(question, key) in questions" :key="key">
+        <radio-input
+          :question-id="question.id"
+          :keyed="question.keyed"
+          :title="question.text"
+          :callback="selectedItem"
+        />
+      </div>
       <div>
-        <div v-for="(question, key) in questions" :key="key">
-          <radio-input
-            :keyed="question.keyed"
-            :title="question.text"
-            :name="key"
-            :selected-item="selectedItem"
-          />
-        </div>
+        <b-button block variant="primary" @click="calc"
+          >Block Level Button</b-button
+        >
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import calculateScore from 'b5-calculate-score'
 import Logo from '~/components/Logo.vue'
 import Chart from '~/components/Chart.vue'
 import Questions from '~/assets/ja-edited-questions.json'
 import RadioInput from '~/components/RadioInput.vue'
+import TestResult from '~/assets/test-data.json'
 
 export default {
   components: {
@@ -79,10 +84,31 @@ export default {
     }
   },
   methods: {
-    selectedItem() {
-      console.log(this)
-      this.result.push('test')
-      console.log(this.result)
+    selectedItem(questionId, selectedScore) {
+      const questionInfo = this.questions.find(
+        (question) => questionId === question.id
+      )
+      const entry = {
+        id: questionId,
+        domain: questionInfo.domain,
+        facet: questionInfo.facet,
+        score: selectedScore
+      }
+      const resultIndex = this.result.findIndex(
+        (entry) => entry.id === questionId
+      )
+      if (resultIndex === -1) {
+        this.result.push(entry)
+      } else {
+        this.result.splice(resultIndex, 1, entry)
+      }
+    },
+    calc() {
+      const entry = {
+        answers: TestResult
+      }
+      console.log(TestResult)
+      console.log(calculateScore(entry))
     }
   }
 }
