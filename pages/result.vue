@@ -17,6 +17,8 @@
 
 <script>
 import calculateScore from 'b5-calculate-score'
+import MongoDB from 'mongoose'
+import ScoreMongoDB from '~/lib/score'
 import MainChart from '~/components/MainChart.vue'
 import DetailChart from '~/components/DetailChart.vue'
 import TestResult from '~/assets/test-data.json'
@@ -33,10 +35,27 @@ export default {
         const entry = {
           answers: TestResult
         }
-        console.log(calculateScore(entry))
         return calculateScore(entry)
       })()
     }
+  },
+  asyncData({ env, params }) {
+    const entry = {
+      answers: TestResult
+    }
+    const result = calculateScore(entry)
+    MongoDB.connect(env.mongoUrl).then((v) => {
+      const score = ScoreMongoDB.createInstance(result)
+      score
+        .save()
+        .then((v) => {
+          console.log(v)
+        })
+        .catch((e) => {
+          console.log(e)
+        })
+        .finally(() => MongoDB.disconnect())
+    })
   }
 }
 </script>
