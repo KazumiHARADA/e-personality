@@ -28,64 +28,51 @@ module.exports = {
   facets: [
     {
       facet: 1,
-      title: 'Trust',
-      text: `A person with high trust assumes that most people
-are fair, honest, and have good intentions. Persons low in trust
-see others as selfish, devious, and potentially dangerous.`
+      title: '信頼',
+      text: `信頼のスコアが高い人は、公明正大で正直な人が多いです。また困っている人がいると放っておけないといった性質があります。
+      信頼のスコアが低い人は、利己的で、不正を厭わず、危険な性質を秘めていると言えます。`
     },
     {
       facet: 2,
-      title: 'Morality',
-      text: `High scorers on this scale see no need for
-pretense or manipulation when dealing with others and are therefore
-candid, frank, and sincere. Low scorers believe that a certain
-amount of deception in social relationships is necessary. People
-find it relatively easy to relate to the straightforward
-high-scorers on this scale. They generally find it more difficult
-to relate to the unstraightforward low-scorers on this scale. It
-should be made clear that low scorers are not unprincipled
-or immoral; they are simply more guarded and less willing to openly
-reveal the whole truth.`
+      title: '道徳',
+      text: `道徳のスコアが高い人は、他人に対して取り繕うことがなく、率直でかつ誠実な傾向があります。
+      道徳のスコアが低い人は、人間関係を構築する際に多くのことを取り繕う傾向があります。一般的にこのスコアが高い人は
+      他人から仲良くなりやすいと見なされますが、スコアの低い人はすぐには関係が築けないとみなされるでしょう。しかし、低スコアの人が
+      不道徳なわけでは決してなく、単純に自分を強く守る傾向があるということです。
+      `
     },
     {
       facet: 3,
-      title: 'Altruism',
-      text: `Altruistic people find helping other people
-genuinely rewarding. Consequently, they are generally willing to
-assist those who are in need. Altruistic people find that doing
-things for others is a form of self-fulfillment rather than
-self-sacrifice. Low scorers on this scale do not particularly like
-helping those in need. Requests for help feel like an imposition
-rather than an opportunity for self-fulfillment.`
+      title: '利他',
+      text: `利他のスコアが高い人は、他人を助けることに喜びを感じる傾向があり、他人を助けることは自己犠牲ではなく
+      自分のためでもあると考えます。
+      利他のスコアが低い人は、基本的に他人を助けることを好みません。他人を助けることは自己犠牲以外の何者でもないと考えます。
+     `
     },
     {
       facet: 4,
-      title: 'Cooperation',
-      text: `Individuals who score high on this scale
-dislike confrontations. They are perfectly willing to compromise or
-to deny their own needs in order to get along with others. Those
-who score low on this scale are more likely to intimidate others to
-get their way.`
+      title: '協力',
+      text: `協力のスコアが高い人は、対立することを嫌います。
+      そのため何か意見や要求があったとしても、対立する可能性が少しでもあればすぐに妥協する傾向があります。
+      協力のスコアが低い人は、たとえ対立したとしても自分の要求を通すために行動することが多いです。
+      その結果、他者を威圧したり、脅したりすることもあります。`
     },
     {
       facet: 5,
-      title: 'Modesty',
-      text: `High scorers on this scale do not like to claim
-that they are better than other people. In some cases this attitude
-may derive from low self-confidence or self-esteem. Nonetheless,
-some people with high self-esteem find immodesty unseemly. Those
-whoare willing to describe themselves as superior tend to
-be seen as disagreeably arrogant by other people.`
+      title: '謙虚',
+      text: `謙虚のスコアが高い人は、仮に相手より自分が優れていたとしても主張することを好みません。
+      このスコアの高さは、自信や自尊心が低いことに起因している場合もあります。
+      謙虚のスコアが低い人は、自尊心が高く、自分が他人より優れていることを誇示したいと考えます。
+      その結果、他人からは傲慢だと見なされる傾向があります。
+      `
     },
     {
       facet: 6,
-      title: 'Sympathy',
-      text: `People who score high on this scale are
-tenderhearted and compassionate. They feel the pain of others
-vicariously and are easily moved to pity. Low scorers are not
-affected strongly by human suffering. They pride themselves on
-making objective judgments based on reason. They are more concerned
-with truth and impartial justice than with mercy.`
+      title: '共感',
+      text: `共感のスコアが高い人は、心優しい人です。他人の痛みにすぐ共感できる人が多いです。
+      共感のスコアが低い人は、他人の苦しみにあまり影響を受けません。感情ではなく理論的に判断することを好み、
+      慈悲や同情よりも真実と公平な判断に重きをおく傾向があります。
+      `
     }
   ]
 }
