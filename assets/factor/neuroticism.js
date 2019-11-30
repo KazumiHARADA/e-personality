@@ -1,7 +1,8 @@
 module.exports = {
   domain: 'N',
-  title: '神経質傾向',
-  shortDescription: 'Neuroticism refers to the tendency to experience negative feelings.',
+  title: '神経質性',
+  shortDescription:
+    'Neuroticism refers to the tendency to experience negative feelings.',
   description: `Freud originally used the term neurosis to describe a
 condition marked by mental distress, emotional suffering, and an
 inability to cope effectively with the normal demands of life. He
@@ -101,5 +102,9 @@ panic, confusion, and helplessness when under pressure or stress.
 Low scorers feel more poised, confident, and clear-thinking when
 stressed.`
     }
-  ]
+  ],
+  chartSettings: {
+    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+    borderColor: 'rgba(75, 192, 192, 1)'
+  }
 }

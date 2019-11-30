@@ -1,7 +1,8 @@
 module.exports = {
   domain: 'C',
   title: '誠実性',
-  shortDescription: 'Conscientiousness concerns the way in which we control, regulate, and direct our impulses.',
+  shortDescription:
+    'Conscientiousness concerns the way in which we control, regulate, and direct our impulses.',
   description: `Impulses are not inherently bad;
 occasionally time constraints require a snap decision, and acting on
 our first impulse can be an effective response. Also, in times of
@@ -129,5 +130,9 @@ scale take their time when making decisions. Low scorers often say or do
 first thing that comes to mind without deliberating alternatives and the
 probable consequences of those alternatives.`
     }
-  ]
+  ],
+  chartSettings: {
+    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+    borderColor: 'rgba(54, 162, 235, 1)'
+  }
 }
