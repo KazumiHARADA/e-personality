@@ -1,3 +1,5 @@
+import Questions from './assets/ja-edited-questions.json'
+
 export default {
   mode: 'universal',
   /*
@@ -57,6 +59,21 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) {
+      config.devtool = ctx.isClient ? 'eval-source-map' : 'inline-source-map'
+    }
+  },
+
+  generate: {
+    routes() {
+      const count = Questions.length / 10
+      const result = []
+      console.log(count)
+      for (let i = 1; i <= count; i++) {
+        result.push('/inputs/' + i)
+      }
+      console.log(result)
+      return result
+    }
   }
 }

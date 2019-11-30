@@ -41,7 +41,15 @@ export default {
   },
   data() {
     return {
-      value: null,
+      value: ((answerList, id) => {
+        return ((findResult) => {
+          if (findResult === undefined) {
+            return null
+          } else {
+            return findResult.value
+          }
+        })(answerList.find((answer) => answer.id === id))
+      })(this.$store.state.inputs.answerList, this.questionId),
       options: Choices[this.keyed]
     }
   },
@@ -59,7 +67,7 @@ export default {
       console.log(selectItemInfo.score)
       console.log(this.questionId)
       console.log(this.value)
-      this.callback(this.questionId, selectItemInfo.score)
+      this.callback(this.questionId, selectItemInfo.score, this.value)
     }
   }
 }
