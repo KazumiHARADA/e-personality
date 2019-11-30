@@ -22,14 +22,7 @@
         </a>
       </div>
       <nuxt-link to="/inputs/1">input page</nuxt-link>
-      <div v-for="(question, key) in questions" :key="key">
-        <radio-input
-          :question-id="question.id"
-          :keyed="question.keyed"
-          :title="question.text"
-          :callback="selectedItem"
-        />
-      </div>
+      <nuxt-link to="/result">result page</nuxt-link>
       <div>
         <b-button block variant="primary" @click="calc"
           >Block Level Button</b-button
@@ -42,16 +35,12 @@
 <script>
 import calculateScore from 'b5-calculate-score'
 import Logo from '~/components/Logo.vue'
-import Chart from '~/components/Chart.vue'
 import Questions from '~/assets/ja-edited-questions.json'
-import RadioInput from '~/components/RadioInput.vue'
 import TestResult from '~/assets/test-data.json'
 
 export default {
   components: {
-    Logo,
-    Chart,
-    RadioInput
+    Logo
   },
   data() {
     return {

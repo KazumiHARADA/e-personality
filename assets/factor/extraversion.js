@@ -1,7 +1,8 @@
 module.exports = {
   domain: 'E',
   title: '外向性',
-  shortDescription: 'Extraversion is marked by pronounced engagement with the external world.',
+  shortDescription:
+    'Extraversion is marked by pronounced engagement with the external world.',
   description: `Extraverts enjoy being with people, are full of energy, and
 often experience positive emotions. They tend to be enthusiastic,
 action-oriented, individuals who are likely to say "Yes!" or "Let's
@@ -94,5 +95,9 @@ experience a range of positive feelings, including happiness,
 enthusiasm, optimism, and joy. Low scorers are not as prone to such
 energetic, high spirits.`
     }
-  ]
+  ],
+  chartSettings: {
+    backgroundColor: 'rgba(255, 206, 86, 0.2)',
+    borderColor: 'rgba(255, 206, 86, 1)'
+  }
 }

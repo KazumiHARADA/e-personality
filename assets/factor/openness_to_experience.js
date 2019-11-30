@@ -1,7 +1,8 @@
 module.exports = {
   domain: 'O',
   title: '開放性',
-  shortDescription: 'Openness to Experience describes a dimension of cognitive style that distinguishes imaginative, creative people from down-to-earth, conventional people.',
+  shortDescription:
+    'Openness to Experience describes a dimension of cognitive style that distinguishes imaginative, creative people from down-to-earth, conventional people.',
   description: `Open people are intellectually curious,
 appreciative of art, and sensitive to beauty. They tend to be,
 compared to closed people, more aware of their feelings. They tend to
@@ -114,5 +115,9 @@ stability brought by conformity to tradition. Psychological liberalism
 and conservatism are not identical to political affiliation, but certainly
 incline individuals toward certain political parties.`
     }
-  ]
+  ],
+  chartSettings: {
+    backgroundColor: 'rgba(153, 102, 255, 0.2)',
+    borderColor: 'rgba(153, 102, 255, 1)'
+  }
 }
