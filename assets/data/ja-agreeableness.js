@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   domain: 'A',
   title: '調和性',
   shortDescription:
@@ -12,15 +12,15 @@ module.exports = {
   `,
   results: [
     {
-      score: '低い', // do not translate this line
+      score: '低い',
       text: `あなたの調和性は低いです。 他人の考えより自分の考えを優先し、周りの人はあなたのことを「厳しい」「批判的」「意固地」と言った印象をもつでしょう。`
     },
     {
-      score: '中間', // do not translate this line
+      score: '中間',
       text: `あなたの調和性は平均的です。時々他人の思いに応えることもありますが、基本的には自分を他人のために犠牲にしたくないでしょう。`
     },
     {
-      score: '高い', // do not translate this line
+      score: '高い',
       text: `あなたの調和性は高いです。高い調和性はあなたが他人がよくなることにとても興味があることを示します。周りの人はあなたのことを「一緒にいて居心地が良い」「協力的」「信頼できる」と言った印象をもつでしょう。
       `
     }
@@ -74,5 +74,9 @@ module.exports = {
       慈悲や同情よりも真実と公平な判断に重きをおく傾向があります。
       `
     }
-  ]
+  ],
+  chartSettings: {
+    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+    borderColor: 'rgba(255, 99, 132, 1)'
+  }
 }
