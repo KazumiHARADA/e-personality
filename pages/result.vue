@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    {{ host }}
     <div>結果</div>
     <main-chart :result="results" />
     調和性
@@ -33,9 +34,40 @@ export default {
         const entry = {
           answers: TestResult
         }
-        console.log(calculateScore(entry))
         return calculateScore(entry)
-      })()
+      })(),
+      host: ''
+    }
+  },
+  asyncData({ env, params, app, query }) {
+    console.log(query)
+    if (query.id === undefined) {
+      const entry = {
+        answers: TestResult
+      }
+      return app.$axios
+        .$post('http://localhost:3000/api/v1/save', {
+          result: entry
+        })
+        .then((res) => {
+          return {
+            host: res,
+            results: calculateScore(entry)
+          }
+        })
+    } else {
+      return app.$axios
+        .$get('http://localhost:3000/api/v1/find', {
+          params: {
+            id: query.id
+          }
+        })
+        .then((res) => {
+          return {
+            host: 'get',
+            results: res
+          }
+        })
     }
   }
 }
