@@ -1,0 +1,21 @@
+// Option A: Include all of Bootstrap
+
+$main-brand: #3976ba;
+$light-accent: #66a7d5;
+$light-shades: #f6f4f4;
+$dark-accent: #3d4857;
+$dark-shades: #1e1f39;
+
+$primary: $main-brand;
+$secondary: $light-accent;
+$info: $dark-shades;
+$success: #469e70;
+$warning: #c48e38;
+$danger: #f44336;
+
+// Customizations
+$body-bg: $dark-shades;
+$body-color: #111;
+
+// All of bootstrap @import
+@import '../../node_modules/bootstrap/scss/bootstrap';

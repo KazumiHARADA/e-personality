@@ -1,17 +1,16 @@
 <template>
-  <div>
+  <div class="mt-4-5">
     <div>{{ title }}</div>
     <b-form-radio-group
       v-model="value"
+      class="mt-2"
       :options="options"
       :state="state"
       :name="questionId"
+      size="lg"
       @input="selectedRadioItem()"
     >
-      <b-form-invalid-feedback :state="state"
-        >Please select one
-      </b-form-invalid-feedback>
-      <b-form-valid-feedback :state="state">Thank you</b-form-valid-feedback>
+      <b-form-valid-feedback :state="state" />
     </b-form-radio-group>
   </div>
 </template>
@@ -55,7 +54,11 @@ export default {
   },
   computed: {
     state() {
-      return Boolean(this.value)
+      if (this.value === null) {
+        return null
+      } else {
+        return Boolean(this.value)
+      }
     }
   },
   methods: {
@@ -73,4 +76,8 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.mt-4-5 {
+  margin-top: 2.5rem !important;
+}
+</style>
