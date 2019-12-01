@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    {{ host }}
     <div>結果</div>
     <main-chart :result="results" />
     調和性
@@ -17,8 +18,6 @@
 
 <script>
 import calculateScore from 'b5-calculate-score'
-import MongoDB from 'mongoose'
-import ScoreMongoDB from '~/lib/score'
 import MainChart from '~/components/MainChart.vue'
 import DetailChart from '~/components/DetailChart.vue'
 import TestResult from '~/assets/test-data.json'
@@ -36,26 +35,40 @@ export default {
           answers: TestResult
         }
         return calculateScore(entry)
-      })()
+      })(),
+      host: ''
     }
   },
-  asyncData({ env, params }) {
-    const entry = {
-      answers: TestResult
+  asyncData({ env, params, app, query }) {
+    console.log(query)
+    if (query.id === undefined) {
+      const entry = {
+        answers: TestResult
+      }
+      return app.$axios
+        .$post('http://localhost:3000/api/v1/save', {
+          result: entry
+        })
+        .then((res) => {
+          return {
+            host: res,
+            results: calculateScore(entry)
+          }
+        })
+    } else {
+      return app.$axios
+        .$get('http://localhost:3000/api/v1/find', {
+          params: {
+            id: query.id
+          }
+        })
+        .then((res) => {
+          return {
+            host: 'get',
+            results: res
+          }
+        })
     }
-    const result = calculateScore(entry)
-    MongoDB.connect(env.mongoUrl).then((v) => {
-      const score = ScoreMongoDB.createInstance(result)
-      score
-        .save()
-        .then((v) => {
-          console.log(v)
-        })
-        .catch((e) => {
-          console.log(e)
-        })
-        .finally(() => MongoDB.disconnect())
-    })
   }
 }
 </script>
