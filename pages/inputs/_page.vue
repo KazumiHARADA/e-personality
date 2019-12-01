@@ -1,8 +1,8 @@
 <template>
   <b-container>
-    <b-progress :max="10" height="1rem" class="mt-n10">
-      <b-progress-bar :value="5">
-        <strong>{{ 5 }} / {{ 10 }}</strong>
+    <b-progress :max="total" height="1rem" class="mt-n10">
+      <b-progress-bar :value="completed">
+        <strong>{{ completed }} / {{ total }}</strong>
       </b-progress-bar>
     </b-progress>
     <b-card class="mt-5 pb-5 shadow" bg-variant="light" text-variant="black">
@@ -37,7 +37,19 @@ export default {
   components: {
     RadioInput
   },
-  asyncData({ params }) {
+  data() {
+    return {
+      next: '/',
+      prev: '/',
+      total: Questions.length
+    }
+  },
+  computed: {
+    completed() {
+      return this.$store.state.progress.completed
+    }
+  },
+  asyncData({ params, store }) {
     return {
       next: ((page) => {
         const next = Number(page) + 1
@@ -89,9 +101,15 @@ export default {
         score: itemScore,
         value: radioValue
       }
-      this.$store.commit('inputs/upsert', entry)
+      const resultIndex = this.$store.state.inputs.answerList.findIndex(
+        (answer) => answer.id === entry.id
+      )
+      if (resultIndex === -1) {
+        // 新規登録のため進捗をカウントアップ
+        this.$store.commit('progress/countUp')
+      }
 
-      console.log(this.$store.state.inputs.answerList)
+      this.$store.commit('inputs/upsert', entry)
     }
   }
 }

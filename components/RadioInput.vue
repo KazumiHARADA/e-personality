@@ -63,13 +63,9 @@ export default {
   },
   methods: {
     selectedRadioItem() {
-      console.log(Choices[this.keyed])
       const selectItemInfo = this.options.find(
         (answer) => answer.text === this.value
       )
-      console.log(selectItemInfo.score)
-      console.log(this.questionId)
-      console.log(this.value)
       this.callback(this.questionId, selectItemInfo.score, this.value)
     }
   }
