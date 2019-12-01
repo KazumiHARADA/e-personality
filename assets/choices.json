@@ -1,56 +1,56 @@
 {
   "plus": [
     {
-      "text": "きわめて当てはまらない",
-      "score": 1,
-      "color": 1
+      "text": "とてもそう",
+      "score": 5,
+      "color": 5
     },
     {
-      "text": "やや当てはまらない",
-      "score": 2,
-      "color": 2
-    },
-    {
-      "text": "どちらとも言えない",
-      "score": 3,
-      "color": 3
-    },
-    {
-      "text": "やや当てはまる",
+      "text": "少しそう",
       "score": 4,
       "color": 4
     },
     {
-      "text": "きわめて当てはまる",
-      "score": 5,
-      "color": 5
+      "text": "どちらでもない",
+      "score": 3,
+      "color": 3
+    },
+    {
+      "text": "少し違う",
+      "score": 2,
+      "color": 2
+    },
+    {
+      "text": "全然違う",
+      "score": 1,
+      "color": 1
     }
   ],
   "minus": [
     {
-      "text": "きわめて当てはまらない",
-      "score": 5,
-      "color": 1
+      "text": "とてもそう",
+      "score": 1,
+      "color": 5
     },
     {
-      "text": "やや当てはまらない",
-      "score": 4,
-      "color": 2
-    },
-    {
-      "text": "どちらとも言えない",
-      "score": 3,
-      "color": 3
-    },
-    {
-      "text": "やや当てはまる",
+      "text": "少しそう",
       "score": 2,
       "color": 4
     },
     {
-      "text": "きわめて当てはまる",
-      "score": 1,
-      "color": 5
+      "text": "どちらでもない",
+      "score": 3,
+      "color": 3
+    },
+    {
+      "text": "少し違う",
+      "score": 4,
+      "color": 2
+    },
+    {
+      "text": "全然違う",
+      "score": 5,
+      "color": 1
     }
   ]
 }

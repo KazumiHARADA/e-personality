@@ -1,47 +1,46 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <chart />
-      <h1 class="title">
-        e-personality
-      </h1>
-      <h2 class="subtitle">
-        My spectacular Nuxt.js project
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-      <nuxt-link to="/inputs/1">input page</nuxt-link>
-      <nuxt-link to="/result">result page</nuxt-link>
-      <div>
-        <b-button block variant="primary" @click="calc"
-          >Block Level Button</b-button
-        >
-      </div>
-    </div>
-  </div>
+  <b-container class="text-light" style="height: 100%;">
+    <h1 class="title pt-4">Big Five 精密 <br />パーソナリティ診断</h1>
+    <h5 class="subtitle pt-4">
+      Big Five 理論に基づいて、精密に自身の<br />パーソナリティを分析できます。
+    </h5>
+
+    <b-row class="pt-5" align-h="center">
+      <b-col class="col-xs-10 col-sm-10 col-md-7">
+        <blockquote class="blockquote text-left lead">
+          <p><small>所要時間：10分</small></p>
+          <p class="mt-n3"><small>オススメのやり方</small></p>
+          <ul class="mt-n3">
+            <li>
+              <small
+                >将来なりたい自分ではなく、今の自分はどうなのかで回答しましょう</small
+              >
+            </li>
+            <li><small>正直に回答しましょう</small></li>
+            <li><small>一人でやりましょう</small></li>
+          </ul>
+        </blockquote>
+      </b-col>
+    </b-row>
+    <b-row class="pt-5" align-h="center">
+      <b-col class="col-xs-10 col-sm-10 col-md-6">
+        <div>
+          <b-button block variant="success" to="/inputs/1"
+            >テストを始める</b-button
+          >
+        </div>
+      </b-col>
+    </b-row>
+    <nuxt-link to="/result">result page</nuxt-link>
+  </b-container>
 </template>
 
 <script>
 import calculateScore from 'b5-calculate-score'
-import Logo from '~/components/Logo.vue'
 import Questions from '~/assets/ja-edited-questions.json'
 import TestResult from '~/assets/test-data.json'
 
 export default {
-  components: {
-    Logo
-  },
   data() {
     return {
       questions: Questions
@@ -90,3 +89,30 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+h1 > br {
+  display: none;
+}
+@media screen and (max-width: 800px) {
+  h1 > br {
+    display: block;
+  }
+}
+
+h5 > br {
+  display: none;
+}
+@media screen and (max-width: 800px) {
+  h5 > br {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .container {
+    padding-left: 75px;
+    padding-right: 75px;
+  }
+}
+</style>
