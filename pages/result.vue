@@ -46,7 +46,7 @@ export default {
         answers: TestResult
       }
       return app.$axios
-        .$post('http://localhost:3000/api/v1/save', {
+        .$post('/api/v1/save', {
           result: entry
         })
         .then((res) => {
@@ -57,7 +57,7 @@ export default {
         })
     } else {
       return app.$axios
-        .$get('http://localhost:3000/api/v1/find', {
+        .$get('/api/v1/find', {
           params: {
             id: query.id
           }
