@@ -75,5 +75,21 @@ export default {
       console.log(result)
       return result
     }
-  }
+  },
+
+  env: {
+    mongoUrl:
+      'mongodb://heroku_g43j8m44:6iagj8up9rud4alsnncug1t8dc@ds251158.mlab.com:51158/heroku_g43j8m44'
+  },
+
+  serverMiddleware: [
+    {
+      path: '/api/v1/save',
+      handler: '~/api/v1/save.js'
+    },
+    {
+      path: '/api/v1/find',
+      handler: '~/api/v1/find.js'
+    }
+  ]
 }
