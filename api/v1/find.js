@@ -7,7 +7,10 @@ const mongoUrl =
 export default function(req, res, next) {
   try {
     const queries = queryString.parse(req.url.replace('/?', ''))
-    MongoDB.connect(mongoUrl, { useNewUrlParser: true }).then((v) => {
+    MongoDB.connect(mongoUrl, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    }).then((v) => {
       const Score = createModel()
       Score.findById(queries.id)
         .then((v) => {

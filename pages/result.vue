@@ -1,8 +1,10 @@
 <template>
-  <div class="container">
+  <b-container>
+    <div class="text-light mt-n10">結果</div>
     {{ host }}
-    <div>結果</div>
-    <main-chart :result="results" />
+    <b-card class="mt-5 pb-5 shadow" bg-variant="light" text-variant="black">
+      <main-chart :result="results" />
+    </b-card>
     調和性
     <detail-chart :result="results" factor="A" />
     誠実性
@@ -13,7 +15,7 @@
     <detail-chart :result="results" factor="N" />
     開放性
     <detail-chart :result="results" factor="O" />
-  </div>
+  </b-container>
 </template>
 
 <script>

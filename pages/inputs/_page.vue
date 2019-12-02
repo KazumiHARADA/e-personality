@@ -115,8 +115,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.mt-n10 {
-  margin-top: -11rem !important;
-}
-</style>
+<style scoped></style>

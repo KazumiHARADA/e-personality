@@ -20,7 +20,10 @@ export default function(req, res, next) {
     // res.setHeader('Content-Type', 'application/json')
     try {
       const calculatedResult = calculateScore(JSON.parse(data).result)
-      MongoDB.connect(mongoUrl, { useNewUrlParser: true }).then((v) => {
+      MongoDB.connect(mongoUrl, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+      }).then((v) => {
         const score = createInstance(calculatedResult)
         score
           .save()
