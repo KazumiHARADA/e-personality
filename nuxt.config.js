@@ -96,5 +96,9 @@ export default {
       path: '/api/v1/find',
       handler: '~/api/v1/find.js'
     }
-  ]
+  ],
+  layoutTransition: {
+    name: 'page',
+    mode: 'out-in'
+  }
 }

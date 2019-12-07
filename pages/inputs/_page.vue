@@ -1,31 +1,14 @@
 <template>
-  <b-container>
-    <b-progress :max="total" height="1rem" class="mt-n10">
-      <b-progress-bar :value="completed">
-        <strong>{{ completed }} / {{ total }}</strong>
-      </b-progress-bar>
-    </b-progress>
-    <b-card class="mt-5 pb-5 shadow" bg-variant="light" text-variant="black">
-      <div v-for="(question, key) in questions" :key="key">
-        <radio-input
-          :question-id="question.id"
-          :keyed="question.keyed"
-          :title="question.text"
-          :callback="selectedItem"
-        />
-      </div>
-    </b-card>
-    <b-row class="pt-5 pb-4" align-h="center">
-      <b-col class="col-xs-6 col-sm-4 col-md-3">
-        <b-button block :to="prev" variant="primary">&lt; Prev</b-button>
-      </b-col>
-      <b-col class="col-xs-6 col-sm-4 col-md-3">
-        <b-button block variant="primary" @click="clickNextButton(next)"
-          >Next &gt;</b-button
-        >
-      </b-col>
-    </b-row>
-  </b-container>
+  <b-card class="mt-5 pb-5 shadow" bg-variant="light" text-variant="black">
+    <div v-for="(question, key) in questions" :key="key">
+      <radio-input
+        :question-id="question.id"
+        :keyed="question.keyed"
+        :title="question.text"
+        :callback="selectedItem"
+      />
+    </div>
+  </b-card>
 </template>
 
 <script>
@@ -36,6 +19,7 @@ const pageCount = 8
 
 export default {
   name: 'InputPage',
+  layout: 'input',
   components: {
     RadioInput
   },
@@ -51,7 +35,7 @@ export default {
       return this.$store.state.progress.completed
     }
   },
-  asyncData({ params, store }) {
+  asyncData({ params }) {
     return {
       next: ((page) => {
         const next = Number(page) + 1
@@ -86,10 +70,14 @@ export default {
     }
   },
   transition(to, from) {
-    if (!from) {
-      return 'slide-left'
+    if (from.fullPath === '/') {
+      return 'page'
     }
     return +to.params.page < +from.params.page ? 'slide-right' : 'slide-left'
+  },
+  mounted() {
+    this.$nuxt.$emit('updateNextUrl', this.next)
+    this.$nuxt.$emit('updatePrevUrl', this.prev)
   },
   methods: {
     selectedItem(questionId, itemScore, radioValue) {
@@ -108,6 +96,10 @@ export default {
       )
       if (resultIndex === -1) {
         // 新規登録のため進捗をカウントアップ
+        this.$nuxt.$emit(
+          'updateCompletedCount',
+          this.$store.state.progress.completed
+        )
         this.$store.commit('progress/countUp')
       }
 

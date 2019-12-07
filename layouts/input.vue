@@ -1,0 +1,207 @@
+<template>
+  <div>
+    <b-navbar toggleable="lg" type="dark" variant="info">
+      <b-navbar-brand to="/">ePersonality Test</b-navbar-brand>
+
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+      <b-collapse id="nav-collapse" is-nav>
+        <!-- Right aligned nav items -->
+        <b-navbar-nav class="ml-auto">
+          <b-nav-item to="/inputs/1" right>Test</b-nav-item>
+          <b-nav-item to="/result" right>Result</b-nav-item>
+          <b-nav-item to="/about" right>About</b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
+    <b-container>
+      <b-progress :max="total" height="1rem" class="mt-n10">
+        <b-progress-bar :value="completed">
+          <strong>{{ completed }} / {{ total }}</strong>
+        </b-progress-bar>
+      </b-progress>
+      <nuxt />
+      <b-row class="pt-5 pb-4" align-h="center">
+        <b-col class="col-xs-6 col-sm-4 col-md-3">
+          <b-button block :to="prev" variant="primary">&lt; Prev</b-button>
+        </b-col>
+        <b-col class="col-xs-6 col-sm-4 col-md-3">
+          <b-button block variant="primary" @click="clickNextButton(next)"
+            >Next &gt;</b-button
+          >
+        </b-col>
+      </b-row>
+    </b-container>
+  </div>
+</template>
+
+<script>
+import Questions from '~/assets/ja-edited-questions.json'
+export default {
+  data() {
+    return {
+      next: '/',
+      prev: '/',
+      count: 0,
+      total: Questions.length
+    }
+  },
+  computed: {
+    completed() {
+      return this.$store.state.progress.completed
+    }
+  },
+  created() {
+    this.setListener()
+  },
+  methods: {
+    setListener() {
+      this.$nuxt.$on('updateNextUrl', this.updateNextUrl)
+      this.$nuxt.$on('updatePrevUrl', this.updatePrevUrl)
+      this.$nuxt.$on('updateCompletedCount', this.updateCompletedCount)
+    },
+    updateNextUrl(url) {
+      this.next = url
+    },
+    updatePrevUrl(url) {
+      this.prev = url
+    },
+    updateCompletedCount(count) {
+      this.count = count
+    },
+    clickNextButton(next) {
+      if (next === '/result') {
+        // TODO validation
+        const entry = {
+          answers: this.$store.state.inputs.answerList
+        }
+        this.$axios
+          .$post('/api/v1/save', {
+            result: entry
+          })
+          .then((res) => {
+            this.$store.commit('inputs/clear')
+            this.$router.push(next + '/?id=' + res)
+          })
+      } else {
+        this.$router.push(next)
+      }
+    }
+  }
+}
+</script>
+
+<style>
+html {
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.button--green {
+  display: inline-block;
+  border-radius: 4px;
+  border: 1px solid #3b8070;
+  color: #3b8070;
+  text-decoration: none;
+  padding: 10px 30px;
+}
+
+.button--green:hover {
+  color: #fff;
+  background-color: #3b8070;
+}
+
+.button--grey {
+  display: inline-block;
+  border-radius: 4px;
+  border: 1px solid #35495e;
+  color: #35495e;
+  text-decoration: none;
+  padding: 10px 30px;
+  margin-left: 15px;
+}
+
+.button--grey:hover {
+  color: #fff;
+  background-color: #35495e;
+}
+
+.container {
+  text-align: center;
+  padding-top: 200px;
+  font-size: 20px;
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}
+
+.bounce-enter-active {
+  animation: bounce-in 0.8s;
+}
+.bounce-leave-active {
+  animation: bounce-out 0.5s;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes bounce-out {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+.slide-left-enter,
+.slide-right-leave-active {
+  opacity: 0;
+  transform: translate(30px, 0);
+}
+.slide-left-leave-active,
+.slide-right-enter {
+  opacity: 0;
+  transform: translate(-30px, 0);
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  /* Set the fixed height of the footer here */
+  background-color: #f5f5f5;
+}
+</style>
