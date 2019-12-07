@@ -18,7 +18,7 @@ popularity. Agreeable people are better liked than disagreeable
 people. On the other hand, agreeableness is not useful in situations
 that require tough or absolute objective decisions. Disagreeable
 people can make excellent scientists, critics, or soldiers.`,
-  results: [
+  analysedResult: [
     {
       score: 'low', // do not translate this line
       text: `Your score on Agreeableness is low, indicating less concern

@@ -20,7 +20,9 @@
         <b-button block :to="prev" variant="primary">&lt; Prev</b-button>
       </b-col>
       <b-col class="col-xs-6 col-sm-4 col-md-3">
-        <b-button block :to="next" variant="primary">Next &gt;</b-button>
+        <b-button block variant="primary" @click="clickNextButton(next)"
+          >Next &gt;</b-button
+        >
       </b-col>
     </b-row>
   </b-container>
@@ -110,6 +112,24 @@ export default {
       }
 
       this.$store.commit('inputs/upsert', entry)
+    },
+    clickNextButton(next) {
+      if (next === '/result') {
+        // TODO validation
+        const entry = {
+          answers: this.$store.state.inputs.answerList
+        }
+        this.$axios
+          .$post('/api/v1/save', {
+            result: entry
+          })
+          .then((res) => {
+            this.$store.commit('inputs/clear')
+            this.$router.push(next + '/?id=' + res)
+          })
+      } else {
+        this.$router.push(next)
+      }
     }
   }
 }

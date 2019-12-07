@@ -104,6 +104,8 @@ export default {
         legend: {
           display: false
         },
+        responsive: true,
+        maintainAspectRatio: false,
         scales: {
           xAxes: [
             {
