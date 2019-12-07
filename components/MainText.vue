@@ -4,32 +4,32 @@
       <text-factor-entry
         :title="agreeableness.title"
         :score="userInfo.A.score"
-        :score-title="userInfo.A.scoreLiteral.score"
-        :score-text="userInfo.A.scoreLiteral.text"
+        :score-title="userInfo.A.scoreTitle"
+        :score-text="userInfo.A.scoreText"
       />
       <text-factor-entry
         :title="conscientiousness.title"
         :score="userInfo.C.score"
-        :score-title="userInfo.C.scoreLiteral.score"
-        :score-text="userInfo.C.scoreLiteral.text"
+        :score-title="userInfo.C.scoreTitle"
+        :score-text="userInfo.C.scoreText"
       />
       <text-factor-entry
         :title="extraversion.title"
         :score="userInfo.E.score"
-        :score-title="userInfo.E.scoreLiteral.score"
-        :score-text="userInfo.E.scoreLiteral.text"
+        :score-title="userInfo.E.scoreTitle"
+        :score-text="userInfo.E.scoreText"
       />
       <text-factor-entry
         :title="neuroticism.title"
         :score="userInfo.N.score"
-        :score-title="userInfo.N.scoreLiteral.score"
-        :score-text="userInfo.N.scoreLiteral.text"
+        :score-title="userInfo.N.scoreTitle"
+        :score-text="userInfo.N.scoreText"
       />
       <text-factor-entry
         :title="opennessToExperience.title"
         :score="userInfo.O.score"
-        :score-title="userInfo.O.scoreLiteral.score"
-        :score-text="userInfo.O.scoreLiteral.text"
+        :score-title="userInfo.O.scoreTitle"
+        :score-text="userInfo.O.scoreText"
       />
     </b-list-group>
   </b-card-body>
@@ -42,6 +42,7 @@ import Extraversion from '~/assets/factor/extraversion'
 import Neuroticism from '~/assets/factor/neuroticism'
 import OpennessToExperience from '~/assets/factor/openness_to_experience'
 import TextFactorEntry from '~/components/TextFactorEntry'
+import ScoreText from '~/assets/score-text.json'
 
 export default {
   name: 'MainText',
@@ -85,74 +86,38 @@ export default {
       userInfo: {
         A: {
           score: this.result.A.score,
-          scoreLiteral: ((resText) => {
-            switch (resText) {
-              case 'low':
-                return Agreeableness.results.find((v) => v.score === '低い')
-              case 'neutral':
-                return Agreeableness.results.find((v) => v.score === '中間')
-              case 'high':
-                return Agreeableness.results.find((v) => v.score === '高い')
-            }
-          })(this.result.A.result)
+          scoreTitle: ScoreText[this.result.A.result],
+          scoreText: Agreeableness.results.find(
+            (v) => v.key === this.result.A.result
+          ).text
         },
         C: {
           score: this.result.C.score,
-          scoreLiteral: ((resText) => {
-            switch (resText) {
-              case 'low':
-                return Conscientiousness.results.find((v) => v.score === '低い')
-              case 'neutral':
-                return Conscientiousness.results.find((v) => v.score === '中間')
-              case 'high':
-                return Conscientiousness.results.find((v) => v.score === '高い')
-            }
-          })(this.result.C.result)
+          scoreTitle: ScoreText[this.result.C.result],
+          scoreText: Conscientiousness.results.find(
+            (v) => v.key === this.result.C.result
+          ).text
         },
         E: {
           score: this.result.E.score,
-          scoreLiteral: ((resText) => {
-            switch (resText) {
-              case 'low':
-                return Extraversion.results.find((v) => v.score === '低い')
-              case 'neutral':
-                return Extraversion.results.find((v) => v.score === '中間')
-              case 'high':
-                return Extraversion.results.find((v) => v.score === '高い')
-            }
-          })(this.result.C.result)
+          scoreTitle: ScoreText[this.result.E.result],
+          scoreText: Extraversion.results.find(
+            (v) => v.key === this.result.E.result
+          ).text
         },
         N: {
           score: this.result.N.score,
-          scoreLiteral: ((resText) => {
-            switch (resText) {
-              case 'low':
-                return Neuroticism.results.find((v) => v.score === '低い')
-              case 'neutral':
-                return Neuroticism.results.find((v) => v.score === '中間')
-              case 'high':
-                return Neuroticism.results.find((v) => v.score === '高い')
-            }
-          })(this.result.C.result)
+          scoreTitle: ScoreText[this.result.N.result],
+          scoreText: Neuroticism.results.find(
+            (v) => v.key === this.result.N.result
+          ).text
         },
         O: {
           score: this.result.O.score,
-          scoreLiteral: ((resText) => {
-            switch (resText) {
-              case 'low':
-                return OpennessToExperience.results.find(
-                  (v) => v.score === '低い'
-                )
-              case 'neutral':
-                return OpennessToExperience.results.find(
-                  (v) => v.score === '中間'
-                )
-              case 'high':
-                return OpennessToExperience.results.find(
-                  (v) => v.score === '高い'
-                )
-            }
-          })(this.result.C.result)
+          scoreTitle: ScoreText[this.result.O.result],
+          scoreText: OpennessToExperience.results.find(
+            (v) => v.key === this.result.O.result
+          ).text
         }
       }
     }

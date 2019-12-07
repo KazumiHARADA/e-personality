@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   domain: 'E',
   title: '外向性',
   shortDescription:
@@ -20,15 +20,15 @@ introvert who scores high on the agreeableness dimension will not
 seek others out but will be quite pleasant when approached.`,
   results: [
     {
-      score: '低い',
+      key: 'low',
       text: `あなたは、社交にあまり価値を見出さず少数での行動や静かな環境を好む傾向があります。友人の数は少なく、親しい友人が２、３人であることが多いです。`
     },
     {
-      score: '中間',
+      key: 'neutral',
       text: `あなたは一人の時も大勢でいる時も楽しむことができます。`
     },
     {
-      score: '高い',
+      key: 'high',
       text: `あなたは、社交的でエネルギッシュです。一人でいることよりも大勢といることを好みます。`
     }
   ],

@@ -12,5 +12,8 @@ export const mutations = {
     } else {
       state.answerList.splice(resultIndex, 1, entry)
     }
+  },
+  clear(state) {
+    state.answerList = []
   }
 }

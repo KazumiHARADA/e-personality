@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   domain: 'C',
   title: '誠実性',
   shortDescription:
@@ -55,15 +55,15 @@ the lines, but they will experience many short-lived pleasures and
 they will never be called stuffy.`,
   results: [
     {
-      score: '低い',
+      key: 'low',
       text: `あなたは自分の欲求をコントロールすることが苦手で、気の向くままに行動することが多いです。`
     },
     {
-      score: '中間',
+      key: 'neutral',
       text: `あなたは程々に自分をコントロールできていて、自分の欲求を発散するかどうかをその時に応じて選んでいます。`
     },
     {
-      score: '高い',
+      key: 'high',
       text: `あなたは自分の欲求をコントロールすることが得意で、周りからは真面目で勤勉だと見られることが多いです。`
     }
   ],

@@ -1,8 +1,8 @@
-module.exports = {
+export default {
   domain: 'O',
-  title: '経験への開放性',
+  title: '開放性',
   shortDescription:
-    '経験への開放性は、どの程度経験に対して開放的か、心の連想がどの程度つながっているかを示す度合いである。',
+    '開放性は、どの程度経験に対して開放的か、心の連想がどの程度つながっているかを示す度合いである。',
   description: `Open people are intellectually curious,
 appreciative of art, and sensitive to beauty. They tend to be,
 compared to closed people, more aware of their feelings. They tend to
@@ -35,15 +35,15 @@ thinking is related to superior job performance in police work, sales, and
 a number of service occupations.`,
   results: [
     {
-      score: '低い',
+      key: 'low',
       text: `あなたは、単純で明快に考えることを好みます。他人からは現実的で、保守的だと見られる傾向があります。`
     },
     {
-      score: '中間',
+      key: 'neutral',
       text: `あなたは、古いことと新しいことの両方を楽しむことができます。また、考え方はシンプルでも複雑でもなく程よいため他人からは高学歴に見られることがあります。`
     },
     {
-      score: '高い',
+      key: 'high',
       text: `あなたは、多様性、斬新さ、変化を楽しむことができ、クリエイティブなタイプだと言えるでしょう。`
     }
   ],

@@ -31,7 +31,6 @@
 <script>
 import Questions from '~/assets/ja-edited-questions.json'
 import RadioInput from '~/components/RadioInput.vue'
-import TestResult from '~/assets/test-data.json'
 
 const pageCount = 8
 
@@ -118,13 +117,14 @@ export default {
       if (next === '/result') {
         // TODO validation
         const entry = {
-          answers: TestResult // this.$store.state.inputs.answerList
+          answers: this.$store.state.inputs.answerList
         }
         this.$axios
           .$post('/api/v1/save', {
             result: entry
           })
           .then((res) => {
+            this.$store.commit('inputs/clear')
             this.$router.push(next + '/?id=' + res)
           })
       } else {
