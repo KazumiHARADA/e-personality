@@ -17,5 +17,9 @@ $danger: #f44336;
 $body-bg: $dark-shades;
 $body-color: #111;
 
+.mt-n10 {
+  margin-top: -11rem !important;
+}
+
 // All of bootstrap @import
 @import '../../node_modules/bootstrap/scss/bootstrap';

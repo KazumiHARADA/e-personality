@@ -86,8 +86,8 @@ export default {
     }
   },
   transition(to, from) {
-    if (!from) {
-      return 'slide-left'
+    if (from.fullPath === '/') {
+      return 'page'
     }
     return +to.params.page < +from.params.page ? 'slide-right' : 'slide-left'
   },
@@ -135,8 +135,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.mt-n10 {
-  margin-top: -11rem !important;
-}
-</style>
+<style scoped></style>

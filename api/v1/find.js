@@ -7,7 +7,6 @@ const mongoUrl =
 export default function(req, res, next) {
   try {
     const queries = queryString.parse(req.url.replace('/?', ''))
-    console.log('kita')
     MongoDB.connect(mongoUrl, {
       useNewUrlParser: true,
       useUnifiedTopology: true
