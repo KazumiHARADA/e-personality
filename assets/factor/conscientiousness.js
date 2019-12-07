@@ -2,7 +2,7 @@ module.exports = {
   domain: 'C',
   title: '誠実性',
   shortDescription:
-    'Conscientiousness concerns the way in which we control, regulate, and direct our impulses.',
+    '誠実性は自身の衝動をどの程度抑制できるかを示す度合いです。',
   description: `Impulses are not inherently bad;
 occasionally time constraints require a snap decision, and acting on
 our first impulse can be an effective response. Also, in times of
@@ -55,80 +55,57 @@ the lines, but they will experience many short-lived pleasures and
 they will never be called stuffy.`,
   results: [
     {
-      score: '低い', // do not translate this line
-      text: `Your score on Conscientiousness is low, indicating you like to live
-for the moment and do what feels good now. Your work tends to be
-careless and disorganized.`
+      score: '低い',
+      text: `あなたは自分の欲求をコントロールすることが苦手で、気の向くままに行動することが多いです。`
     },
     {
-      score: '中間', // do not translate this line
-      text: `Your score on Conscientiousness is average. This means you are
-reasonably reliable, organized, and self-controlled.`
+      score: '中間',
+      text: `あなたは程々に自分をコントロールできていて、自分の欲求を発散するかどうかをその時に応じて選んでいます。`
     },
     {
-      score: '高い', // do not translate this line
-      text: `Your score on Conscientiousness is high. This means you set clear
-goals and pursue them with determination. People regard you as
-reliable and hard-working.`
+      score: '高い',
+      text: `あなたは自分の欲求をコントロールすることが得意で、周りからは真面目で勤勉だと見られることが多いです。`
     }
   ],
   facets: [
     {
       facet: 1,
-      title: 'Self-Efficacy',
-      text: `Self-Efficacy describes confidence in one's ability
-to accomplish things. High scorers believe they have the intelligence
-(common sense), drive, and self-control necessary for achieving success.
-Low scorers do not feel effective, and may have a sense that they are not
-in control of their lives.`
+      title: '自信',
+      text: `自信のスコアが高い人は自分が成功するために必要なものを持っているという自負があります。
+      自信のスコアが低い人は、自己肯定感が低く、自分の人生をコントロールできていないと感じるかもしれません。`
     },
     {
       facet: 2,
-      title: 'Orderliness',
-      text: `Persons with high scores on orderliness are
-well-organized. They like to live according to routines and schedules. They
-keep lists and make plans. Low scorers tend to be disorganized and
-scattered.`
+      title: '規則',
+      text: `規則のスコアが高い人は、ルーティーンやスケジュール通りの生活を好みます。
+      規則のスコアが低い人は、計画を立てることが好きではなく、その時の興味に沿った行動をとる傾向があります。`
     },
     {
       facet: 3,
-      title: 'Dutifulness',
-      text: `This scale reflects the strength of a person's sense
- of duty and obligation. Those who score high on this scale have a strong
- sense of moral obligation. Low scorers find contracts, rules, and
- regulations overly confining. They are likely to be seen as unreliable or
- even irresponsible.`
+      title: '忠実',
+      text: `忠実のスコアが高い人は、道徳的な義務感を強く感じます。
+      忠実のスコアが低い人はルールや規制を疎ましく感じます。
+      `
     },
     {
       facet: 4,
-      title: 'Achievement-Striving',
-      text: `Individuals who score high on this
-scale strive hard to achieve excellence. Their drive to be recognized as
-successful keeps them on track toward their lofty goals. They often have
-a strong sense of direction in life, but extremely high scores may
-be too single-minded and obsessed with their work. Low scorers are content
-to get by with a minimal amount of work, and might be seen by others
-as lazy.`
+      title: '努力',
+      text: `努力のスコアが高い人はゴールに向かってひたむきに努力することができます。
+      特に高いスコアの人はあまりにもひたむきすぎるため、仕事人間と見られることがあるかもしれません。
+      努力のスコアが低い人は最小限の作業で満足するタイプの人で、しばしば怠け者とみられることがあります。
+      `
     },
     {
       facet: 5,
-      title: 'Self-Discipline',
-      text: `Self-discipline-what many people call
-will-power-refers to the ability to persist at difficult or unpleasant
-tasks until they are completed. People who possess high self-discipline
-are able to overcome reluctance to begin tasks and stay on track despite
-distractions. Those with low self-discipline procrastinate and show poor
-follow-through, often failing to complete tasks-even tasks they want very
-much to complete.`
+      title: '自制',
+      text: `自制のスコアが高い人は、難しいタスクでも完了するまで継続することができます。
+      自制のスコアが低い人は、嫌なことを先延ばしにして、タスクを完了できない傾向があります。`
     },
     {
       facet: 6,
-      title: 'Cautiousness',
-      text: `Cautiousness describes the disposition to
-think through possibilities before acting. High scorers on the Cautiousness
-scale take their time when making decisions. Low scorers often say or do
-first thing that comes to mind without deliberating alternatives and the
-probable consequences of those alternatives.`
+      title: '慎重',
+      text: `慎重のスコアが高い人は、行動する前に深く考えます。そのため決定には時間をかける傾向があります。
+      慎重のスコアが低い人は、頭に浮かんだことをすぐに行動に移したり、代替案を考えることをしない傾向があります。`
     }
   ],
   chartSettings: {

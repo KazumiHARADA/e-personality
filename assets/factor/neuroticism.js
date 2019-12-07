@@ -2,7 +2,7 @@ module.exports = {
   domain: 'N',
   title: '神経質性',
   shortDescription:
-    'Neuroticism refers to the tendency to experience negative feelings.',
+    '外向性は、ネガティブなことにどの程度反応を示すかの度合いである。',
   description: `Freud originally used the term neurosis to describe a
 condition marked by mental distress, emotional suffering, and an
 inability to cope effectively with the normal demands of life. He
@@ -23,84 +23,54 @@ regulation can diminish a neurotic's ability to think clearly, make
 decisions, and cope effectively with stress.`,
   results: [
     {
-      score: '低い', // do not translate this line
-      text: `Your score on Neuroticism is low, indicating that you are
-exceptionally calm, composed and unflappable. You do not react with
-intense emotions, even to situations that most people would describe
-as stressful.`
+      score: '低い',
+      text: `あなたは穏やかで落ち着いています。多くの人がストレスと感じることであってもあなたの感情が乱されることはないでしょう。`
     },
     {
-      score: '中間', // do not translate this line
-      text: `Your score on Neuroticism is average, indicating that your level of
-emotional reactivity is typical of the general population.
-Stressful and frustrating situations are somewhat upsetting to you,
-but you are generally able to get over these feelings and cope with
-these situations.`
+      score: '中間',
+      text: `あなたはストレスのある状況だと多少感情が乱されますが、平常時であれば状況に対処することができます。`
     },
     {
-      score: '高い', // do not translate this line
-      text: `Your score on Neuroticism is high, indicating that you are easily
-upset, even by what most people consider the normal demands of
-living. People consider you to be sensitive and emotional.`
+      score: '高い',
+      text: `あなたはストレスに敏感で、他の人よりも感情が乱れやすいです。周りの人からは感情的であると見られることが多いでしょう。`
     }
   ],
   facets: [
     {
       facet: 1,
-      title: 'Anxiety',
-      text: `The "fight-or-flight" system of the brain of anxious
-individuals is too easily and too often engaged. Therefore, people who
-are high in anxiety often feel like something dangerous is about to happen.
-They may be afraid of specific situations or be just generally fearful.
-They feel tense, jittery, and nervous. Persons low in Anxiety are generally
-calm and fearless.`
+      title: '不安',
+      text: `不安のスコアが高い人は、過剰に危険が迫っていると感じることがあります。よって特定の状況を過度に避けたり、緊張や不安を感じることが多いです。
+      不安のスコアが低い人は、穏やかで大胆な傾向があります。`
     },
     {
       facet: 2,
-      title: 'Anger',
-      text: `Persons who score high in Anger feel enraged when
-things do not go their way. They are sensitive about being treated fairly
-and feel resentful and bitter when they feel they are being cheated.
-This scale measures the tendency to feel angry; whether or not the
-person expresses annoyance and hostility depends on the individual's
-level on Agreeableness. Low scorers do not get angry often or easily.`
+      title: '短気',
+      text: `短気のスコアが高い人は、何かうまくいかないことがあるとすぐに怒ります。公正であることに敏感であり、少しでも騙されていると感じると怒りを覚えます。
+      短気のスコアが低い人は、簡単には怒らず落ち着いています。`
     },
     {
       facet: 3,
-      title: 'Depression',
-      text: `This scale measures the tendency to feel sad, dejected,
-and discouraged. High scorers lack energy and have difficulty initiating
-activities. Low scorers tend to be free from these depressive feelings.`
+      title: '憂鬱',
+      text: `憂鬱のスコアが高い人は、悲しんだり落胆したりすることが多く、活動を始めることを苦手にしています。
+      憂鬱のスコアが低い人は、くよくよ悩んだりせず、活動的であることが多いです。`
     },
     {
       facet: 4,
-      title: 'Self-Consciousness',
-      text: `Self-conscious individuals are sensitive
-about what others think of them. Their concern about rejection and
-ridicule cause them to feel shy and uncomfortable abound others. They
-are easily embarrassed and often feel ashamed. Their fears that others
-will criticize or make fun of them are exaggerated and unrealistic, but
-their awkwardness and discomfort may make these fears a self-fulfilling
-prophecy. Low scorers, in contrast, do not suffer from the mistaken
-impression that everyone is watching and judging them. They do not feel
-nervous in social situations.`
+      title: '自意識',
+      text: `自意識のスコアが高い人は、他人が自分に対してどう思うかについて敏感です。行き過ぎた自意識は他人を不快にする恐れがあります。
+      自意識のスコアが低い人は、他人の自分に持つ印象を見誤ることは少なく、神経質ではないことが多いです。`
     },
     {
       facet: 5,
-      title: 'Immoderation',
-      text: `Immoderate individuals feel strong cravings and
-urges that they have have difficulty resisting. They tend to be
-oriented toward short-term pleasures and rewards rather than long-
-term consequences. Low scorers do not experience strong, irresistible
-cravings and consequently do not find themselves tempted to overindulge.`
+      title: '過剰',
+      text: `過剰のスコアが高い人は、何事も過剰に望む傾向があります。また長期的ではなく短期的な喜びや結果を好みます。
+      過剰のスコアが低い人は、過剰な要求をせず、自分を甘やかすことをよしとしません。`
     },
     {
       facet: 6,
-      title: 'Vulnerability',
-      text: `High scorers on Vulnerability experience
-panic, confusion, and helplessness when under pressure or stress.
-Low scorers feel more poised, confident, and clear-thinking when
-stressed.`
+      title: '脆さ',
+      text: `脆さのスコアが高い人は、強いストレスがかかった時に、パニックや混乱に陥る傾向があります。
+      脆さのスコアが低い人は、強いストレス化でも、より落ち着き、適切な判断をすることができます。`
     }
   ],
   chartSettings: {
