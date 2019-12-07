@@ -1,15 +1,13 @@
 import calculateScore from 'b5-calculate-score'
 import MongoDB from 'mongoose'
 
+// TODO Mongo書き込み失敗時の処理
 const mongoUrl =
   'mongodb://heroku_g43j8m44:6iagj8up9rud4alsnncug1t8dc@ds251158.mlab.com:51158/heroku_g43j8m44'
 
 export default function(req, res, next) {
   // req は Node.js の HTTPリクエストオブジェクトです
-  console.log(req.url)
-
   let data = ''
-  req.encoding = 'utf8'
   req.on('data', function(chunk) {
     data += chunk
   })

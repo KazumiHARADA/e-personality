@@ -1,74 +1,137 @@
 <template>
-  <div class="container">
-    {{ host }}
-    <div>結果</div>
-    <main-chart :result="results" />
-    調和性
-    <detail-chart :result="results" factor="A" />
-    誠実性
-    <detail-chart :result="results" factor="C" />
-    外向性
-    <detail-chart :result="results" factor="E" />
-    神経質性
-    <detail-chart :result="results" factor="N" />
-    開放性
-    <detail-chart :result="results" factor="O" />
-  </div>
+  <b-container>
+    <b-card
+      header="Card Header"
+      header-text-variant="white"
+      header-tag="header"
+      header-bg-variant="dark"
+      footer="Card Footer"
+      footer-tag="footer"
+      footer-bg-variant="success"
+      footer-border-variant="dark"
+      title="結果"
+      class="shadow p-3 mb-5 bg-white rounded"
+      style="max-width: 100%"
+    >
+      <main-chart :result="analysedResult" />
+      <main-text :result="analysedResult" />
+    </b-card>
+    <b-card
+      header="Card Header"
+      header-text-variant="white"
+      header-tag="header"
+      header-bg-variant="dark"
+      footer="Card Footer"
+      footer-tag="footer"
+      footer-bg-variant="success"
+      footer-border-variant="dark"
+      title="調和性"
+      class="shadow p-3 mb-5 bg-white rounded"
+      style="max-width: 100%"
+    >
+      <detail-chart :result="analysedResult" factor="A" />
+      <detail-text :result="analysedResult" factor="A" />
+    </b-card>
+    <b-card
+      header="Card Header"
+      header-text-variant="white"
+      header-tag="header"
+      header-bg-variant="dark"
+      footer="Card Footer"
+      footer-tag="footer"
+      footer-bg-variant="success"
+      footer-border-variant="dark"
+      title="誠実性"
+      class="shadow p-3 mb-5 bg-white rounded"
+      style="max-width: 100%"
+    >
+      <detail-chart :result="analysedResult" factor="C" />
+      <detail-text :result="analysedResult" factor="C" />
+    </b-card>
+    <b-card
+      header="Card Header"
+      header-text-variant="white"
+      header-tag="header"
+      header-bg-variant="dark"
+      footer="Card Footer"
+      footer-tag="footer"
+      footer-bg-variant="success"
+      footer-border-variant="dark"
+      title="外向性"
+      class="shadow p-3 mb-5 bg-white rounded"
+      style="max-width: 100%"
+    >
+      <detail-chart :result="analysedResult" factor="E" />
+      <detail-text :result="analysedResult" factor="E" />
+    </b-card>
+    <b-card
+      header="Card Header"
+      header-text-variant="white"
+      header-tag="header"
+      header-bg-variant="dark"
+      footer="Card Footer"
+      footer-tag="footer"
+      footer-bg-variant="success"
+      footer-border-variant="dark"
+      title="神経質性"
+      class="shadow p-3 mb-5 bg-white rounded"
+      style="max-width: 100%"
+    >
+      <detail-chart :result="analysedResult" factor="N" />
+      <detail-text :result="analysedResult" factor="N" />
+    </b-card>
+    <b-card
+      header="Card Header"
+      header-text-variant="white"
+      header-tag="header"
+      header-bg-variant="dark"
+      footer="Card Footer"
+      footer-tag="footer"
+      footer-bg-variant="success"
+      footer-border-variant="dark"
+      title="開放性"
+      class="shadow p-3 mb-5 bg-white rounded"
+      style="max-width: 100%"
+    >
+      <detail-chart :result="analysedResult" factor="O" />
+      <detail-text :result="analysedResult" factor="O" />
+    </b-card>
+  </b-container>
 </template>
 
 <script>
-import calculateScore from 'b5-calculate-score'
 import MainChart from '~/components/MainChart.vue'
 import DetailChart from '~/components/DetailChart.vue'
-import TestResult from '~/assets/test-data.json'
+import MainText from '~/components/MainText.vue'
+import DetailText from '~/components/DetailText.vue'
 
 export default {
   name: 'Result',
   components: {
     MainChart,
-    DetailChart
+    DetailChart,
+    MainText,
+    DetailText
   },
   data() {
     return {
-      results: (() => {
-        const entry = {
-          answers: TestResult
-        }
-        return calculateScore(entry)
-      })(),
+      analysedResult: {},
       host: ''
     }
   },
   asyncData({ env, params, app, query }) {
-    console.log(query)
-    if (query.id === undefined) {
-      const entry = {
-        answers: TestResult
-      }
-      return app.$axios
-        .$post('/api/v1/save', {
-          result: entry
-        })
-        .then((res) => {
-          return {
-            host: res,
-            results: calculateScore(entry)
-          }
-        })
-    } else {
-      return app.$axios
-        .$get('/api/v1/find', {
-          params: {
-            id: query.id
-          }
-        })
-        .then((res) => {
-          return {
-            host: 'get',
-            results: res
-          }
-        })
-    }
+    return app.$axios
+      .$get('/api/v1/find', {
+        params: {
+          id: query.id
+        }
+      })
+      .then((res) => {
+        return {
+          host: 'get',
+          analysedResult: res
+        }
+      })
   }
 }
 </script>

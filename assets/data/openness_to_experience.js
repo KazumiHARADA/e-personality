@@ -32,7 +32,7 @@ thinking are useful in different environments. The intellectual style of the
 open person may serve a professor well, but research has shown that closed
 thinking is related to superior job performance in police work, sales, and
 a number of service occupations.`,
-  results: [
+  analysedResult: [
     {
       score: 'low', // do not translate this line
       text: `Your score on Openness to Experience is low, indicating you like to think in

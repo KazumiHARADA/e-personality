@@ -20,7 +20,7 @@ reactions tend to persist for unusually long periods of time, which
 means they are often in a bad mood. These problems in emotional
 regulation can diminish a neurotic's ability to think clearly, make
 decisions, and cope effectively with stress.`,
-  results: [
+  analysedResult: [
     {
       score: 'low', // do not translate this line
       text: `Your score on Neuroticism is low, indicating that you are

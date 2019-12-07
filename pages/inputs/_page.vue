@@ -20,7 +20,9 @@
         <b-button block :to="prev" variant="primary">&lt; Prev</b-button>
       </b-col>
       <b-col class="col-xs-6 col-sm-4 col-md-3">
-        <b-button block :to="next" variant="primary">Next &gt;</b-button>
+        <b-button block variant="primary" @click="clickNextButton(next)"
+          >Next &gt;</b-button
+        >
       </b-col>
     </b-row>
   </b-container>
@@ -29,6 +31,7 @@
 <script>
 import Questions from '~/assets/ja-edited-questions.json'
 import RadioInput from '~/components/RadioInput.vue'
+import TestResult from '~/assets/test-data.json'
 
 const pageCount = 8
 
@@ -110,6 +113,23 @@ export default {
       }
 
       this.$store.commit('inputs/upsert', entry)
+    },
+    clickNextButton(next) {
+      if (next === '/result') {
+        // TODO validation
+        const entry = {
+          answers: TestResult // this.$store.state.inputs.answerList
+        }
+        this.$axios
+          .$post('/api/v1/save', {
+            result: entry
+          })
+          .then((res) => {
+            this.$router.push(next + '/?id=' + res)
+          })
+      } else {
+        this.$router.push(next)
+      }
     }
   }
 }

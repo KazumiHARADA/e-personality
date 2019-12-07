@@ -31,7 +31,7 @@
         </div>
       </b-col>
     </b-row>
-    <nuxt-link to="/result">result page</nuxt-link>
+    <nuxt-link to="/result?id=5deb2014a96187066e0f6921">result page</nuxt-link>
   </b-container>
 </template>
 

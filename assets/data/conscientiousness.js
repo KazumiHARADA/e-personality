@@ -52,7 +52,7 @@ Unconscientious people may be criticized for
 their unreliability, lack of ambition, and failure to stay within
 the lines, but they will experience many short-lived pleasures and
 they will never be called stuffy.`,
-  results: [
+  analysedResult: [
     {
       score: 'low', // do not translate this line
       text: `Your score on Conscientiousness is low, indicating you like to live

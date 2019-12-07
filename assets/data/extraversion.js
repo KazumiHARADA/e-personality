@@ -17,7 +17,7 @@ to be alone. <br /><br />The independence and reserve of the introvert is
 sometimes mistaken as unfriendliness or arrogance. In reality, an
 introvert who scores high on the agreeableness dimension will not
 seek others out but will be quite pleasant when approached.`,
-  results: [
+  analysedResult: [
     {
       score: 'low', // do not translate this line
       text: `Your score on Extraversion is low, indicating you are
