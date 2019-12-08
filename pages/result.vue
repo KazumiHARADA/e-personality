@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <b-container class="mt-n10">
     <b-card
       title="分析結果"
       class="shadow p-3 mb-5 bg-white rounded"

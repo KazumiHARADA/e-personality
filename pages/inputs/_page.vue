@@ -20,7 +20,11 @@
         <b-button block :to="prev" variant="primary">&lt; Prev</b-button>
       </b-col>
       <b-col class="col-xs-6 col-sm-4 col-md-3">
-        <b-button block variant="primary" @click="clickNextButton(next)"
+        <b-button
+          block
+          variant="primary"
+          :disabled="disableNextButton"
+          @click="clickNextButton(next)"
           >Next &gt;</b-button
         >
       </b-col>
@@ -43,7 +47,8 @@ export default {
     return {
       next: '/',
       prev: '/',
-      total: Questions.length
+      total: Questions.length,
+      disableNextButton: true
     }
   },
   computed: {
@@ -85,8 +90,11 @@ export default {
       })(params.page)
     }
   },
+  mounted() {
+    this.disableNextButton = !this.isFilledCurrentPage()
+  },
   transition(to, from) {
-    if (from.fullPath === '/') {
+    if (from === undefined || from.fullPath === '/') {
       return 'page'
     }
     return +to.params.page < +from.params.page ? 'slide-right' : 'slide-left'
@@ -110,12 +118,11 @@ export default {
         // 新規登録のため進捗をカウントアップ
         this.$store.commit('progress/countUp')
       }
-
       this.$store.commit('inputs/upsert', entry)
+      this.disableNextButton = !this.isFilledCurrentPage()
     },
     clickNextButton(next) {
       if (next === '/result') {
-        // TODO validation
         const entry = {
           answers: this.$store.state.inputs.answerList
         }
@@ -130,6 +137,21 @@ export default {
       } else {
         this.$router.push(next)
       }
+    },
+    isFilledCurrentPage() {
+      if (this.questions === undefined) {
+        return false
+      }
+      let result = true
+      this.questions.forEach((question) => {
+        const index = this.$store.state.inputs.answerList.findIndex(
+          (answer) => answer.id === question.id
+        )
+        if (index === -1) {
+          result = false
+        }
+      })
+      return result
     }
   }
 }
