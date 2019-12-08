@@ -1,11 +1,6 @@
 <template>
-  <b-container>
-    <b-progress :max="total" height="1rem" class="mt-n10">
-      <b-progress-bar :value="completed">
-        <strong>{{ completed }} / {{ total }}</strong>
-      </b-progress-bar>
-    </b-progress>
-    <b-card class="mt-5 pb-5 shadow" bg-variant="light" text-variant="black">
+  <b-container class="pt-0">
+    <b-card class="mt-3 shadow" bg-variant="light" text-variant="black">
       <div v-for="(question, key) in questions" :key="key">
         <radio-input
           :question-id="question.id"
@@ -15,7 +10,7 @@
         />
       </div>
     </b-card>
-    <b-row class="pt-5 pb-4" align-h="center">
+    <b-row class="pt-3 pb-7" align-h="center">
       <b-col class="col-xs-6 col-sm-4 col-md-3">
         <b-button block :to="prev" variant="primary">&lt; Prev</b-button>
       </b-col>
@@ -40,6 +35,7 @@ const pageCount = 8
 
 export default {
   name: 'InputPage',
+  layout: 'input',
   components: {
     RadioInput
   },

@@ -1,17 +1,23 @@
 <template>
-  <div class="mt-4-5">
-    <div>{{ title }}</div>
-    <b-form-radio-group
-      v-model="value"
-      class="mt-2"
-      :options="options"
-      :state="state"
-      :name="questionId"
-      size="lg"
-      @input="selectedRadioItem()"
-    >
-      <b-form-valid-feedback :state="state" />
-    </b-form-radio-group>
+  <div>
+    <div :class="className">
+      <div>
+        <strong>{{ title }}</strong>
+      </div>
+      <b-form-radio-group
+        v-model="value"
+        class="mt-2 ml-2"
+        :options="options"
+        :state="state"
+        :name="questionId"
+        :stacked="stacked"
+        size="lg"
+        @input="selectedRadioItem()"
+      >
+        <b-form-valid-feedback :state="state" />
+      </b-form-radio-group>
+    </div>
+    <div class="mt-4"></div>
   </div>
 </template>
 
@@ -49,7 +55,9 @@ export default {
           }
         })(answerList.find((answer) => answer.id === id))
       })(this.$store.state.inputs.answerList, this.questionId),
-      options: Choices[this.keyed]
+      options: Choices[this.keyed],
+      stacked: false,
+      className: ''
     }
   },
   computed: {
@@ -58,6 +66,15 @@ export default {
         return null
       } else {
         return Boolean(this.value)
+      }
+    }
+  },
+  mounted() {
+    if (process.browser) {
+      console.log(this.$nuxt.$device)
+      this.stacked = !this.$nuxt.$device.isDesktopOrTablet
+      if (!this.$nuxt.$device.isDesktopOrTablet) {
+        this.className = 'text-left'
       }
     }
   },

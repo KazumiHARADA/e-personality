@@ -1,11 +1,11 @@
 <template>
-  <b-container class="text-light" style="height: 100%;">
+  <b-container class="text-light pt-5 pt-sm-5 pt-md-5 pt-lg-5 pl-4 pr-4">
     <h1 class="title pt-4">Big Five 精密 <br />パーソナリティ診断</h1>
     <h5 class="subtitle pt-4">
-      Big Five 理論に基づいて、精密に自身の<br />パーソナリティを分析できます。
+      Big Five 理論に基づいて、精密に自身のパーソナリティを分析できます。
     </h5>
 
-    <b-row class="pt-5" align-h="center">
+    <b-row class="pt-4" align-h="center">
       <b-col class="col-xs-10 col-sm-10 col-md-7">
         <blockquote class="blockquote text-left lead">
           <p><small>所要時間：10分</small></p>

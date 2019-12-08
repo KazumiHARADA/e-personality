@@ -45,7 +45,8 @@ export default {
     ['bootstrap-vue/nuxt', { css: false }],
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/device'
   ],
   /*
    ** Axios module configuration
@@ -96,5 +97,6 @@ export default {
       path: '/api/v1/find',
       handler: '~/api/v1/find.js'
     }
-  ]
+  ],
+  layoutTransition: 'page'
 }

@@ -17,8 +17,14 @@ $danger: #f44336;
 $body-bg: $dark-shades;
 $body-color: #111;
 
+$enable-responsive-font-sizes: true;
+
 .mt-n10 {
   margin-top: -11rem !important;
+}
+
+.pb-7 {
+  padding-bottom: 4rem !important;
 }
 
 // All of bootstrap @import
