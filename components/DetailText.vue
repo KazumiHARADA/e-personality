@@ -1,5 +1,8 @@
 <template>
   <b-card-body class="text-left">
+    <div>{{ userInfo.scoreTitle }}</div>
+    <div>{{ userInfo.score }}</div>
+    <div>{{ userInfo.scoreText }}</div>
     <b-list-group flush>
       <text-factor-entry
         :title="facets[0].title"
@@ -85,6 +88,11 @@ export default {
         switch (factor) {
           case 'A':
             return {
+              score: this.result.A.score,
+              scoreTitle: ScoreText[this.result.A.result],
+              scoreText: Agreeableness.results.find(
+                (v) => v.key === this.result.A.result
+              ).text,
               '1': this.result.A.facet['1'],
               '2': this.result.A.facet['2'],
               '3': this.result.A.facet['3'],
@@ -94,6 +102,11 @@ export default {
             }
           case 'C':
             return {
+              score: this.result.C.score,
+              scoreTitle: ScoreText[this.result.C.result],
+              scoreText: Conscientiousness.results.find(
+                (v) => v.key === this.result.C.result
+              ).text,
               '1': this.result.C.facet['1'],
               '2': this.result.C.facet['2'],
               '3': this.result.C.facet['3'],
@@ -103,6 +116,11 @@ export default {
             }
           case 'E':
             return {
+              score: this.result.E.score,
+              scoreTitle: ScoreText[this.result.E.result],
+              scoreText: Extraversion.results.find(
+                (v) => v.key === this.result.E.result
+              ).text,
               '1': this.result.E.facet['1'],
               '2': this.result.E.facet['2'],
               '3': this.result.E.facet['3'],
@@ -112,6 +130,11 @@ export default {
             }
           case 'N':
             return {
+              score: this.result.N.score,
+              scoreTitle: ScoreText[this.result.N.result],
+              scoreText: Neuroticism.results.find(
+                (v) => v.key === this.result.N.result
+              ).text,
               '1': this.result.N.facet['1'],
               '2': this.result.N.facet['2'],
               '3': this.result.N.facet['3'],
@@ -121,6 +144,11 @@ export default {
             }
           case 'O':
             return {
+              score: this.result.O.score,
+              scoreTitle: ScoreText[this.result.O.result],
+              scoreText: OpennessToExperience.results.find(
+                (v) => v.key === this.result.O.result
+              ).text,
               '1': this.result.O.facet['1'],
               '2': this.result.O.facet['2'],
               '3': this.result.O.facet['3'],

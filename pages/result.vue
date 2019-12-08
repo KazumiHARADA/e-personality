@@ -1,15 +1,7 @@
 <template>
   <b-container>
     <b-card
-      header="Card Header"
-      header-text-variant="white"
-      header-tag="header"
-      header-bg-variant="dark"
-      footer="Card Footer"
-      footer-tag="footer"
-      footer-bg-variant="success"
-      footer-border-variant="dark"
-      title="結果"
+      title="分析結果"
       class="shadow p-3 mb-5 bg-white rounded"
       style="max-width: 100%"
     >
@@ -17,14 +9,6 @@
       <main-text :result="analysedResult" />
     </b-card>
     <b-card
-      header="Card Header"
-      header-text-variant="white"
-      header-tag="header"
-      header-bg-variant="dark"
-      footer="Card Footer"
-      footer-tag="footer"
-      footer-bg-variant="success"
-      footer-border-variant="dark"
       title="調和性"
       class="shadow p-3 mb-5 bg-white rounded"
       style="max-width: 100%"
@@ -33,14 +17,6 @@
       <detail-text :result="analysedResult" factor="A" />
     </b-card>
     <b-card
-      header="Card Header"
-      header-text-variant="white"
-      header-tag="header"
-      header-bg-variant="dark"
-      footer="Card Footer"
-      footer-tag="footer"
-      footer-bg-variant="success"
-      footer-border-variant="dark"
       title="誠実性"
       class="shadow p-3 mb-5 bg-white rounded"
       style="max-width: 100%"
@@ -49,14 +25,6 @@
       <detail-text :result="analysedResult" factor="C" />
     </b-card>
     <b-card
-      header="Card Header"
-      header-text-variant="white"
-      header-tag="header"
-      header-bg-variant="dark"
-      footer="Card Footer"
-      footer-tag="footer"
-      footer-bg-variant="success"
-      footer-border-variant="dark"
       title="外向性"
       class="shadow p-3 mb-5 bg-white rounded"
       style="max-width: 100%"
@@ -65,14 +33,6 @@
       <detail-text :result="analysedResult" factor="E" />
     </b-card>
     <b-card
-      header="Card Header"
-      header-text-variant="white"
-      header-tag="header"
-      header-bg-variant="dark"
-      footer="Card Footer"
-      footer-tag="footer"
-      footer-bg-variant="success"
-      footer-border-variant="dark"
       title="神経質性"
       class="shadow p-3 mb-5 bg-white rounded"
       style="max-width: 100%"
@@ -81,14 +41,6 @@
       <detail-text :result="analysedResult" factor="N" />
     </b-card>
     <b-card
-      header="Card Header"
-      header-text-variant="white"
-      header-tag="header"
-      header-bg-variant="dark"
-      footer="Card Footer"
-      footer-tag="footer"
-      footer-bg-variant="success"
-      footer-border-variant="dark"
       title="開放性"
       class="shadow p-3 mb-5 bg-white rounded"
       style="max-width: 100%"
