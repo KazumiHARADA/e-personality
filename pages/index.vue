@@ -25,16 +25,30 @@
     <b-row class="pt-5" align-h="center">
       <b-col class="col-xs-10 col-sm-10 col-md-6">
         <div>
-          <b-button block variant="success" to="/inputs/1"
+          <b-button block variant="success" @click="clickStartButton()"
             >テストを始める</b-button
           >
         </div>
       </b-col>
     </b-row>
-    <nuxt-link to="/result?id=5deb2014a96187066e0f6921">result page</nuxt-link>
+    <b-row :class="resumeClass" align-h="center">
+      <b-col class="col-xs-10 col-sm-10 col-md-6">
+        <div>
+          <b-button block variant="primary" to="/inputs/1"
+            >テストを再開する</b-button
+          >
+        </div>
+      </b-col>
+    </b-row>
     <b-row class="fixed-bottom p-3 bg-transparent text-right font-weight-light">
       <b-col>
-        <span style="font-size:15px">v{{ version }}</span>
+        <span style="font-size:15px"
+          ><nuxt-link
+            class="text-light"
+            to="/result?id=5deb2014a96187066e0f6921"
+            >v{{ version }}</nuxt-link
+          ></span
+        >
       </b-col>
     </b-row>
   </b-container>
@@ -48,7 +62,9 @@ export default {
   data() {
     return {
       questions: Questions,
-      version: Package.version
+      version: Package.version,
+      enableResume: false,
+      resumeClass: 'd-none'
     }
   },
   head() {
@@ -69,20 +85,24 @@ export default {
       return Boolean(this.value)
     }
   },
+  mounted() {
+    this.resumeTest()
+    if (this.enableResume) {
+      this.resumeClass = 'pt-3'
+    } else {
+      this.resumeClass = 'd-none'
+    }
+  },
   methods: {
-    selectedItem(questionId, selectedScore) {
-      const questionInfo = this.questions.find(
-        (question) => questionId === question.id
-      )
-      const entry = {
-        id: questionId,
-        domain: questionInfo.domain,
-        facet: questionInfo.facet,
-        score: selectedScore
+    resumeTest() {
+      if (this.$store.state.inputs.answerList.length !== 0) {
+        this.enableResume = true
       }
-      this.$store.commit('inputs/upsert', entry)
-
-      console.log(this.$store.state.inputs.answerList)
+    },
+    clickStartButton() {
+      this.$store.commit('inputs/clear')
+      this.$store.commit('progress/clear')
+      this.$router.push('/inputs/1')
     }
   }
 }

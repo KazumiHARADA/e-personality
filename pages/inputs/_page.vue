@@ -128,6 +128,7 @@ export default {
           })
           .then((res) => {
             this.$store.commit('inputs/clear')
+            this.$store.commit('progress/clear')
             this.$router.push(next + '/?id=' + res)
           })
       } else {
