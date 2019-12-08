@@ -2,16 +2,38 @@
   <div>
     <Header />
     <nuxt />
+    <b-row class="fixed-bottom p-3 bg-dark">
+      <b-col>
+        <b-progress :max="total" height="1rem" class="w-100">
+          <b-progress-bar :value="completed">
+            <strong>{{ completed }} / {{ total }}</strong>
+          </b-progress-bar>
+        </b-progress>
+      </b-col>
+    </b-row>
   </div>
 </template>
 <script>
+import Questions from '~/assets/ja-edited-questions.json'
 import Header from '~/components/Header'
 export default {
   components: {
     Header
+  },
+  data() {
+    return {
+      count: 0,
+      total: Questions.length
+    }
+  },
+  computed: {
+    completed() {
+      return this.$store.state.progress.completed
+    }
   }
 }
 </script>
+
 <style>
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',

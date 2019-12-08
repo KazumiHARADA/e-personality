@@ -1,11 +1,11 @@
 <template>
-  <b-container class="text-light" style="height: 100%;">
+  <b-container class="text-light pt-5 pt-sm-5 pt-md-5 pt-lg-5 pl-4 pr-4">
     <h1 class="title pt-4">Big Five 精密 <br />パーソナリティ診断</h1>
     <h5 class="subtitle pt-4">
-      Big Five 理論に基づいて、精密に自身の<br />パーソナリティを分析できます。
+      Big Five 理論に基づいて、精密に自身のパーソナリティを分析できます。
     </h5>
 
-    <b-row class="pt-5" align-h="center">
+    <b-row class="pt-4" align-h="center">
       <b-col class="col-xs-10 col-sm-10 col-md-7">
         <blockquote class="blockquote text-left lead">
           <p><small>所要時間：10分</small></p>
@@ -25,25 +25,46 @@
     <b-row class="pt-5" align-h="center">
       <b-col class="col-xs-10 col-sm-10 col-md-6">
         <div>
-          <b-button block variant="success" to="/inputs/1"
+          <b-button block variant="success" @click="clickStartButton()"
             >テストを始める</b-button
           >
         </div>
       </b-col>
     </b-row>
-    <nuxt-link to="/result?id=5deb2014a96187066e0f6921">result page</nuxt-link>
+    <b-row :class="resumeClass" align-h="center">
+      <b-col class="col-xs-10 col-sm-10 col-md-6">
+        <div>
+          <b-button block variant="primary" to="/inputs/1"
+            >テストを再開する</b-button
+          >
+        </div>
+      </b-col>
+    </b-row>
+    <b-row class="fixed-bottom p-3 bg-transparent text-right font-weight-light">
+      <b-col>
+        <span style="font-size:15px"
+          ><nuxt-link
+            class="text-light"
+            to="/result?id=5deb2014a96187066e0f6921"
+            >v{{ version }}</nuxt-link
+          ></span
+        >
+      </b-col>
+    </b-row>
   </b-container>
 </template>
 
 <script>
-import calculateScore from 'b5-calculate-score'
 import Questions from '~/assets/ja-edited-questions.json'
-import TestResult from '~/assets/test-data.json'
+import Package from '~/package.json'
 
 export default {
   data() {
     return {
-      questions: Questions
+      questions: Questions,
+      version: Package.version,
+      enableResume: false,
+      resumeClass: 'd-none'
     }
   },
   head() {
@@ -64,27 +85,24 @@ export default {
       return Boolean(this.value)
     }
   },
+  mounted() {
+    this.resumeTest()
+    if (this.enableResume) {
+      this.resumeClass = 'pt-3'
+    } else {
+      this.resumeClass = 'd-none'
+    }
+  },
   methods: {
-    selectedItem(questionId, selectedScore) {
-      const questionInfo = this.questions.find(
-        (question) => questionId === question.id
-      )
-      const entry = {
-        id: questionId,
-        domain: questionInfo.domain,
-        facet: questionInfo.facet,
-        score: selectedScore
+    resumeTest() {
+      if (this.$store.state.inputs.answerList.length !== 0) {
+        this.enableResume = true
       }
-      this.$store.commit('inputs/upsert', entry)
-
-      console.log(this.$store.state.inputs.answerList)
     },
-    calc() {
-      const entry = {
-        answers: TestResult
-      }
-      console.log(TestResult)
-      console.log(calculateScore(entry))
+    clickStartButton() {
+      this.$store.commit('inputs/clear')
+      this.$store.commit('progress/clear')
+      this.$router.push('/inputs/1')
     }
   }
 }

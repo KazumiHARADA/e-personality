@@ -1,6 +1,6 @@
 {
   "name": "e-personality",
-  "version": "1.0.0",
+  "version": "0.0.10",
   "description": "My spectacular Nuxt.js project",
   "author": "Kazumi Harada",
   "private": true,
@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/device": "^1.2.4",
     "@nuxtjs/pwa": "^3.0.0-0",
     "b5-calculate-score": "1.0.4",
     "bootstrap": "^4.1.3",

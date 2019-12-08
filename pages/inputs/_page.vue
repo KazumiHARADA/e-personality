@@ -1,11 +1,6 @@
 <template>
-  <b-container>
-    <b-progress :max="total" height="1rem" class="mt-n10">
-      <b-progress-bar :value="completed">
-        <strong>{{ completed }} / {{ total }}</strong>
-      </b-progress-bar>
-    </b-progress>
-    <b-card class="mt-5 pb-5 shadow" bg-variant="light" text-variant="black">
+  <b-container class="pt-0">
+    <b-card class="mt-3 shadow" bg-variant="light" text-variant="black">
       <div v-for="(question, key) in questions" :key="key">
         <radio-input
           :question-id="question.id"
@@ -15,12 +10,16 @@
         />
       </div>
     </b-card>
-    <b-row class="pt-5 pb-4" align-h="center">
+    <b-row class="pt-3 pb-7" align-h="center">
       <b-col class="col-xs-6 col-sm-4 col-md-3">
         <b-button block :to="prev" variant="primary">&lt; Prev</b-button>
       </b-col>
       <b-col class="col-xs-6 col-sm-4 col-md-3">
-        <b-button block variant="primary" @click="clickNextButton(next)"
+        <b-button
+          block
+          variant="primary"
+          :disabled="disableNextButton"
+          @click="clickNextButton(next)"
           >Next &gt;</b-button
         >
       </b-col>
@@ -36,6 +35,7 @@ const pageCount = 8
 
 export default {
   name: 'InputPage',
+  layout: 'input',
   components: {
     RadioInput
   },
@@ -43,7 +43,8 @@ export default {
     return {
       next: '/',
       prev: '/',
-      total: Questions.length
+      total: Questions.length,
+      disableNextButton: true
     }
   },
   computed: {
@@ -85,8 +86,11 @@ export default {
       })(params.page)
     }
   },
+  mounted() {
+    this.disableNextButton = !this.isFilledCurrentPage()
+  },
   transition(to, from) {
-    if (from.fullPath === '/') {
+    if (from === undefined || from.fullPath === '/') {
       return 'page'
     }
     return +to.params.page < +from.params.page ? 'slide-right' : 'slide-left'
@@ -110,12 +114,11 @@ export default {
         // 新規登録のため進捗をカウントアップ
         this.$store.commit('progress/countUp')
       }
-
       this.$store.commit('inputs/upsert', entry)
+      this.disableNextButton = !this.isFilledCurrentPage()
     },
     clickNextButton(next) {
       if (next === '/result') {
-        // TODO validation
         const entry = {
           answers: this.$store.state.inputs.answerList
         }
@@ -125,11 +128,27 @@ export default {
           })
           .then((res) => {
             this.$store.commit('inputs/clear')
+            this.$store.commit('progress/clear')
             this.$router.push(next + '/?id=' + res)
           })
       } else {
         this.$router.push(next)
       }
+    },
+    isFilledCurrentPage() {
+      if (this.questions === undefined) {
+        return false
+      }
+      let result = true
+      this.questions.forEach((question) => {
+        const index = this.$store.state.inputs.answerList.findIndex(
+          (answer) => answer.id === question.id
+        )
+        if (index === -1) {
+          result = false
+        }
+      })
+      return result
     }
   }
 }

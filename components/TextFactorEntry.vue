@@ -1,5 +1,5 @@
 <template>
-  <b-list-group-item>
+  <b-list-group-item class="pl-0 pr-0">
     <b-card-title>{{ title }}</b-card-title>
     <b-card-sub-title class="mb-2"
       >結果 : <strong>{{ scoreTitle }}</strong> スコア :
