@@ -6,7 +6,7 @@
       </div>
       <b-form-radio-group
         v-model="value"
-        class="mt-2 ml-2"
+        class="mt-2 ml-3"
         :options="options"
         :state="state"
         :name="questionId"

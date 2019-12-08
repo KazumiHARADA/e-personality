@@ -1,5 +1,5 @@
 <template>
-  <b-card-body class="text-left">
+  <b-card-body class="text-left pl-0 pr-0">
     <div>{{ userInfo.scoreTitle }}</div>
     <div>{{ userInfo.score }}</div>
     <div>{{ userInfo.scoreText }}</div>

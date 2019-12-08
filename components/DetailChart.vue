@@ -1,5 +1,5 @@
 <script>
-import { Bar } from 'vue-chartjs'
+import { Radar } from 'vue-chartjs'
 import Agreeableness from '~/assets/factor/agreeableness'
 import Conscientiousness from '~/assets/factor/conscientiousness'
 import Extraversion from '~/assets/factor/extraversion'
@@ -8,7 +8,7 @@ import OpennessToExperience from '~/assets/factor/openness_to_experience'
 
 export default {
   name: 'Chart',
-  extends: Bar,
+  extends: Radar,
   props: {
     result: {
       type: Object,
@@ -106,22 +106,15 @@ export default {
         },
         responsive: true,
         maintainAspectRatio: false,
-        scales: {
-          xAxes: [
-            {
-              scaleLabel: {
-                display: true
-              }
-            }
-          ],
-          yAxes: [
-            {
-              ticks: {
-                beginAtZero: true,
-                stepSize: 5
-              }
-            }
-          ]
+        scale: {
+          ticks: {
+            stepSize: 2,
+            max: 16,
+            beginAtZero: true
+          }
+        },
+        pointLabels: {
+          display: false
         }
       }
     }
