@@ -1,9 +1,12 @@
 <template>
   <b-card-body class="text-left pl-0 pr-0">
-    <div>{{ userInfo.scoreTitle }}</div>
-    <div>{{ userInfo.score }}</div>
-    <div>{{ userInfo.scoreText }}</div>
     <b-list-group flush>
+      <text-factor-entry
+        title="全体"
+        :score="userInfo.score"
+        :score-title="userInfo.scoreTitle"
+        :score-text="userInfo.scoreText"
+      />
       <text-factor-entry
         :title="facets[0].title"
         :score="userInfo['1'].score"

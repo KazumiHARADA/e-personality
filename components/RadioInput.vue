@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="mt-0 mt-md-4 mt-lg-4"></div>
     <div :class="className">
       <div>
         <strong>{{ title }}</strong>
@@ -17,7 +18,7 @@
         <b-form-valid-feedback :state="state" />
       </b-form-radio-group>
     </div>
-    <div class="mt-4"></div>
+    <div class="mt-4 mt-md-5 mt-lg-5"></div>
   </div>
 </template>
 

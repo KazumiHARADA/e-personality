@@ -32,18 +32,23 @@
       </b-col>
     </b-row>
     <nuxt-link to="/result?id=5deb2014a96187066e0f6921">result page</nuxt-link>
+    <b-row class="fixed-bottom p-3 bg-transparent text-right font-weight-light">
+      <b-col>
+        <span style="font-size:15px">v{{ version }}</span>
+      </b-col>
+    </b-row>
   </b-container>
 </template>
 
 <script>
-import calculateScore from 'b5-calculate-score'
 import Questions from '~/assets/ja-edited-questions.json'
-import TestResult from '~/assets/test-data.json'
+import Package from '~/package.json'
 
 export default {
   data() {
     return {
-      questions: Questions
+      questions: Questions,
+      version: Package.version
     }
   },
   head() {
@@ -78,13 +83,6 @@ export default {
       this.$store.commit('inputs/upsert', entry)
 
       console.log(this.$store.state.inputs.answerList)
-    },
-    calc() {
-      const entry = {
-        answers: TestResult
-      }
-      console.log(TestResult)
-      console.log(calculateScore(entry))
     }
   }
 }
