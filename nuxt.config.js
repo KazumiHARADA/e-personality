@@ -55,7 +55,7 @@ export default {
   axios: {
     baseURL:
       process.env.NODE_ENV === 'production'
-        ? 'https://e-personality.herokuapp.com/'
+        ? 'https://e-personality.firebaseapp.com/' // https://e-personality.heroku.com/
         : 'http://localhost:3000/'
   },
   /*
@@ -96,6 +96,14 @@ export default {
     {
       path: '/api/v1/find',
       handler: '~/api/v1/find.js'
+    },
+    {
+      path: '/api/v1/firebase/find',
+      handler: '~/api/v1/firebase/find.js'
+    },
+    {
+      path: '/api/v1/firebase/save',
+      handler: '~/api/v1/firebase/save.js'
     }
   ],
   layoutTransition: 'page'

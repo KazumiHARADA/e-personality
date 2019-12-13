@@ -51,12 +51,17 @@
         >
       </b-col>
     </b-row>
+    <b-button block variant="primary" @click="clickNextButton()">api</b-button>
+    <b-button block variant="primary" @click="clickResultButton()"
+      >result</b-button
+    >
   </b-container>
 </template>
 
 <script>
 import Questions from '~/assets/ja-edited-questions.json'
 import Package from '~/package.json'
+import TestResults from '~/assets/test-data.json'
 
 export default {
   data() {
@@ -103,6 +108,27 @@ export default {
       this.$store.commit('inputs/clear')
       this.$store.commit('progress/clear')
       this.$router.push('/inputs/1')
+    },
+    clickNextButton() {
+      this.$axios
+        .$post('/api/v1/firebase/find', {
+          result: 'test'
+        })
+        .then((res) => {
+          console.log(res)
+        })
+    },
+    clickResultButton() {
+      const entry = {
+        answers: TestResults
+      }
+      this.$axios
+        .$post('/api/v1/firebase/save', {
+          result: entry
+        })
+        .then((res) => {
+          this.$router.push('result/?id=' + res)
+        })
     }
   }
 }
