@@ -1,14 +1,22 @@
 <template>
   <div>
-    <Header />
+    <Header v-if="!isLogin" />
+    <UserHeader v-if="isLogin" />
     <nuxt />
   </div>
 </template>
 <script>
 import Header from '~/components/Header'
+import UserHeader from '~/components/UserHeader'
 export default {
   components: {
-    Header
+    Header,
+    UserHeader
+  },
+  computed: {
+    isLogin() {
+      return this.$store.state.user.isLogin
+    }
   }
 }
 </script>

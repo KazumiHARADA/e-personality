@@ -1,6 +1,7 @@
 <template>
   <div>
-    <Header />
+    <Header v-if="!isLogin" />
+    <UserHeader v-if="isLogin" />
     <nuxt />
     <b-row class="fixed-bottom p-3 bg-dark">
       <b-col>
@@ -16,9 +17,11 @@
 <script>
 import Questions from '~/assets/ja-edited-questions.json'
 import Header from '~/components/Header'
+import UserHeader from '~/components/UserHeader'
 export default {
   components: {
-    Header
+    Header,
+    UserHeader
   },
   data() {
     return {
@@ -29,6 +32,9 @@ export default {
   computed: {
     completed() {
       return this.$store.state.inputs.completed
+    },
+    isLogin() {
+      return this.$store.state.user.isLogin
     }
   }
 }

@@ -9,15 +9,22 @@
       <b-navbar-nav class="ml-auto">
         <!--        <b-nav-item to="/inputs/1" right>Test</b-nav-item>-->
         <!--        <b-nav-item to="/result" right>Result</b-nav-item>-->
-        <!--        <b-nav-item to="/about" right>About</b-nav-item>-->
+        <b-nav-item right @click="clickLoginButton()">Login</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
 </template>
 
 <script>
+import firebase from '~/plugins/firebase'
+import 'firebase/auth'
 export default {
-  name: 'Header'
+  name: 'Header',
+  methods: {
+    clickLoginButton() {
+      firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider())
+    }
+  }
 }
 </script>
 
