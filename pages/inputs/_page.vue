@@ -122,11 +122,13 @@ export default {
         const db = firebase.firestore()
         db.collection('results')
           .add({
-            answers: calculatedResult
+            answers: calculatedResult,
+            email: this.$store.state.user.email,
+            displayName: this.$store.state.user.displayName,
+            photoURL: this.$store.state.user.photoURL
           })
           .then((v) => {
             this.$router.push(next + '/?id=' + v.id)
-            console.log(v.id)
           })
           .catch((e) => {
             console.log(e)

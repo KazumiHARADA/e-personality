@@ -13,9 +13,9 @@ export default {
     Header,
     UserHeader
   },
-  data() {
-    return {
-      isLogin: this.$store.state.user.isLogin
+  computed: {
+    isLogin() {
+      return this.$store.state.user.isLogin
     }
   }
 }

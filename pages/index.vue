@@ -49,8 +49,6 @@
         >
       </b-col>
     </b-row>
-    {{ isLogin }}
-    {{ email }} {{ displayName }} {{ url }}
   </b-container>
 </template>
 
@@ -66,10 +64,7 @@ export default {
       version: Package.version,
       enableResume: false,
       resumeClass: 'd-none',
-      isLogin: this.$store.state.user.isLogin,
-      email: this.$store.state.user.email,
-      displayName: this.$store.state.user.displayName,
-      url: this.$store.state.user.photoURL
+      isLogin: this.$store.state.user.isLogin
     }
   },
   computed: {
