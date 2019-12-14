@@ -49,12 +49,15 @@
         >
       </b-col>
     </b-row>
+    {{ isLogin }}
+    {{ email }} {{ displayName }} {{ url }}
   </b-container>
 </template>
 
 <script>
 import Questions from '~/assets/ja-edited-questions.json'
 import Package from '~/package.json'
+import Auth from '~/plugins/auth'
 
 export default {
   data() {
@@ -62,8 +65,31 @@ export default {
       questions: Questions,
       version: Package.version,
       enableResume: false,
-      resumeClass: 'd-none'
+      resumeClass: 'd-none',
+      isLogin: this.$store.state.user.isLogin,
+      email: this.$store.state.user.email,
+      displayName: this.$store.state.user.displayName,
+      url: this.$store.state.user.photoURL
     }
+  },
+  computed: {
+    state() {
+      return Boolean(this.value)
+    }
+  },
+  asyncData({ store }) {
+    return Auth()
+      .then((user) => {
+        if (user) {
+          store.dispatch('user/login', user)
+        } else {
+          store.dispatch('user/logout')
+        }
+      })
+      .catch((e) => {
+        store.dispatch('user/logout')
+        console.log(e)
+      })
   },
   head() {
     return {
@@ -76,11 +102,6 @@ export default {
           content: 'My custom description'
         }
       ]
-    }
-  },
-  computed: {
-    state() {
-      return Boolean(this.value)
     }
   },
   mounted() {

@@ -54,9 +54,8 @@
 </template>
 
 <script>
-import firebase from 'firebase/app'
+import firebase from '~/plugins/firebase'
 import 'firebase/firestore'
-import serviceAccount from '~/key/e-personality-firebase-adminsdk-8qnev-3f4088ecd4'
 import MainChart from '~/components/MainChart.vue'
 import DetailChart from '~/components/DetailChart.vue'
 import MainText from '~/components/MainText.vue'
@@ -78,13 +77,6 @@ export default {
     }
   },
   asyncData({ env, params, app, query, store }) {
-    const config = {
-      projectId: serviceAccount.project_id,
-      databaseURL: 'https://e-personality.firebaseio.com/'
-    }
-    if (firebase.apps.length === 0) {
-      firebase.initializeApp(config)
-    }
     const db = firebase.firestore()
     return db
       .collection('results')

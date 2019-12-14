@@ -29,11 +29,10 @@
 
 <script>
 import calculateScore from 'b5-calculate-score'
-import firebase from 'firebase/app'
 import Questions from '~/assets/ja-edited-questions.json'
 import RadioInput from '~/components/RadioInput.vue'
+import firebase from '~/plugins/firebase'
 import 'firebase/firestore'
-import serviceAccount from '~/key/e-personality-firebase-adminsdk-8qnev-3f4088ecd4'
 
 const pageCount = 8
 
@@ -116,13 +115,6 @@ export default {
     },
     clickNextButton(next) {
       if (next === '/result') {
-        const config = {
-          projectId: serviceAccount.project_id,
-          databaseURL: 'https://e-personality.firebaseio.com/'
-        }
-        if (firebase.apps.length === 0) {
-          firebase.initializeApp(config)
-        }
         const entry = {
           answers: this.$store.state.inputs.answerList
         }
