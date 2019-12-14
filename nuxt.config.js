@@ -74,11 +74,9 @@ export default {
     routes() {
       const count = Questions.length / 8
       const result = []
-      console.log(count)
       for (let i = 1; i <= count; i++) {
         result.push('/inputs/' + i)
       }
-      console.log(result)
       return result
     }
   },
