@@ -2,6 +2,7 @@ export const state = () => ({
   displayName: '',
   email: '',
   photoURL: '',
+  beforeId: '',
   isLogin: false
 })
 
@@ -16,7 +17,11 @@ export const mutations = {
     state.displayName = ''
     state.email = ''
     state.photoURL = ''
+    state.beforeId = ''
     state.isLogin = false
+  },
+  changeBeforeId(state, id) {
+    state.beforeId = id
   }
 }
 
@@ -30,5 +35,8 @@ export const actions = {
   },
   logout(context) {
     context.commit('changeLogout')
+  },
+  findBeforeId(context, id) {
+    context.commit('changeBeforeId', id)
   }
 }

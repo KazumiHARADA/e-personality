@@ -16,11 +16,14 @@
               height="30"
               thumbnail
               rounded="circle"
-              :src="url"
+              :src="imageUrl"
               alt="UserImage"
             ></b-img>
           </template>
-          <b-dropdown-item @click="clickLoginButton()">
+          <b-dropdown-item
+            :disabled="disableResult"
+            @click="clickResultButton()"
+          >
             Result
           </b-dropdown-item>
           <b-dropdown-item @click="clickLogoutButton()">
@@ -39,12 +42,13 @@ export default {
   name: 'UserHeader',
   data() {
     return {
-      url: this.$store.state.user.photoURL
+      imageUrl: this.$store.state.user.photoURL
     }
   },
-  asyncData({ store }) {
-    return {
-      url: store.state.user.photoURL
+  computed: {
+    disableResult() {
+      console.log(this.$store.state.user.beforeId)
+      return this.$store.state.user.beforeId === ''
     }
   },
   methods: {
@@ -54,6 +58,9 @@ export default {
         .signInWithRedirect(new firebase.auth.GoogleAuthProvider())
         .then((res) => console.log(res))
         .catch((e) => console.log(e))
+    },
+    clickResultButton() {
+      this.$router.push('/result?id=' + this.$store.state.user.beforeId)
     },
     clickLogoutButton() {
       firebase
