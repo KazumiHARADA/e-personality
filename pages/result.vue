@@ -1,57 +1,62 @@
 <template>
   <b-container class="mt-n10">
-    <b-card
-      title="分析結果"
-      class="shadow mb-5 bg-white rounded"
-      style="max-width: 100%"
-    >
-      <main-chart :result="analysedResult" />
-      <main-text :result="analysedResult" />
-    </b-card>
-    <b-card
-      title="調和性"
-      class="shadow p-3 mb-5 bg-white rounded"
-      style="max-width: 100%"
-    >
-      <detail-chart :result="analysedResult" factor="A" />
-      <detail-text :result="analysedResult" factor="A" />
-    </b-card>
-    <b-card
-      title="誠実性"
-      class="shadow p-3 mb-5 bg-white rounded"
-      style="max-width: 100%"
-    >
-      <detail-chart :result="analysedResult" factor="C" />
-      <detail-text :result="analysedResult" factor="C" />
-    </b-card>
-    <b-card
-      title="外向性"
-      class="shadow p-3 mb-5 bg-white rounded"
-      style="max-width: 100%"
-    >
-      <detail-chart :result="analysedResult" factor="E" />
-      <detail-text :result="analysedResult" factor="E" />
-    </b-card>
-    <b-card
-      title="神経質性"
-      class="shadow p-3 mb-5 bg-white rounded"
-      style="max-width: 100%"
-    >
-      <detail-chart :result="analysedResult" factor="N" />
-      <detail-text :result="analysedResult" factor="N" />
-    </b-card>
-    <b-card
-      title="開放性"
-      class="shadow p-3 mb-5 bg-white rounded"
-      style="max-width: 100%"
-    >
-      <detail-chart :result="analysedResult" factor="O" />
-      <detail-text :result="analysedResult" factor="O" />
-    </b-card>
+    <client-only>
+      <b-card
+        title="分析結果"
+        class="shadow mb-5 bg-white rounded"
+        style="max-width: 100%"
+      >
+        <main-chart :result="analysedResult" />
+        <main-text :result="analysedResult" />
+      </b-card>
+      <b-card
+        title="調和性"
+        class="shadow p-3 mb-5 bg-white rounded"
+        style="max-width: 100%"
+      >
+        <detail-chart :result="analysedResult" factor="A" />
+        <detail-text :result="analysedResult" factor="A" />
+      </b-card>
+      <b-card
+        title="誠実性"
+        class="shadow p-3 mb-5 bg-white rounded"
+        style="max-width: 100%"
+      >
+        <detail-chart :result="analysedResult" factor="C" />
+        <detail-text :result="analysedResult" factor="C" />
+      </b-card>
+      <b-card
+        title="外向性"
+        class="shadow p-3 mb-5 bg-white rounded"
+        style="max-width: 100%"
+      >
+        <detail-chart :result="analysedResult" factor="E" />
+        <detail-text :result="analysedResult" factor="E" />
+      </b-card>
+      <b-card
+        title="神経質性"
+        class="shadow p-3 mb-5 bg-white rounded"
+        style="max-width: 100%"
+      >
+        <detail-chart :result="analysedResult" factor="N" />
+        <detail-text :result="analysedResult" factor="N" />
+      </b-card>
+      <b-card
+        title="開放性"
+        class="shadow p-3 mb-5 bg-white rounded"
+        style="max-width: 100%"
+      >
+        <detail-chart :result="analysedResult" factor="O" />
+        <detail-text :result="analysedResult" factor="O" />
+      </b-card>
+    </client-only>
   </b-container>
 </template>
 
 <script>
+import firebase from 'firebase/app'
+import 'firebase/firestore'
+import serviceAccount from '~/key/e-personality-firebase-adminsdk-8qnev-3f4088ecd4'
 import MainChart from '~/components/MainChart.vue'
 import DetailChart from '~/components/DetailChart.vue'
 import MainText from '~/components/MainText.vue'
@@ -68,22 +73,32 @@ export default {
   data() {
     return {
       analysedResult: {},
-      host: ''
+      host: '',
+      id: ''
     }
   },
-  asyncData({ env, params, app, query }) {
-    return app.$axios
-      .$get('/api/v1/find', {
-        params: {
-          id: query.id
-        }
+  asyncData({ env, params, app, query, store }) {
+    const config = {
+      projectId: serviceAccount.project_id,
+      databaseURL: 'https://e-personality.firebaseio.com/'
+    }
+    if (firebase.apps.length === 0) {
+      firebase.initializeApp(config)
+    }
+    const db = firebase.firestore()
+    return db
+      .collection('results')
+      .doc(query.id)
+      .get()
+      .then((v) => {
+        return { analysedResult: v.get('answers') }
       })
-      .then((res) => {
-        return {
-          host: 'get',
-          analysedResult: res
-        }
+      .catch((e) => {
+        console.log(e)
       })
+  },
+  mounted() {
+    this.$store.dispatch('inputs/resetAnswers')
   }
 }
 </script>

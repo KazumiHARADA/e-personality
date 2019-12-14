@@ -1,7 +1,7 @@
 import Questions from './assets/ja-edited-questions.json'
 
 export default {
-  mode: 'universal',
+  mode: 'spa', // firebase only
   /*
    ** Headers of the page
    */
@@ -55,7 +55,7 @@ export default {
   axios: {
     baseURL:
       process.env.NODE_ENV === 'production'
-        ? 'https://e-personality.herokuapp.com/'
+        ? 'https://e-personality.firebaseapp.com/' // https://e-personality.heroku.com/
         : 'http://localhost:3000/'
   },
   /*
@@ -74,11 +74,9 @@ export default {
     routes() {
       const count = Questions.length / 8
       const result = []
-      console.log(count)
       for (let i = 1; i <= count; i++) {
         result.push('/inputs/' + i)
       }
-      console.log(result)
       return result
     }
   },

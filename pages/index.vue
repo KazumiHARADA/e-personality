@@ -43,9 +43,7 @@
     <b-row class="fixed-bottom p-3 bg-transparent text-right font-weight-light">
       <b-col>
         <span style="font-size:15px"
-          ><nuxt-link
-            class="text-light"
-            to="/result?id=5deb2014a96187066e0f6921"
+          ><nuxt-link class="text-light" to="/result?id=177LI3975Wk78cuHqgLi"
             >v{{ version }}</nuxt-link
           ></span
         >
@@ -100,8 +98,7 @@ export default {
       }
     },
     clickStartButton() {
-      this.$store.commit('inputs/clear')
-      this.$store.commit('progress/clear')
+      this.$store.dispatch('inputs/resetAnswers')
       this.$router.push('/inputs/1')
     }
   }

@@ -28,8 +28,12 @@
 </template>
 
 <script>
+import calculateScore from 'b5-calculate-score'
+import firebase from 'firebase/app'
 import Questions from '~/assets/ja-edited-questions.json'
 import RadioInput from '~/components/RadioInput.vue'
+import 'firebase/firestore'
+import serviceAccount from '~/key/e-personality-firebase-adminsdk-8qnev-3f4088ecd4'
 
 const pageCount = 8
 
@@ -49,7 +53,7 @@ export default {
   },
   computed: {
     completed() {
-      return this.$store.state.progress.completed
+      return this.$store.state.inputs.completed
     }
   },
   asyncData({ params, store }) {
@@ -107,29 +111,33 @@ export default {
         score: itemScore,
         value: radioValue
       }
-      const resultIndex = this.$store.state.inputs.answerList.findIndex(
-        (answer) => answer.id === entry.id
-      )
-      if (resultIndex === -1) {
-        // 新規登録のため進捗をカウントアップ
-        this.$store.commit('progress/countUp')
-      }
-      this.$store.commit('inputs/upsert', entry)
+      this.$store.dispatch('inputs/selectAnswer', entry)
       this.disableNextButton = !this.isFilledCurrentPage()
     },
     clickNextButton(next) {
       if (next === '/result') {
+        const config = {
+          projectId: serviceAccount.project_id,
+          databaseURL: 'https://e-personality.firebaseio.com/'
+        }
+        if (firebase.apps.length === 0) {
+          firebase.initializeApp(config)
+        }
         const entry = {
           answers: this.$store.state.inputs.answerList
         }
-        this.$axios
-          .$post('/api/v1/save', {
-            result: entry
+        const calculatedResult = calculateScore(entry)
+        const db = firebase.firestore()
+        db.collection('results')
+          .add({
+            answers: calculatedResult
           })
-          .then((res) => {
-            this.$store.commit('inputs/clear')
-            this.$store.commit('progress/clear')
-            this.$router.push(next + '/?id=' + res)
+          .then((v) => {
+            this.$router.push(next + '/?id=' + v.id)
+            console.log(v.id)
+          })
+          .catch((e) => {
+            console.log(e)
           })
       } else {
         this.$router.push(next)

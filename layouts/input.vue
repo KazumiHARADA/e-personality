@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     completed() {
-      return this.$store.state.progress.completed
+      return this.$store.state.inputs.completed
     }
   }
 }
