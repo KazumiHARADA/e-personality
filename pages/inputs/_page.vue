@@ -44,6 +44,11 @@ export default {
   components: {
     RadioInput
   },
+  head() {
+    return {
+      meta: [{ hid: 'robots', name: 'robots', content: 'noindex' }]
+    }
+  },
   data() {
     return {
       next: '/',
