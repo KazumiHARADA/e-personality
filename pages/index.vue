@@ -40,6 +40,15 @@
         </div>
       </b-col>
     </b-row>
+    <b-row class="pt-5" align-h="center">
+      <b-col class="col-xs-10 col-sm-10 col-md-6">
+        <div>
+          <b-button block variant="success" @click="clickSimpleStartButton()"
+            >簡単テストを始める</b-button
+          >
+        </div>
+      </b-col>
+    </b-row>
     <b-row class="fixed-bottom p-3 bg-transparent text-right font-weight-light">
       <b-col>
         <span style="font-size:15px"
@@ -105,6 +114,14 @@ export default {
       })
       this.$store.dispatch('inputs/resetAnswers')
       this.$router.push('/inputs/1')
+    },
+    clickSimpleStartButton() {
+      this.$gtag('event', 'simple-start', {
+        event_category: 'click',
+        event_label: this.$route.path
+      })
+      this.$store.dispatch('simpleInputs/resetAnswers')
+      this.$router.push('/simple/input')
     }
   }
 }
