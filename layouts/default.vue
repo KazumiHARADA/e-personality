@@ -8,6 +8,9 @@
 <script>
 import Header from '~/components/Header'
 import UserHeader from '~/components/UserHeader'
+import Auth from '~/plugins/auth'
+import firebase from '~/plugins/firebase'
+import 'firebase/firestore'
 export default {
   components: {
     Header,
@@ -17,6 +20,31 @@ export default {
     isLogin() {
       return this.$store.state.user.isLogin
     }
+  },
+  created() {
+    Auth()
+      .then((user) => {
+        if (user) {
+          this.$store.dispatch('user/login', user)
+          const db = firebase.firestore()
+          return db
+            .collection('results')
+            .where('email', '==', user.email)
+            .limit(1)
+            .get()
+            .then((v) => {
+              this.$store.dispatch('user/findBeforeId', v.docs[0].id)
+            })
+            .catch((e) => {
+              console.log(e)
+            })
+        } else {
+          this.$store.dispatch('user/logout')
+        }
+      })
+      .catch((e) => {
+        console.log(e)
+      })
   }
 }
 </script>

@@ -55,9 +55,6 @@
 <script>
 import Questions from '~/assets/ja-edited-questions.json'
 import Package from '~/package.json'
-import Auth from '~/plugins/auth'
-import firebase from '~/plugins/firebase'
-import 'firebase/firestore'
 
 export default {
   data() {
@@ -73,32 +70,6 @@ export default {
     state() {
       return Boolean(this.value)
     }
-  },
-  asyncData({ store }) {
-    return Auth()
-      .then((user) => {
-        if (user) {
-          store.dispatch('user/login', user)
-          const db = firebase.firestore()
-          return db
-            .collection('results')
-            .where('email', '==', user.email)
-            .limit(1)
-            .get()
-            .then((v) => {
-              store.dispatch('user/findBeforeId', v.docs[0].id)
-            })
-            .catch((e) => {
-              console.log(e)
-            })
-        } else {
-          store.dispatch('user/logout')
-        }
-      })
-      .catch((e) => {
-        store.dispatch('user/logout')
-        console.log(e)
-      })
   },
   head() {
     return {

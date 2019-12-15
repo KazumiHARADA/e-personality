@@ -77,6 +77,9 @@ export default {
     }
   },
   asyncData({ env, params, app, query, store }) {
+    if (query.id === undefined) {
+      return
+    }
     const db = firebase.firestore()
     return db
       .collection('results')

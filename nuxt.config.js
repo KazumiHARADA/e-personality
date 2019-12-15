@@ -1,7 +1,7 @@
 import Questions from './assets/ja-edited-questions.json'
 
 export default {
-  mode: 'spa', // firebase only
+  mode: 'universal', // firebase only
   /*
    ** Headers of the page
    */
