@@ -47,7 +47,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/device',
-    ['@nuxtjs/google-analytics', { id: 'UA-154214086-2' }]
+    ['@nuxtjs/google-gtag', { id: 'UA-154214086-2', debug: true }]
   ],
   /*
    ** Axios module configuration

@@ -1,6 +1,8 @@
 <template>
   <b-navbar toggleable="lg" type="dark" variant="info">
-    <b-navbar-brand to="/">ePersonality Test</b-navbar-brand>
+    <b-navbar-brand @click="clickBrandButton()"
+      >ePersonality Test</b-navbar-brand
+    >
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -21,7 +23,15 @@ import 'firebase/auth'
 export default {
   name: 'Header',
   methods: {
+    clickBrandButton() {
+      this.$gtag('event', 'brand', {
+        event_category: 'click',
+        event_label: this.$route.path
+      })
+      this.$router.push('/')
+    },
     clickLoginButton() {
+      this.$gtag('event', 'login', { method: 'Google' })
       firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider())
     }
   }

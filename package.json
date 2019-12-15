@@ -24,7 +24,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/device": "^1.2.4",
-    "@nuxtjs/google-analytics": "^2.2.2",
+    "@nuxtjs/google-gtag": "^1.0.4",
     "@nuxtjs/pwa": "^3.0.0-0",
     "b5-calculate-score": "1.0.4",
     "bootstrap": "^4.1.3",

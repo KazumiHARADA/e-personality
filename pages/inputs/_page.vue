@@ -12,7 +12,9 @@
     </b-card>
     <b-row class="pt-3 pb-7" align-h="center">
       <b-col class="col-xs-6 col-sm-4 col-md-3">
-        <b-button block :to="prev" variant="primary">&lt; Prev</b-button>
+        <b-button block variant="primary" @click="clickPrevButton(prev)"
+          >&lt; Prev</b-button
+        >
       </b-col>
       <b-col class="col-xs-6 col-sm-4 col-md-3">
         <b-button
@@ -115,6 +117,10 @@ export default {
     },
     clickNextButton(next) {
       if (next === '/result') {
+        this.$gtag('event', 'result', {
+          event_category: 'click',
+          event_label: this.$route.path
+        })
         const entry = {
           answers: this.$store.state.inputs.answerList
         }
@@ -134,8 +140,19 @@ export default {
             console.log(e)
           })
       } else {
+        this.$gtag('event', 'next', {
+          event_category: 'click',
+          event_label: this.$route.path
+        })
         this.$router.push(next)
       }
+    },
+    clickPrevButton(prev) {
+      this.$gtag('event', 'prev', {
+        event_category: 'click',
+        event_label: this.$route.path
+      })
+      this.$router.push(prev)
     },
     isFilledCurrentPage() {
       if (this.questions === undefined) {

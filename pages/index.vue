@@ -86,7 +86,6 @@ export default {
             .limit(1)
             .get()
             .then((v) => {
-              console.log(v.docs[0].id)
               store.dispatch('user/findBeforeId', v.docs[0].id)
             })
             .catch((e) => {
@@ -129,6 +128,10 @@ export default {
       }
     },
     clickStartButton() {
+      this.$gtag('event', 'start', {
+        event_category: 'click',
+        event_label: this.$route.path
+      })
       this.$store.dispatch('inputs/resetAnswers')
       this.$router.push('/inputs/1')
     }

@@ -1,6 +1,8 @@
 <template>
   <b-navbar toggleable="lg" type="dark" variant="info">
-    <b-navbar-brand to="/">ePersonality Test</b-navbar-brand>
+    <b-navbar-brand @click="clickBrandButton()"
+      >ePersonality Test</b-navbar-brand
+    >
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -47,31 +49,40 @@ export default {
   },
   computed: {
     disableResult() {
-      console.log(this.$store.state.user.beforeId)
       return this.$store.state.user.beforeId === ''
     }
   },
   methods: {
-    clickLoginButton() {
-      firebase
-        .auth()
-        .signInWithRedirect(new firebase.auth.GoogleAuthProvider())
-        .then((res) => console.log(res))
-        .catch((e) => console.log(e))
+    clickBrandButton() {
+      this.$gtag('event', 'brand', {
+        event_category: 'click',
+        event_label: this.$route.path
+      })
+      this.$router.push('/')
     },
     clickResultButton() {
+      this.$gtag('event', 'userResult', {
+        event_category: 'click',
+        event_label: this.$route.path
+      })
       this.$router.push('/result?id=' + this.$store.state.user.beforeId)
     },
     clickLogoutButton() {
+      this.$gtag('event', 'logout', {
+        event_category: 'click',
+        event_label: this.$route.path
+      })
       firebase
         .auth()
         .signOut()
         .then((res) => {
-          console.log(res)
           this.$store.dispatch('user/logout')
         })
         .catch((e) => {
-          console.log(e)
+          this.$gtag('event', 'exception', {
+            description: e.toString(),
+            fatal: false
+          })
           this.$store.dispatch('user/logout')
         })
     }
