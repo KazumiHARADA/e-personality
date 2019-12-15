@@ -69,6 +69,11 @@ export default {
     MainText,
     DetailText
   },
+  head() {
+    return {
+      meta: [{ hid: 'robots', name: 'robots', content: 'noindex' }]
+    }
+  },
   data() {
     return {
       analysedResult: {},
