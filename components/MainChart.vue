@@ -13,6 +13,10 @@ export default {
     result: {
       type: Object,
       default() {}
+    },
+    step: {
+      type: Number,
+      default: 10
     }
   },
   data() {
@@ -71,7 +75,7 @@ export default {
             {
               ticks: {
                 beginAtZero: true,
-                stepSize: 10
+                stepSize: this.step
               }
             }
           ]
