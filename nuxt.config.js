@@ -51,6 +51,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/device',
+    '@nuxtjs/sitemap',
     ['@nuxtjs/google-gtag', { id: 'UA-154214086-2', debug: true }]
   ],
   /*
@@ -101,5 +102,18 @@ export default {
       handler: '~/api/v1/find.js'
     }
   ],
-  layoutTransition: 'page'
+  layoutTransition: 'page',
+
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'https://e-personality.firebaseapp.com/',
+    routes() {
+      const count = Questions.length / 8
+      const result = []
+      for (let i = 1; i <= count; i++) {
+        result.push('/inputs/' + i)
+      }
+      return result
+    }
+  }
 }

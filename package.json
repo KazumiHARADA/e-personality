@@ -1,6 +1,6 @@
 {
   "name": "e-personality",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "My spectacular Nuxt.js project",
   "author": "Kazumi Harada",
   "private": true,
@@ -26,6 +26,7 @@
     "@nuxtjs/device": "^1.2.4",
     "@nuxtjs/google-gtag": "^1.0.4",
     "@nuxtjs/pwa": "^3.0.0-0",
+    "@nuxtjs/sitemap": "^2.0.1",
     "b5-calculate-score": "1.0.4",
     "bootstrap": "^4.1.3",
     "bootstrap-vue": "^2.0.0",
