@@ -63,7 +63,7 @@ export default {
         {
           key: 'low',
           text: `遠慮がちで人見知りだと見られることがあります。`,
-          feature: ''
+          feature: '人見知り'
         },
         {
           key: 'neutral',
@@ -73,7 +73,7 @@ export default {
         {
           key: 'high',
           text: `オープンであり、他人と仲良くなることが得意です。`,
-          feature: ''
+          feature: '社交的で話好き'
         }
       ]
     },
@@ -84,7 +84,7 @@ export default {
         {
           key: 'low',
           text: `大勢であることに圧倒され集団を避ける傾向があります。プライバシーや自分一人の時間を大切にする傾向があります。`,
-          feature: ''
+          feature: '口数が少なく、あまり大勢が好きではない'
         },
         {
           key: 'neutral',
@@ -94,7 +94,7 @@ export default {
         {
           key: 'high',
           text: `会社のような集団の中でもですぐにやりがいや刺激的なことを見つけることができます。`,
-          feature: ''
+          feature: '根が明るく、ポジティブ'
         }
       ]
     },
@@ -105,7 +105,7 @@ export default {
         {
           key: 'low',
           text: `あまり発言せず他人の指示に従うように行動することが多いです。`,
-          feature: ''
+          feature: '意思表示はあまりしない'
         },
         {
           key: 'neutral',
@@ -115,7 +115,7 @@ export default {
         {
           key: 'high',
           text: `自ら発言し、他者の活動を指揮することを好みます。一般的にリーダーになることが多いです。`,
-          feature: ''
+          feature: 'リーダー向き'
         }
       ]
     },
@@ -126,7 +126,7 @@ export default {
         {
           key: 'low',
           text: `ゆっくりと落ち着いた日々を過ごすことを好みます。`,
-          feature: ''
+          feature: 'インドア中心'
         },
         {
           key: 'neutral',
@@ -135,8 +135,8 @@ export default {
         },
         {
           key: 'high',
-          text: `常に刺激を求めています。新しいことに臆することなくチャレンジする傾向があります。`,
-          feature: ''
+          text: `忙しく毎日を送ることを好みます。精力的に動き回り、多くのことに関与しています。`,
+          feature: '活動的'
         }
       ]
     },
@@ -147,7 +147,7 @@ export default {
         {
           key: 'low',
           text: `刺激に敏感で避ける傾向があります。危険を犯すことはせず安定を求めます。`,
-          feature: ''
+          feature: '新しいことは苦手'
         },
         {
           key: 'neutral',
@@ -156,8 +156,8 @@ export default {
         },
         {
           key: 'high',
-          text: `難しいタスクでも完了するまで継続することができます。`,
-          feature: ''
+          text: `常に刺激を求めています。新しいことに臆することなくチャレンジする傾向があります。`,
+          feature: '好奇心旺盛'
         }
       ]
     },
@@ -168,7 +168,7 @@ export default {
         {
           key: 'low',
           text: `元気がなく、精力的でない傾向があります。`,
-          feature: ''
+          feature: '省エネ派'
         },
         {
           key: 'neutral',
@@ -178,7 +178,7 @@ export default {
         {
           key: 'high',
           text: `幸福感があり、楽観主義である傾向があります。`,
-          feature: ''
+          feature: '楽観主義者'
         }
       ]
     }

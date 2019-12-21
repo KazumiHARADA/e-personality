@@ -63,7 +63,7 @@ export default {
         {
           key: 'low',
           text: `穏やかで大胆な傾向があります。`,
-          feature: ''
+          feature: '大胆不敵'
         },
         {
           key: 'neutral',
@@ -73,7 +73,7 @@ export default {
         {
           key: 'high',
           text: `過剰に危険が迫っていると感じることがあります。よって特定の状況を過度に避けたり、緊張や不安を感じることが多いです。`,
-          feature: ''
+          feature: '動揺しやすい'
         }
       ]
     },
@@ -84,7 +84,7 @@ export default {
         {
           key: 'low',
           text: `簡単には怒らず落ち着いています。`,
-          feature: ''
+          feature: '滅多に怒らない'
         },
         {
           key: 'neutral',
@@ -94,7 +94,7 @@ export default {
         {
           key: 'high',
           text: `何かうまくいかないことがあるとすぐに怒ります。公正であることに敏感であり、少しでも騙されていると感じると怒りを覚えます。`,
-          feature: ''
+          feature: '感情の起伏が激しい'
         }
       ]
     },
@@ -105,7 +105,7 @@ export default {
         {
           key: 'low',
           text: `くよくよ悩んだりせず、活動的であることが多いです。`,
-          feature: ''
+          feature: '気持ちの切り替えが早い'
         },
         {
           key: 'neutral',
@@ -115,7 +115,7 @@ export default {
         {
           key: 'high',
           text: `悲しんだり落胆したりすることが多く、活動を始めることを苦手にしています。`,
-          feature: ''
+          feature: '嫌なことがあると長期間引きずってしまう'
         }
       ]
     },
@@ -126,7 +126,7 @@ export default {
         {
           key: 'low',
           text: `他人の自分に持つ印象を見誤ることは少なく、神経質ではないことが多いです。`,
-          feature: ''
+          feature: '自分らしさを知っている'
         },
         {
           key: 'neutral',
@@ -136,7 +136,7 @@ export default {
         {
           key: 'high',
           text: `他人が自分に対してどう思うかについて敏感です。行き過ぎた自意識は他人を不快にする恐れがあります。`,
-          feature: ''
+          feature: '自意識過剰'
         }
       ]
     },
@@ -147,7 +147,7 @@ export default {
         {
           key: 'low',
           text: `過剰な要求をせず、自分を甘やかすことをよしとしません。`,
-          feature: ''
+          feature: '謙虚'
         },
         {
           key: 'neutral',
@@ -157,7 +157,7 @@ export default {
         {
           key: 'high',
           text: `何事も過剰に望む傾向があります。また長期的ではなく短期的な喜びや結果を好みます。`,
-          feature: ''
+          feature: '完璧主義'
         }
       ]
     },
@@ -168,7 +168,7 @@ export default {
         {
           key: 'low',
           text: `強いストレス下でも、より落ち着き、適切な判断をすることができます。`,
-          feature: ''
+          feature: 'ストレス耐性が高い'
         },
         {
           key: 'neutral',
@@ -178,7 +178,7 @@ export default {
         {
           key: 'high',
           text: `強いストレスがかかった時に、パニックや混乱に陥る傾向があります。`,
-          feature: ''
+          feature: 'ストレス耐性が低い'
         }
       ]
     }

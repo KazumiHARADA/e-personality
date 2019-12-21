@@ -66,7 +66,7 @@ export default {
         {
           key: 'low',
           text: `自己肯定感が低く、自分の人生をコントロールできていないと感じるかもしれません。`,
-          feature: ''
+          feature: '自分に自信がない'
         },
         {
           key: 'neutral',
@@ -76,7 +76,7 @@ export default {
         {
           key: 'high',
           text: `自分が成功するために必要なものを持っているという自負があります。`,
-          feature: ''
+          feature: '自信家'
         }
       ]
     },
@@ -87,7 +87,7 @@ export default {
         {
           key: 'low',
           text: `あまり計画を立てることがなく、その時の興味に沿った行動をとります。`,
-          feature: ''
+          feature: '成り行きまかせ'
         },
         {
           key: 'neutral',
@@ -97,7 +97,7 @@ export default {
         {
           key: 'high',
           text: `ルーティーンやスケジュール通りの生活が好きで、急なスケジュールの変更を嫌います。`,
-          feature: ''
+          feature: '計画性がある'
         }
       ]
     },
@@ -108,7 +108,7 @@ export default {
         {
           key: 'low',
           text: `ルールや規制を疎ましく感じます。`,
-          feature: ''
+          feature: '自分のやり方を突き通す'
         },
         {
           key: 'neutral',
@@ -118,7 +118,7 @@ export default {
         {
           key: 'high',
           text: `道徳的な義務感を強く感じます。`,
-          feature: ''
+          feature: '郷に入っては郷に従う'
         }
       ]
     },
@@ -129,7 +129,7 @@ export default {
         {
           key: 'low',
           text: `最小限の作業で満足するタイプの人で、しばしば怠け者とみられることがあります。`,
-          feature: ''
+          feature: 'やることは最小限がベスト'
         },
         {
           key: 'neutral',
@@ -139,7 +139,7 @@ export default {
         {
           key: 'high',
           text: `ゴールに向かってひたむきに努力することができます。特に高いスコアの人はあまりにもひたむきすぎるため、仕事人間と見られることがあります。`,
-          feature: ''
+          feature: '努力家'
         }
       ]
     },
@@ -150,7 +150,7 @@ export default {
         {
           key: 'low',
           text: `嫌なことを先延ばしにして、タスクを完了できない傾向があります。`,
-          feature: ''
+          feature: '何事にもルーズになりがち'
         },
         {
           key: 'neutral',
@@ -160,7 +160,7 @@ export default {
         {
           key: 'high',
           text: `難しいタスクでも完了するまで継続することができます。`,
-          feature: ''
+          feature: '勤勉'
         }
       ]
     },
@@ -171,7 +171,7 @@ export default {
         {
           key: 'low',
           text: `頭に浮かんだことをすぐに行動に移したり、代替案を考えることをしない傾向があります。`,
-          feature: ''
+          feature: '衝動的'
         },
         {
           key: 'neutral',
@@ -181,7 +181,7 @@ export default {
         {
           key: 'high',
           text: `行動する前に深く考えます。そのため決定には時間をかける傾向があります。`,
-          feature: ''
+          feature: '慎重派'
         }
       ]
     }

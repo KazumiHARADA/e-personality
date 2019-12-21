@@ -63,7 +63,7 @@ export default {
         {
           key: 'low',
           text: `現実的で事実に沿ったものを考えることが得意です。`,
-          feature: ''
+          feature: 'リアリスト'
         },
         {
           key: 'neutral',
@@ -73,7 +73,7 @@ export default {
         {
           key: 'high',
           text: `より面白いものや豊かになるものを考えることが得意です。`,
-          feature: ''
+          feature: 'アイデアマン'
         }
       ]
     },
@@ -84,7 +84,7 @@ export default {
         {
           key: 'low',
           text: `芸術や美しいものに対してあまり興味を持ちません。`,
-          feature: ''
+          feature: '実用性重視'
         },
         {
           key: 'neutral',
@@ -94,7 +94,7 @@ export default {
         {
           key: 'high',
           text: `芸術や自然の美しさを好みます。必ずしも芸術に特化しているとは限りませんが、人生の中で美しいものに関心を持つことが多いです。`,
-          feature: ''
+          feature: '美的感覚が鋭い'
         }
       ]
     },
@@ -105,7 +105,7 @@ export default {
         {
           key: 'low',
           text: `自分の感情に気付いていないことが多いです。また、感情を隠す傾向があります。`,
-          feature: ''
+          feature: '自分のことをあまり語らない'
         },
         {
           key: 'neutral',
@@ -115,7 +115,7 @@ export default {
         {
           key: 'high',
           text: `自分の感情をオープンにする傾向があります。また、自分なりに感情を認識する方法を知っていることが多いです。`,
-          feature: ''
+          feature: '洞察力がある'
         }
       ]
     },
@@ -126,7 +126,7 @@ export default {
         {
           key: 'low',
           text: `変化を嫌い、ルーティーンを好む傾向があります。`,
-          feature: ''
+          feature: '安定的な毎日が好き'
         },
         {
           key: 'neutral',
@@ -136,7 +136,7 @@ export default {
         {
           key: 'high',
           text: `新しいことをしたり、海外旅行をしたり、様々な挑戦をすることに抵抗がありません。よくルーティーンに飽きて新しい方法を探したり試したりします。`,
-          feature: ''
+          feature: '新しいことが好き'
         }
       ]
     },
@@ -147,7 +147,7 @@ export default {
         {
           key: 'low',
           text: `アイディアを考えるよりも実際のものや人を扱うことの方を好みます。考えるよりもまず行動という人が多いです。`,
-          feature: ''
+          feature: '何事もとりあえずやってみる'
         },
         {
           key: 'neutral',
@@ -157,7 +157,7 @@ export default {
         {
           key: 'high',
           text: `新しいアイディアに寛容で知的な議論をすることを好みます。パズルやなぞなぞをして、頭の体操をすることを楽しめます。`,
-          feature: ''
+          feature: '頭の回転が速い'
         }
       ]
     },
@@ -168,7 +168,7 @@ export default {
         {
           key: 'low',
           text: `保守的で安全と安定を好みます。`,
-          feature: ''
+          feature: '保守的'
         },
         {
           key: 'neutral',
@@ -178,7 +178,7 @@ export default {
         {
           key: 'high',
           text: `意にそぐわない権力や、慣習、伝統的な考え方に挑戦する傾向があります。`,
-          feature: ''
+          feature: '革新的'
         }
       ]
     }
