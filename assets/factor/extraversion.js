@@ -3,21 +3,6 @@ export default {
   title: '外向性',
   shortDescription:
     '外向性は、ポジティブなことにどの程度反応を示すかの度合いである。',
-  description: `Extraverts enjoy being with people, are full of energy, and
-often experience positive emotions. They tend to be enthusiastic,
-action-oriented, individuals who are likely to say "Yes!" or "Let's
-go!" to opportunities for excitement. In groups they like to talk,
-assert themselves, and draw attention to themselves.
-<br /><br />
-Introverts lack the exuberance, energy, and activity levels of
-extraverts. They tend to be quiet, low-key, deliberate, and
-disengaged from the social world. Their lack of social involvement
-should not be interpreted as shyness or depression; the
-introvert simply needs less stimulation than an extravert and prefers
-to be alone. <br /><br />The independence and reserve of the introvert is
-sometimes mistaken as unfriendliness or arrogance. In reality, an
-introvert who scores high on the agreeableness dimension will not
-seek others out but will be quite pleasant when approached.`,
   results: [
     {
       key: 'low',
@@ -68,6 +53,134 @@ seek others out but will be quite pleasant when approached.`,
       title: '前向き',
       text: `前向きのスコアが高い人は、幸福感があり、楽観主義である傾向があります。
       前向きのスコアが低い人は、元気がなく、精力的でない傾向があります。`
+    }
+  ],
+  mobileFacets: [
+    {
+      facet: 1,
+      title: '親しみ',
+      results: [
+        {
+          key: 'low',
+          text: `遠慮がちで人見知りだと見られることがあります。`,
+          feature: '人見知り'
+        },
+        {
+          key: 'neutral',
+          text: ``,
+          feature: ''
+        },
+        {
+          key: 'high',
+          text: `オープンであり、他人と仲良くなることが得意です。`,
+          feature: '社交的で話好き'
+        }
+      ]
+    },
+    {
+      facet: 2,
+      title: '集団適性',
+      results: [
+        {
+          key: 'low',
+          text: `大勢であることに圧倒され集団を避ける傾向があります。プライバシーや自分一人の時間を大切にする傾向があります。`,
+          feature: '口数が少なく、あまり大勢が好きではない'
+        },
+        {
+          key: 'neutral',
+          text: ``,
+          feature: ''
+        },
+        {
+          key: 'high',
+          text: `会社のような集団の中でもですぐにやりがいや刺激的なことを見つけることができます。`,
+          feature: '根が明るく、ポジティブ'
+        }
+      ]
+    },
+    {
+      facet: 3,
+      title: '自己主張',
+      results: [
+        {
+          key: 'low',
+          text: `あまり発言せず他人の指示に従うように行動することが多いです。`,
+          feature: '意思表示はあまりしない'
+        },
+        {
+          key: 'neutral',
+          text: ``,
+          feature: ''
+        },
+        {
+          key: 'high',
+          text: `自ら発言し、他者の活動を指揮することを好みます。一般的にリーダーになることが多いです。`,
+          feature: 'リーダー向き'
+        }
+      ]
+    },
+    {
+      facet: 4,
+      title: '活動',
+      results: [
+        {
+          key: 'low',
+          text: `ゆっくりと落ち着いた日々を過ごすことを好みます。`,
+          feature: 'インドア中心'
+        },
+        {
+          key: 'neutral',
+          text: ``,
+          feature: ''
+        },
+        {
+          key: 'high',
+          text: `忙しく毎日を送ることを好みます。精力的に動き回り、多くのことに関与しています。`,
+          feature: '活動的'
+        }
+      ]
+    },
+    {
+      facet: 5,
+      title: '探究',
+      results: [
+        {
+          key: 'low',
+          text: `刺激に敏感で避ける傾向があります。危険を犯すことはせず安定を求めます。`,
+          feature: '新しいことは苦手'
+        },
+        {
+          key: 'neutral',
+          text: ``,
+          feature: ''
+        },
+        {
+          key: 'high',
+          text: `常に刺激を求めています。新しいことに臆することなくチャレンジする傾向があります。`,
+          feature: '好奇心旺盛'
+        }
+      ]
+    },
+    {
+      facet: 6,
+      title: '前向き',
+      results: [
+        {
+          key: 'low',
+          text: `元気がなく、精力的でない傾向があります。`,
+          feature: '省エネ派'
+        },
+        {
+          key: 'neutral',
+          text: ``,
+          feature: ''
+        },
+        {
+          key: 'high',
+          text: `幸福感があり、楽観主義である傾向があります。`,
+          feature: '楽観主義者'
+        }
+      ]
     }
   ],
   chartSettings: {

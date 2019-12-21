@@ -1,6 +1,11 @@
 <template>
   <b-container class="mt-n10">
     <client-only>
+      <a
+        href="https://twitter.com/intent/tweet?text=Hello%20World&url=https%3A%2F%2Fexample.com%2F&hashtags=nature%2Csunset"
+        target="_blank"
+        >tweet</a
+      >
       <b-card
         title="分析結果"
         class="shadow mb-5 bg-white rounded"
