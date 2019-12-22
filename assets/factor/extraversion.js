@@ -55,7 +55,7 @@ export default {
       前向きのスコアが低い人は、元気がなく、精力的でない傾向があります。`
     }
   ],
-  mobileFacets: [
+  shortFacets: [
     {
       facet: 1,
       title: '親しみ',
@@ -63,17 +63,20 @@ export default {
         {
           key: 'low',
           text: `遠慮がちで人見知りだと見られることがあります。`,
-          feature: '人見知り'
+          feature: '人見知り',
+          shortFeature: '人見知り'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `オープンであり、他人と仲良くなることが得意です。`,
-          feature: '社交的で話好き'
+          feature: '社交的で話好き',
+          shortFeature: '話好き'
         }
       ]
     },
@@ -84,17 +87,20 @@ export default {
         {
           key: 'low',
           text: `大勢であることに圧倒され集団を避ける傾向があります。プライバシーや自分一人の時間を大切にする傾向があります。`,
-          feature: '口数が少なく、あまり大勢が好きではない'
+          feature: '口数が少なく、あまり大勢が好きではない',
+          shortFeature: '一人が好き'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `会社のような集団の中でもですぐにやりがいや刺激的なことを見つけることができます。`,
-          feature: '根が明るく、ポジティブ'
+          feature: '根が明るく、ポジティブ',
+          shortFeature: 'チームが好き'
         }
       ]
     },
@@ -105,17 +111,20 @@ export default {
         {
           key: 'low',
           text: `あまり発言せず他人の指示に従うように行動することが多いです。`,
-          feature: '意思表示はあまりしない'
+          feature: '意思表示はあまりしない',
+          shortFeature: '口数少なめ'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `自ら発言し、他者の活動を指揮することを好みます。一般的にリーダーになることが多いです。`,
-          feature: 'リーダー向き'
+          feature: 'リーダー向き',
+          shortFeature: 'リーダータイプ'
         }
       ]
     },
@@ -126,17 +135,20 @@ export default {
         {
           key: 'low',
           text: `ゆっくりと落ち着いた日々を過ごすことを好みます。`,
-          feature: 'インドア中心'
+          feature: '落ち着いた日々が好き',
+          shortFeature: '落ち着く'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `忙しく毎日を送ることを好みます。精力的に動き回り、多くのことに関与しています。`,
-          feature: '活動的'
+          feature: '活動的',
+          shortFeature: '活動的'
         }
       ]
     },
@@ -147,17 +159,20 @@ export default {
         {
           key: 'low',
           text: `刺激に敏感で避ける傾向があります。危険を犯すことはせず安定を求めます。`,
-          feature: '新しいことは苦手'
+          feature: '新しいことは苦手',
+          shortFeature: '新しいことは苦手'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `常に刺激を求めています。新しいことに臆することなくチャレンジする傾向があります。`,
-          feature: '好奇心旺盛'
+          feature: '好奇心旺盛',
+          shortFeature: '好奇心旺盛'
         }
       ]
     },
@@ -168,23 +183,27 @@ export default {
         {
           key: 'low',
           text: `元気がなく、精力的でない傾向があります。`,
-          feature: '省エネ派'
+          feature: '省エネ派',
+          shortFeature: '省エネ派'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `幸福感があり、楽観主義である傾向があります。`,
-          feature: '楽観主義者'
+          feature: '楽観主義者',
+          shortFeature: '楽観主義者'
         }
       ]
     }
   ],
   chartSettings: {
     backgroundColor: 'rgba(255, 206, 86, 0.2)',
-    borderColor: 'rgba(255, 206, 86, 1)'
+    borderColor: 'rgba(255, 206, 86, 1)',
+    borderHexColor: '#ffcf56'
   }
 }

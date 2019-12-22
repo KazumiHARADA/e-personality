@@ -68,7 +68,7 @@ export default {
       `
     }
   ],
-  mobileFacets: [
+  shortFacets: [
     {
       facet: 1,
       title: '信頼',
@@ -76,17 +76,20 @@ export default {
         {
           key: 'low',
           text: `利己的で、不正を行うことをあまり躊躇しません。`,
-          feature: '自己中心的'
+          feature: '自己中心的',
+          shortFeature: '自己中心的'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `公明正大で正直な人が多いです。また困っている人がいると放っておけないといった性質があります。`,
-          feature: '面倒見がいい'
+          feature: '面倒見がいい',
+          shortFeature: '面倒見がいい'
         }
       ]
     },
@@ -97,17 +100,20 @@ export default {
         {
           key: 'low',
           text: `人間関係を構築する際に多くのことを取り繕う傾向があります。`,
-          feature: '近寄りがたい'
+          feature: '近寄りがたい',
+          shortFeature: '近寄りがたい'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `他人に対して取り繕うことがなく、率直でかつ誠実な傾向があります。`,
-          feature: 'フレンドリー'
+          feature: 'フレンドリー',
+          shortFeature: 'フレンドリー'
         }
       ]
     },
@@ -118,17 +124,20 @@ export default {
         {
           key: 'low',
           text: `基本的に他人を助けることを好みません。他人を助けることは自己犠牲以外の何者でもないと考える傾向があります。`,
-          feature: '自己中心的'
+          feature: '自己中心的',
+          shortFeature: '自己中心的'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `他人を助けることに喜びを感じるタイプです。他人を助けることは自己犠牲ではなく自分のためでもあると考える傾向があります。`,
-          feature: '親切で良心的'
+          feature: '親切で良心的',
+          shortFeature: '親切'
         }
       ]
     },
@@ -139,17 +148,20 @@ export default {
         {
           key: 'low',
           text: `自分の要求を通すことを優先して行動することが多いです。目的のためには他人を威圧したり、脅したりすることもあります。`,
-          feature: '自分の思いが一番大事'
+          feature: '自分の思いが一番大事',
+          shortFeature: '自分が一番'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `対立することを嫌い、調和を重んじます。そのため何か意見や要求があったとしても、対立する可能性が少しでもあればすぐに妥協する傾向があります。`,
-          feature: '平和主義'
+          feature: '平和主義',
+          shortFeature: 'みんなで仲良く'
         }
       ]
     },
@@ -160,17 +172,20 @@ export default {
         {
           key: 'low',
           text: `自尊心が高く、自分が他人より優れていることを誇示したい傾向があります。他人からは「傲慢」と言った印象をもたれることがあるでしょう。`,
-          feature: '率直'
+          feature: '率直',
+          shortFeature: '高い自尊心'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `相手より自分が優れてい場合でも主張することを好みません。謙虚なのではなく、自信や自尊心が低い場合もあります。`,
-          feature: '自分に自信がない'
+          feature: '自分に自信がない',
+          shortFeature: '謙虚'
         }
       ]
     },
@@ -181,23 +196,27 @@ export default {
         {
           key: 'low',
           text: `感情ではなく論理的に判断することを好み、慈悲や同情よりも真実と公平な判断に重きをおく傾向があります。他人の苦しみにはあまり影響を受けません。`,
-          feature: '冷徹・論理的'
+          feature: '冷徹・論理的',
+          shortFeature: '論理的'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `他人の痛みにすぐ共感できる人が多く、他人からは「優しい」と言った印象をもたれることがあるでしょう。`,
-          feature: '優しい'
+          feature: '優しい',
+          shortFeature: '優しい'
         }
       ]
     }
   ],
   chartSettings: {
     backgroundColor: 'rgba(255, 99, 132, 0.2)',
-    borderColor: 'rgba(255, 99, 132, 1)'
+    borderColor: 'rgba(255, 99, 132, 1)',
+    borderHexColor: '#ff6385'
   }
 }
