@@ -58,7 +58,7 @@ export default {
       慎重のスコアが低い人は、頭に浮かんだことをすぐに行動に移したり、代替案を考えることをしない傾向があります。`
     }
   ],
-  mobileFacets: [
+  shortFacets: [
     {
       facet: 1,
       title: '自信',
@@ -66,17 +66,20 @@ export default {
         {
           key: 'low',
           text: `自己肯定感が低く、自分の人生をコントロールできていないと感じるかもしれません。`,
-          feature: '自分に自信がない'
+          feature: '自信ない',
+          shortFeature: ''
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `自分が成功するために必要なものを持っているという自負があります。`,
-          feature: '自信家'
+          feature: '自信家',
+          shortFeature: '自信家'
         }
       ]
     },
@@ -87,17 +90,20 @@ export default {
         {
           key: 'low',
           text: `あまり計画を立てることがなく、その時の興味に沿った行動をとります。`,
-          feature: '成り行きまかせ'
+          feature: '成り行きまかせ',
+          shortFeature: '成り行きまかせ'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `ルーティーンやスケジュール通りの生活が好きで、急なスケジュールの変更を嫌います。`,
-          feature: '計画性がある'
+          feature: '計画性がある',
+          shortFeature: '計画性がある'
         }
       ]
     },
@@ -108,17 +114,20 @@ export default {
         {
           key: 'low',
           text: `ルールや規制を疎ましく感じます。`,
-          feature: '自分のやり方を突き通す'
+          feature: '自分のやり方を突き通す',
+          shortFeature: '自己流'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `道徳的な義務感を強く感じます。`,
-          feature: '郷に入っては郷に従う'
+          feature: '郷に入っては郷に従う',
+          shortFeature: '周りに合わせる'
         }
       ]
     },
@@ -129,17 +138,20 @@ export default {
         {
           key: 'low',
           text: `最小限の作業で満足するタイプの人で、しばしば怠け者とみられることがあります。`,
-          feature: 'やることは最小限がベスト'
+          feature: 'やることは最小限がベスト',
+          shortFeature: '怠け者'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `ゴールに向かってひたむきに努力することができます。特に高いスコアの人はあまりにもひたむきすぎるため、仕事人間と見られることがあります。`,
-          feature: '努力家'
+          feature: '努力家',
+          shortFeature: '努力家'
         }
       ]
     },
@@ -150,17 +162,20 @@ export default {
         {
           key: 'low',
           text: `嫌なことを先延ばしにして、タスクを完了できない傾向があります。`,
-          feature: '何事にもルーズになりがち'
+          feature: '何事にもルーズになりがち',
+          shortFeature: 'ルーズ'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `難しいタスクでも完了するまで継続することができます。`,
-          feature: '勤勉'
+          feature: '勤勉',
+          shortFeature: '勤勉'
         }
       ]
     },
@@ -171,17 +186,20 @@ export default {
         {
           key: 'low',
           text: `頭に浮かんだことをすぐに行動に移したり、代替案を考えることをしない傾向があります。`,
-          feature: '衝動的'
+          feature: '衝動的',
+          shortFeature: '行動派'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `行動する前に深く考えます。そのため決定には時間をかける傾向があります。`,
-          feature: '慎重派'
+          feature: '慎重派',
+          shortFeature: '慎重派'
         }
       ]
     }

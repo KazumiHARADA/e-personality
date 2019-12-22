@@ -55,7 +55,7 @@ export default {
       自由のスコアが低い人は、保守的で安全と安定を好みます。`
     }
   ],
-  mobileFacets: [
+  shortFacets: [
     {
       facet: 1,
       title: '想像',
@@ -63,17 +63,20 @@ export default {
         {
           key: 'low',
           text: `現実的で事実に沿ったものを考えることが得意です。`,
-          feature: 'リアリスト'
+          feature: 'リアリスト',
+          shortFeature: 'リアリスト'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `より面白いものや豊かになるものを考えることが得意です。`,
-          feature: 'アイデアマン'
+          feature: 'アイデアマン',
+          shortFeature: 'アイデアマン'
         }
       ]
     },
@@ -84,17 +87,20 @@ export default {
         {
           key: 'low',
           text: `芸術や美しいものに対してあまり興味を持ちません。`,
-          feature: '実用性重視'
+          feature: '実用性重視',
+          shortFeature: '実用性重視'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `芸術や自然の美しさを好みます。必ずしも芸術に特化しているとは限りませんが、人生の中で美しいものに関心を持つことが多いです。`,
-          feature: '美的感覚が鋭い'
+          feature: '美的感覚が鋭い',
+          shortFeature: '美的感覚が鋭い'
         }
       ]
     },
@@ -105,17 +111,20 @@ export default {
         {
           key: 'low',
           text: `自分の感情に気付いていないことが多いです。また、感情を隠す傾向があります。`,
-          feature: '自分のことをあまり語らない'
+          feature: '自分のことをあまり語らない',
+          shortFeature: '自分語りが嫌い'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `自分の感情をオープンにする傾向があります。また、自分なりに感情を認識する方法を知っていることが多いです。`,
-          feature: '洞察力がある'
+          feature: '洞察力がある',
+          shortFeature: '洞察力が高い'
         }
       ]
     },
@@ -126,17 +135,20 @@ export default {
         {
           key: 'low',
           text: `変化を嫌い、ルーティーンを好む傾向があります。`,
-          feature: '安定的な毎日が好き'
+          feature: '安定的な毎日が好き',
+          shortFeature: '安定的'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `新しいことをしたり、海外旅行をしたり、様々な挑戦をすることに抵抗がありません。よくルーティーンに飽きて新しい方法を探したり試したりします。`,
-          feature: '新しいことが好き'
+          feature: '新しいことが好き',
+          shortFeature: '新しいもの好き'
         }
       ]
     },
@@ -147,17 +159,20 @@ export default {
         {
           key: 'low',
           text: `アイディアを考えるよりも実際のものや人を扱うことの方を好みます。考えるよりもまず行動という人が多いです。`,
-          feature: '何事もとりあえずやってみる'
+          feature: '何事もとりあえずやってみる',
+          shortFeature: 'まずは行動'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `新しいアイディアに寛容で知的な議論をすることを好みます。パズルやなぞなぞをして、頭の体操をすることを楽しめます。`,
-          feature: '頭の回転が速い'
+          feature: '頭の回転が速い',
+          shortFeature: '頭がキレる'
         }
       ]
     },
@@ -168,17 +183,20 @@ export default {
         {
           key: 'low',
           text: `保守的で安全と安定を好みます。`,
-          feature: '保守的'
+          feature: '保守的',
+          shortFeature: '保守的'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `意にそぐわない権力や、慣習、伝統的な考え方に挑戦する傾向があります。`,
-          feature: '革新的'
+          feature: '革新的',
+          shortFeature: '革新的'
         }
       ]
     }

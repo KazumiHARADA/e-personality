@@ -55,7 +55,7 @@ export default {
       脆さのスコアが低い人は、強いストレス化でも、より落ち着き、適切な判断をすることができます。`
     }
   ],
-  mobileFacets: [
+  shortFacets: [
     {
       facet: 1,
       title: '不安',
@@ -63,17 +63,20 @@ export default {
         {
           key: 'low',
           text: `穏やかで大胆な傾向があります。`,
-          feature: '大胆不敵'
+          feature: '大胆不敵',
+          shortFeature: '大胆不敵'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `過剰に危険が迫っていると感じることがあります。よって特定の状況を過度に避けたり、緊張や不安を感じることが多いです。`,
-          feature: '動揺しやすい'
+          feature: '動揺しやすい',
+          shortFeature: '動揺しやすい'
         }
       ]
     },
@@ -84,17 +87,20 @@ export default {
         {
           key: 'low',
           text: `簡単には怒らず落ち着いています。`,
-          feature: '滅多に怒らない'
+          feature: '滅多に怒らない',
+          shortFeature: '滅多に怒らない'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `何かうまくいかないことがあるとすぐに怒ります。公正であることに敏感であり、少しでも騙されていると感じると怒りを覚えます。`,
-          feature: '感情の起伏が激しい'
+          feature: '感情の起伏が激しい',
+          shortFeature: '感情の起伏が激しい'
         }
       ]
     },
@@ -105,17 +111,20 @@ export default {
         {
           key: 'low',
           text: `くよくよ悩んだりせず、活動的であることが多いです。`,
-          feature: '気持ちの切り替えが早い'
+          feature: '気持ちの切り替えが早い',
+          shortFeature: 'くよくよしない'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `悲しんだり落胆したりすることが多く、活動を始めることを苦手にしています。`,
-          feature: '嫌なことがあると長期間引きずってしまう'
+          feature: '嫌なことがあると長期間引きずってしまう',
+          shortFeature: 'くよくよしがち'
         }
       ]
     },
@@ -126,17 +135,20 @@ export default {
         {
           key: 'low',
           text: `他人の自分に持つ印象を見誤ることは少なく、神経質ではないことが多いです。`,
-          feature: '自分らしさを知っている'
+          feature: '自分らしさを知っている',
+          shortFeature: '自分らしさ'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `他人が自分に対してどう思うかについて敏感です。行き過ぎた自意識は他人を不快にする恐れがあります。`,
-          feature: '自意識過剰'
+          feature: '自意識過剰',
+          shortFeature: '自意識過剰'
         }
       ]
     },
@@ -147,17 +159,20 @@ export default {
         {
           key: 'low',
           text: `過剰な要求をせず、自分を甘やかすことをよしとしません。`,
-          feature: '謙虚'
+          feature: '自分に厳しい',
+          shortFeature: '自分に厳しい'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `何事も過剰に望む傾向があります。また長期的ではなく短期的な喜びや結果を好みます。`,
-          feature: '完璧主義'
+          feature: '完璧主義',
+          shortFeature: '完璧主義'
         }
       ]
     },
@@ -168,17 +183,20 @@ export default {
         {
           key: 'low',
           text: `強いストレス下でも、より落ち着き、適切な判断をすることができます。`,
-          feature: 'ストレス耐性が高い'
+          feature: 'ストレス耐性が高い',
+          shortFeature: 'ストレスに強い'
         },
         {
           key: 'neutral',
           text: ``,
-          feature: ''
+          feature: '',
+          shortFeature: ''
         },
         {
           key: 'high',
           text: `強いストレスがかかった時に、パニックや混乱に陥る傾向があります。`,
-          feature: 'ストレス耐性が低い'
+          feature: 'ストレス耐性が低い',
+          shortFeature: 'ストレスに弱い'
         }
       ]
     }
