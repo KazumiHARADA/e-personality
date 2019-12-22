@@ -68,6 +68,7 @@
 <script>
 import * as d3 from 'd3'
 import cloud from 'd3-cloud'
+import getFeatureWords from '~/plugins/feature'
 import firebase from '~/plugins/firebase'
 import 'firebase/firestore'
 import MainChart from '~/components/MainChart.vue'
@@ -80,7 +81,7 @@ import Extraversion from '~/assets/factor/extraversion'
 import Neuroticism from '~/assets/factor/neuroticism'
 import OpennessToExperience from '~/assets/factor/openness_to_experience'
 
-const w = 500
+const w = 800
 const h = 500
 
 export default {
@@ -124,8 +125,9 @@ export default {
     console.log(this.getFeatureWords(this.analysedResult))
     cloud()
       .size([w, h])
-      .words(this.getFeatureWords(this.analysedResult))
+      .words(getFeatureWords(this.analysedResult))
       .font('Impact')
+      .rotate(0)
       .fontSize(function(d) {
         return d.size
       })
@@ -151,15 +153,15 @@ export default {
           .style('fill', function(d, i) {
             switch (d.type) {
               case 'A':
-                return '#123456'
+                return Agreeableness.chartSettings.borderHexColor
               case 'C':
-                return '#125456'
+                return Conscientiousness.chartSettings.borderHexColor
               case 'E':
-                return '#103759'
+                return Extraversion.chartSettings.borderHexColor
               case 'N':
-                return '#632442'
+                return Neuroticism.chartSettings.borderHexColor
               case 'O':
-                return '#725657'
+                return OpennessToExperience.chartSettings.borderHexColor
             }
             return d3.schemeCategory10[i % 10]
           })
@@ -172,97 +174,6 @@ export default {
           })
       }) // 描画関数の読み込み
       .start()
-  },
-  methods: {
-    getFeatureWords(result) {
-      const cloudWords = []
-      const extractWords = (factorAsset, factorResult) => {
-        const features = []
-        features.push(
-          (() => {
-            const factorKey = factorAsset.shortFacets
-              .find((v) => v.facet === 1)
-              .results.find(
-                (facetResult) => facetResult.key === factorResult['1'].result
-              )
-            factorKey.score = factorResult['1'].score
-            return factorKey
-          })()
-        )
-
-        features.push(
-          (() => {
-            const factorKey = factorAsset.shortFacets
-              .find((v) => v.facet === 2)
-              .results.find(
-                (facetResult) => facetResult.key === factorResult['2'].result
-              )
-            factorKey.score = factorResult['2'].score
-            return factorKey
-          })()
-        )
-
-        features.push(
-          (() => {
-            const factorKey = factorAsset.shortFacets
-              .find((v) => v.facet === 3)
-              .results.find(
-                (facetResult) => facetResult.key === factorResult['3'].result
-              )
-            factorKey.score = factorResult['3'].score
-            return factorKey
-          })()
-        )
-
-        features.push(
-          (() => {
-            const factorKey = factorAsset.shortFacets
-              .find((v) => v.facet === 4)
-              .results.find(
-                (facetResult) => facetResult.key === factorResult['4'].result
-              )
-            factorKey.score = factorResult['4'].score
-            return factorKey
-          })()
-        )
-
-        features.push(
-          (() => {
-            const factorKey = factorAsset.shortFacets
-              .find((v) => v.facet === 5)
-              .results.find(
-                (facetResult) => facetResult.key === factorResult['5'].result
-              )
-            factorKey.score = factorResult['5'].score
-            return factorKey
-          })()
-        )
-
-        features.push(
-          (() => {
-            const factorKey = factorAsset.shortFacets
-              .find((v) => v.facet === 6)
-              .results.find(
-                (facetResult) => facetResult.key === factorResult['6'].result
-              )
-            factorKey.score = factorResult['6'].score
-            return factorKey
-          })()
-        )
-
-        return features
-          .map((v) => {
-            return { text: v.shortFeature, size: v.score }
-          })
-          .filter((v) => v.text !== '')
-      }
-      cloudWords.push(extractWords(Agreeableness, result.A.facet))
-      cloudWords.push(extractWords(Conscientiousness, result.C.facet))
-      cloudWords.push(extractWords(Extraversion, result.E.facet))
-      cloudWords.push(extractWords(Neuroticism, result.N.facet))
-      cloudWords.push(extractWords(OpennessToExperience, result.O.facet))
-      return cloudWords.flat()
-    }
   }
 }
 </script>

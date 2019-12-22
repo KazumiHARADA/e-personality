@@ -203,6 +203,7 @@ export default {
   ],
   chartSettings: {
     backgroundColor: 'rgba(153, 102, 255, 0.2)',
-    borderColor: 'rgba(153, 102, 255, 1)'
+    borderColor: 'rgba(153, 102, 255, 1)',
+    borderHexColor: '#9966ff'
   }
 }
