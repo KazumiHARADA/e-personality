@@ -1,43 +1,43 @@
 <template>
   <b-card-body class="text-left pl-0 pr-0">
     <b-list-group flush>
-      <text-factor-entry
+      <text-detail-factor-entry
         title="全体"
         :score="userInfo.score"
         :score-title="userInfo.scoreTitle"
         :score-text="userInfo.scoreText"
       />
-      <text-factor-entry
+      <text-detail-factor-entry
         :title="facets[0].title"
         :score="userInfo['1'].score"
         :score-title="getLiteral(userInfo['1'].result)"
         :score-text="facets[0].text"
       />
-      <text-factor-entry
+      <text-detail-factor-entry
         :title="facets[1].title"
         :score="userInfo['2'].score"
         :score-title="getLiteral(userInfo['2'].result)"
         :score-text="facets[1].text"
       />
-      <text-factor-entry
+      <text-detail-factor-entry
         :title="facets[2].title"
         :score="userInfo['3'].score"
         :score-title="getLiteral(userInfo['3'].result)"
         :score-text="facets[2].text"
       />
-      <text-factor-entry
+      <text-detail-factor-entry
         :title="facets[3].title"
         :score="userInfo['4'].score"
         :score-title="getLiteral(userInfo['4'].result)"
         :score-text="facets[3].text"
       />
-      <text-factor-entry
+      <ttext-detail-factor-entry
         :title="facets[4].title"
         :score="userInfo['5'].score"
         :score-title="getLiteral(userInfo['5'].result)"
         :score-text="facets[4].text"
       />
-      <text-factor-entry
+      <text-detail-factor-entry
         :title="facets[5].title"
         :score="userInfo['6'].score"
         :score-title="getLiteral(userInfo['6'].result)"
@@ -53,13 +53,13 @@ import Conscientiousness from '~/assets/factor/conscientiousness'
 import Extraversion from '~/assets/factor/extraversion'
 import Neuroticism from '~/assets/factor/neuroticism'
 import OpennessToExperience from '~/assets/factor/openness_to_experience'
-import TextFactorEntry from '~/components/TextFactorEntry'
+import TextDetailFactorEntry from '~/components/TextDetailFactorEntry'
 import ScoreText from '~/assets/score-text.json'
 
 export default {
   name: 'DetailText',
   components: {
-    TextFactorEntry
+    TextDetailFactorEntry
   },
   props: {
     result: {

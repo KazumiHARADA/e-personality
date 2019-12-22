@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'TextFactorEntry',
+  name: 'TextDetailFactorEntry',
   props: {
     title: {
       type: String,

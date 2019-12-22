@@ -210,3 +210,10 @@ export default {
     borderHexColor: '#36a3eb'
   }
 }
+
+export const setting = {
+  backgroundColor: 'rgba(54, 162, 235, 0.2)',
+  borderColor: 'rgba(54, 162, 235, 1)',
+  borderHexColor: '#36a3eb',
+  iconHexColor: '#3261ab'
+}

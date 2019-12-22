@@ -5,10 +5,9 @@
       target="_blank"
       >tweet</a
     >
-
     <b-card
       title="分析結果"
-      class="shadow mb-5 bg-white rounded"
+      class="shadow mb-5 bg-white rounded test"
       style="max-width: 100%"
     >
       <client-only>
@@ -75,11 +74,11 @@ import MainChart from '~/components/MainChart.vue'
 import DetailChart from '~/components/DetailChart.vue'
 import MainText from '~/components/MainText.vue'
 import DetailText from '~/components/DetailText.vue'
-import Agreeableness from '~/assets/factor/agreeableness'
-import Conscientiousness from '~/assets/factor/conscientiousness'
-import Extraversion from '~/assets/factor/extraversion'
-import Neuroticism from '~/assets/factor/neuroticism'
-import OpennessToExperience from '~/assets/factor/openness_to_experience'
+import { setting as AgreeablenessSetting } from '~/assets/factor/agreeableness'
+import { setting as ConscientiousnessSetting } from '~/assets/factor/conscientiousness'
+import { setting as ExtraversionSetting } from '~/assets/factor/extraversion'
+import { setting as NeuroticismSetting } from '~/assets/factor/neuroticism'
+import { setting as OpennessToExperienceSetting } from '~/assets/factor/openness_to_experience'
 
 const w = 800
 const h = 500
@@ -152,15 +151,15 @@ export default {
           .style('fill', function(d, i) {
             switch (d.type) {
               case 'A':
-                return Agreeableness.chartSettings.borderHexColor
+                return AgreeablenessSetting.borderHexColor
               case 'C':
-                return Conscientiousness.chartSettings.borderHexColor
+                return ConscientiousnessSetting.borderHexColor
               case 'E':
-                return Extraversion.chartSettings.borderHexColor
+                return ExtraversionSetting.borderHexColor
               case 'N':
-                return Neuroticism.chartSettings.borderHexColor
+                return NeuroticismSetting.borderHexColor
               case 'O':
-                return OpennessToExperience.chartSettings.borderHexColor
+                return OpennessToExperienceSetting.borderHexColor
             }
             return d3.schemeCategory10[i % 10]
           })
@@ -177,4 +176,16 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.test .card-title {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  color: #000000;
+  font-size: 30px;
+  line-height: 134px;
+  border-radius: 50%;
+  border: solid 5px #7d7d7d;
+}
+</style>
