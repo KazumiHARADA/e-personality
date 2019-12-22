@@ -3,36 +3,6 @@ export default {
   title: '開放性',
   shortDescription:
     '開放性は、どの程度経験に対して開放的か、心の連想がどの程度つながっているかを示す度合いである。',
-  description: `Open people are intellectually curious,
-appreciative of art, and sensitive to beauty. They tend to be,
-compared to closed people, more aware of their feelings. They tend to
-think and act in individualistic and nonconforming
-ways. Intellectuals typically score high on Openness to Experience;
-consequently, this factor has also been called Culture or
-Intellect. <br /><br />Nonetheless, Intellect is probably best regarded as one aspect of openness
-to experience. Scores on Openness to Experience are only modestly
-related to years of education and scores on standard intelligent tests.
-<br /><br />
-Another characteristic of the open cognitive style is a facility for thinking
-in symbols and abstractions far removed from concrete experience. Depending on
-the individual's specific intellectual abilities, this symbolic cognition may
-take the form of mathematical, logical, or geometric thinking, artistic and
-metaphorical use of language, music composition or performance, or one of the
-many visual or performing arts.
-<br /><br />
-People with low scores on openness to experience tend to have narrow, common
-interests. They prefer the plain, straightforward, and obvious over the
-complex, ambiguous, and subtle. They may regard the arts and sciences with
-suspicion, regarding these endeavors as abstruse or of no practical use.
-Closed people prefer familiarity over novelty; they are conservative and
-resistant to change.
-<br /><br />
-Openness is often presented as healthier or more mature by psychologists, who
-are often themselves open to experience. However, open and closed styles of
-thinking are useful in different environments. The intellectual style of the
-open person may serve a professor well, but research has shown that closed
-thinking is related to superior job performance in police work, sales, and
-a number of service occupations.`,
   results: [
     {
       key: 'low',
@@ -85,8 +55,162 @@ a number of service occupations.`,
       自由のスコアが低い人は、保守的で安全と安定を好みます。`
     }
   ],
+  shortFacets: [
+    {
+      facet: 1,
+      title: '想像',
+      results: [
+        {
+          key: 'low',
+          text: `現実的で事実に沿ったものを考えることが得意です。`,
+          feature: 'リアリスト',
+          shortFeature: 'リアリスト'
+        },
+        {
+          key: 'neutral',
+          text: ``,
+          feature: '',
+          shortFeature: ''
+        },
+        {
+          key: 'high',
+          text: `より面白いものや豊かになるものを考えることが得意です。`,
+          feature: 'アイデアマン',
+          shortFeature: 'アイデアマン'
+        }
+      ]
+    },
+    {
+      facet: 2,
+      title: '芸術への関心',
+      results: [
+        {
+          key: 'low',
+          text: `芸術や美しいものに対してあまり興味を持ちません。`,
+          feature: '実用性重視',
+          shortFeature: '実用性重視'
+        },
+        {
+          key: 'neutral',
+          text: ``,
+          feature: '',
+          shortFeature: ''
+        },
+        {
+          key: 'high',
+          text: `芸術や自然の美しさを好みます。必ずしも芸術に特化しているとは限りませんが、人生の中で美しいものに関心を持つことが多いです。`,
+          feature: '美的感覚が鋭い',
+          shortFeature: '美的感覚が鋭い'
+        }
+      ]
+    },
+    {
+      facet: 3,
+      title: '情緒',
+      results: [
+        {
+          key: 'low',
+          text: `自分の感情に気付いていないことが多いです。また、感情を隠す傾向があります。`,
+          feature: '自分のことをあまり語らない',
+          shortFeature: '自分語りが嫌い'
+        },
+        {
+          key: 'neutral',
+          text: ``,
+          feature: '',
+          shortFeature: ''
+        },
+        {
+          key: 'high',
+          text: `自分の感情をオープンにする傾向があります。また、自分なりに感情を認識する方法を知っていることが多いです。`,
+          feature: '洞察力がある',
+          shortFeature: '洞察力が高い'
+        }
+      ]
+    },
+    {
+      facet: 4,
+      title: '冒険心',
+      results: [
+        {
+          key: 'low',
+          text: `変化を嫌い、ルーティーンを好む傾向があります。`,
+          feature: '安定的な毎日が好き',
+          shortFeature: '安定的'
+        },
+        {
+          key: 'neutral',
+          text: ``,
+          feature: '',
+          shortFeature: ''
+        },
+        {
+          key: 'high',
+          text: `新しいことをしたり、海外旅行をしたり、様々な挑戦をすることに抵抗がありません。よくルーティーンに飽きて新しい方法を探したり試したりします。`,
+          feature: '新しいことが好き',
+          shortFeature: '新しいもの好き'
+        }
+      ]
+    },
+    {
+      facet: 5,
+      title: '思考',
+      results: [
+        {
+          key: 'low',
+          text: `アイディアを考えるよりも実際のものや人を扱うことの方を好みます。考えるよりもまず行動という人が多いです。`,
+          feature: '何事もとりあえずやってみる',
+          shortFeature: 'まずは行動'
+        },
+        {
+          key: 'neutral',
+          text: ``,
+          feature: '',
+          shortFeature: ''
+        },
+        {
+          key: 'high',
+          text: `新しいアイディアに寛容で知的な議論をすることを好みます。パズルやなぞなぞをして、頭の体操をすることを楽しめます。`,
+          feature: '頭の回転が速い',
+          shortFeature: '頭がキレる'
+        }
+      ]
+    },
+    {
+      facet: 6,
+      title: '自由',
+      results: [
+        {
+          key: 'low',
+          text: `保守的で安全と安定を好みます。`,
+          feature: '保守的',
+          shortFeature: '保守的'
+        },
+        {
+          key: 'neutral',
+          text: ``,
+          feature: '',
+          shortFeature: ''
+        },
+        {
+          key: 'high',
+          text: `意にそぐわない権力や、慣習、伝統的な考え方に挑戦する傾向があります。`,
+          feature: '革新的',
+          shortFeature: '革新的'
+        }
+      ]
+    }
+  ],
   chartSettings: {
     backgroundColor: 'rgba(153, 102, 255, 0.2)',
-    borderColor: 'rgba(153, 102, 255, 1)'
+    borderColor: 'rgba(153, 102, 255, 1)',
+    borderHexColor: '#9966ff'
   }
+}
+
+export const setting = {
+  backgroundColor: 'rgba(153, 102, 255, 0.2)',
+  borderColor: 'rgba(153, 102, 255, 1)',
+  borderHexColor: '#9966ff',
+  iconHexColor: '#744199'
 }
