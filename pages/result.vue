@@ -122,7 +122,6 @@ export default {
   },
   mounted() {
     this.$store.dispatch('inputs/resetAnswers')
-    console.log(this.getFeatureWords(this.analysedResult))
     cloud()
       .size([w, h])
       .words(getFeatureWords(this.analysedResult))
