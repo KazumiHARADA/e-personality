@@ -59,7 +59,11 @@ export default {
       },
       options: {
         legend: {
-          display: false
+          display: false,
+          labels: {
+            fontColor: '#000000',
+            fontSize: 18
+          }
         },
         responsive: true,
         maintainAspectRatio: false,
@@ -68,14 +72,17 @@ export default {
             {
               scaleLabel: {
                 display: true
-              }
+              },
+              ticks: { fontColor: '#000000', fontSize: 18 }
             }
           ],
           yAxes: [
             {
               ticks: {
                 beginAtZero: true,
-                stepSize: this.step
+                stepSize: this.step,
+                fontColor: '#000000',
+                fontSize: 16
               }
             }
           ]

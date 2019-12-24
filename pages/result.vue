@@ -1,17 +1,17 @@
 <template>
   <b-container class="mt-n10">
-    <a
-      href="https://twitter.com/intent/tweet?text=Hello%20World&url=https%3A%2F%2Fexample.com%2F&hashtags=nature%2Csunset"
-      target="_blank"
-      >tweet</a
-    >
+    <!--    <a-->
+    <!--      href="https://twitter.com/intent/tweet?text=Hello%20World&url=https%3A%2F%2Fexample.com%2F&hashtags=nature%2Csunset"-->
+    <!--      target="_blank"-->
+    <!--      >tweet</a-->
+    <!--    >-->
     <b-card
       title="分析結果"
-      class="shadow mb-5 bg-white rounded test"
+      class="shadow mb-5 bg-white rounded result-card"
       style="max-width: 100%"
     >
       <client-only>
-        <main-chart :result="analysedResult" />
+        <main-chart class="mt-4" :result="analysedResult" />
       </client-only>
       <div id="cloud-area" style="width: 100%; height: 400px" />
       <client-only>
@@ -21,10 +21,21 @@
 
     <client-only>
       <b-card
-        title="調和性"
-        class="shadow p-3 mb-5 bg-white rounded"
+        class="shadow p-3 mb-5 bg-white rounded result-detail"
         style="max-width: 100%"
       >
+        <div class="flex-box mt-n3 mb-5">
+          <hr class="line" />
+          <b-card-title class="card-title mt-3" style="font-size: 30px">
+            調和性</b-card-title
+          >
+        </div>
+        <main-slider
+          class="mt-3 mb-5"
+          :score="analysedResult.A.score"
+          :result-key="analysedResult.A.result"
+          factor="A"
+        />
         <detail-chart :result="analysedResult" factor="A" />
         <detail-text :result="analysedResult" factor="A" />
       </b-card>
@@ -74,6 +85,7 @@ import MainChart from '~/components/MainChart.vue'
 import DetailChart from '~/components/DetailChart.vue'
 import MainText from '~/components/MainText.vue'
 import DetailText from '~/components/DetailText.vue'
+import MainSlider from '~/components/MainSlider.vue'
 import { setting as AgreeablenessSetting } from '~/assets/factor/agreeableness'
 import { setting as ConscientiousnessSetting } from '~/assets/factor/conscientiousness'
 import { setting as ExtraversionSetting } from '~/assets/factor/extraversion'
@@ -89,7 +101,8 @@ export default {
     MainChart,
     DetailChart,
     MainText,
-    DetailText
+    DetailText,
+    MainSlider
   },
   head() {
     return {
@@ -177,7 +190,7 @@ export default {
 </script>
 
 <style scoped>
-.test .card-title {
+.result-card .card-title {
   display: inline-block;
   width: 150px;
   height: 150px;
@@ -187,5 +200,28 @@ export default {
   line-height: 134px;
   border-radius: 50%;
   border: solid 5px #7d7d7d;
+  margin-top: 1.5rem !important;
+}
+
+.result-detail .card-title {
+  font-size: 30px;
+}
+
+.flex-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.line {
+  width: 20px;
+  height: 5px;
+  background-color: #3b8070;
+  border-top: none;
+  margin: 6px 11px 0 0;
+}
+
+.card-title {
+  position: relative;
 }
 </style>
