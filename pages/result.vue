@@ -24,51 +24,18 @@
         class="shadow p-3 mb-5 bg-white rounded result-detail"
         style="max-width: 100%"
       >
-        <div class="flex-box mt-n3 mb-5">
-          <hr class="line" />
-          <b-card-title class="card-title mt-3" style="font-size: 30px">
-            調和性</b-card-title
-          >
-        </div>
-        <main-slider
-          class="mt-3 mb-5"
-          :score="analysedResult.A.score"
-          :result-key="analysedResult.A.result"
-          factor="A"
-        />
-        <detail-chart :result="analysedResult" factor="A" />
         <detail-text :result="analysedResult" factor="A" />
       </b-card>
-      <b-card
-        title="誠実性"
-        class="shadow p-3 mb-5 bg-white rounded"
-        style="max-width: 100%"
-      >
-        <detail-chart :result="analysedResult" factor="C" />
+      <b-card class="shadow p-3 mb-5 bg-white rounded" style="max-width: 100%">
         <detail-text :result="analysedResult" factor="C" />
       </b-card>
-      <b-card
-        title="外向性"
-        class="shadow p-3 mb-5 bg-white rounded"
-        style="max-width: 100%"
-      >
-        <detail-chart :result="analysedResult" factor="E" />
+      <b-card class="shadow p-3 mb-5 bg-white rounded" style="max-width: 100%">
         <detail-text :result="analysedResult" factor="E" />
       </b-card>
-      <b-card
-        title="神経質性"
-        class="shadow p-3 mb-5 bg-white rounded"
-        style="max-width: 100%"
-      >
-        <detail-chart :result="analysedResult" factor="N" />
+      <b-card class="shadow p-3 mb-5 bg-white rounded" style="max-width: 100%">
         <detail-text :result="analysedResult" factor="N" />
       </b-card>
-      <b-card
-        title="開放性"
-        class="shadow p-3 mb-5 bg-white rounded"
-        style="max-width: 100%"
-      >
-        <detail-chart :result="analysedResult" factor="O" />
+      <b-card class="shadow p-3 mb-5 bg-white rounded" style="max-width: 100%">
         <detail-text :result="analysedResult" factor="O" />
       </b-card>
     </client-only>
@@ -82,10 +49,8 @@ import getFeatureWords from '~/plugins/feature'
 import firebase from '~/plugins/firebase'
 import 'firebase/firestore'
 import MainChart from '~/components/MainChart.vue'
-import DetailChart from '~/components/DetailChart.vue'
 import MainText from '~/components/MainText.vue'
 import DetailText from '~/components/DetailText.vue'
-import MainSlider from '~/components/MainSlider.vue'
 import { setting as AgreeablenessSetting } from '~/assets/factor/agreeableness'
 import { setting as ConscientiousnessSetting } from '~/assets/factor/conscientiousness'
 import { setting as ExtraversionSetting } from '~/assets/factor/extraversion'
@@ -99,10 +64,8 @@ export default {
   name: 'Result',
   components: {
     MainChart,
-    DetailChart,
     MainText,
-    DetailText,
-    MainSlider
+    DetailText
   },
   head() {
     return {
@@ -113,7 +76,14 @@ export default {
     return {
       analysedResult: {},
       host: '',
-      id: ''
+      id: '',
+      AhrStyle: 'background-color : ' + AgreeablenessSetting.iconHexColor + ';',
+      ChrStyle:
+        'background-color : ' + ConscientiousnessSetting.iconHexColor + ';',
+      EhrStyle: 'background-color : ' + ExtraversionSetting.iconHexColor + ';',
+      NhrStyle: 'background-color : ' + NeuroticismSetting.iconHexColor + ';',
+      OhrStyle:
+        'background-color : ' + OpennessToExperienceSetting.iconHexColor + ';'
     }
   },
   asyncData({ env, params, app, query, store }) {
@@ -205,23 +175,5 @@ export default {
 
 .result-detail .card-title {
   font-size: 30px;
-}
-
-.flex-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.line {
-  width: 20px;
-  height: 5px;
-  background-color: #3b8070;
-  border-top: none;
-  margin: 6px 11px 0 0;
-}
-
-.card-title {
-  position: relative;
 }
 </style>

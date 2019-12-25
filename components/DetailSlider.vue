@@ -21,13 +21,13 @@ const minScore = 5
 export default {
   name: 'DetailSlider',
   props: {
-    facets: {
-      type: Object,
-      default() {}
+    score: {
+      type: Number,
+      default: 24
     },
-    position: {
+    resultKey: {
       type: String,
-      default: ''
+      default: 'neutral'
     },
     factor: {
       type: String,
@@ -35,34 +35,26 @@ export default {
     }
   },
   data() {
+    console.log(this.resultKey)
+    console.log(this.factor)
     return {
-      score: this.facets[this.position].score,
       positionStyle: (() => {
-        console.log(
-          ((this.facets[this.position].score - minScore) /
-            (maxScore - minScore)) *
-            85
-        )
-        if (this.facets[this.position].score >= 100) {
+        if (this.score >= 100) {
           return (
             'left:' +
-            ((this.facets[this.position].score - minScore) /
-              (maxScore - minScore)) *
-              85 +
+            ((this.score - minScore) / (maxScore - minScore)) * 85 +
             '%; font-size:12px'
           )
         } else {
           return (
             'left:' +
-            ((this.facets[this.position].score - minScore) /
-              (maxScore - minScore)) *
-              85 +
+            ((this.score - minScore) / (maxScore - minScore)) * 85 +
             '%'
           )
         }
       })(),
       lowStyle: (() => {
-        if (this.facets[this.position].result === 'low') {
+        if (this.resultKey === 'low') {
           switch (this.factor) {
             case 'A':
               return (
@@ -110,7 +102,7 @@ export default {
         }
       })(),
       lowClass: (() => {
-        switch (this.facets[this.position].result) {
+        switch (this.resultKey) {
           case 'low':
             return 'result-circle-active'
           case 'neutral':
@@ -120,7 +112,7 @@ export default {
         }
       })(),
       highStyle: (() => {
-        if (this.facets[this.position].result === 'high') {
+        if (this.resultKey === 'high') {
           switch (this.factor) {
             case 'A':
               return (
@@ -168,7 +160,7 @@ export default {
         }
       })(),
       highClass: (() => {
-        switch (this.facets[this.position].result) {
+        switch (this.resultKey) {
           case 'low':
             return 'result-circle-inactive'
           case 'neutral':

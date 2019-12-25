@@ -35,8 +35,6 @@ export default {
     }
   },
   data() {
-    console.log(this.factor)
-    console.log(NeuroticismSetting)
     return {
       positionStyle: (() => {
         if (this.score >= 100) {
