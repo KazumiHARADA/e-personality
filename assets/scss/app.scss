@@ -1,10 +1,10 @@
 // Option A: Include all of Bootstrap
 
 $main-brand: #3976ba;
-$light-accent: #66a7d5;
+$light-accent: #5ec84e;
 $light-shades: #f6f4f4;
 $dark-accent: #3d4857;
-$dark-shades: #1e1f39;
+$dark-shades: #1b1b1b;
 
 $primary: $main-brand;
 $secondary: $light-accent;
@@ -25,6 +25,31 @@ $enable-responsive-font-sizes: true;
 
 .pb-7 {
   padding-bottom: 4rem !important;
+}
+
+.bg-dark-shades {
+  background-color: $dark-shades !important;
+}
+
+.triangle-top {
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 52px solid $light-accent;
+  margin-left:31%;
+}
+
+.triangle-sub {
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 21px solid $light-accent;
+  margin-left:31%;
+}
+
+.triangle-sub-short {
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 21px solid #ffffff;
+  margin-left:31%;
 }
 
 // All of bootstrap @import

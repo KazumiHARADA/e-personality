@@ -61,6 +61,11 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  background-image: url('~assets/personality_top_bg_md.png') !important;
+  background-size: cover;
+}
+
 *,
 *:before,
 *:after {
