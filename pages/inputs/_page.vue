@@ -26,6 +26,7 @@
         >
       </b-col>
     </b-row>
+    <img class="sample" src="questions_sample.png" />
   </b-container>
 </template>
 

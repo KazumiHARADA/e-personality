@@ -39,6 +39,7 @@
         <detail-text :result="analysedResult" factor="O" />
       </b-card>
     </client-only>
+    <img class="sample" src="result_sample.png" />
   </b-container>
 </template>
 

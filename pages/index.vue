@@ -58,6 +58,7 @@
         >
       </b-col>
     </b-row>
+    <img class="sample" src="top_sample.png" />
   </b-container>
 </template>
 
