@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="background-top">
     <Header v-if="!isLogin" />
     <UserHeader v-if="isLogin" />
     <nuxt />
@@ -59,6 +59,19 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  height: 100%;
+}
+
+body,
+#__nuxt,
+#__layout {
+  height: 100%;
+}
+
+.background-top {
+  background-image: url('~assets/personality_top_bg_md.png') !important;
+  background-size: cover;
+  height: 100%;
 }
 
 *,

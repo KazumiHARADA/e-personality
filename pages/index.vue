@@ -101,6 +101,7 @@ import Questions from '~/assets/ja-edited-questions.json'
 import Package from '~/package.json'
 
 export default {
+  layout: 'top',
   data() {
     return {
       questions: Questions,

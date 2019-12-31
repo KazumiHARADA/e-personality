@@ -1,9 +1,8 @@
 <template>
-  <div>
+  <div class="background-page">
     <Header v-if="!isLogin" />
     <UserHeader v-if="isLogin" />
-    <nuxt />
-    <b-row class="fixed-bottom p-3 bg-dark">
+    <b-row v-scroll="handleScroll" class="p-3 bg-dark">
       <b-col>
         <b-progress :max="total" height="1rem" class="w-100">
           <b-progress-bar :value="completed">
@@ -12,6 +11,7 @@
         </b-progress>
       </b-col>
     </b-row>
+    <nuxt />
   </div>
 </template>
 <script>
@@ -66,6 +66,17 @@ export default {
           console.log(e)
         })
     }
+  },
+  methods: {
+    handleScroll(evt, el) {
+      console.log(window.scrollY)
+      console.log(el)
+      if (window.scrollY > 71) {
+        el.setAttribute('class', 'p-3 bg-dark fixed-top')
+      } else {
+        el.setAttribute('class', 'p-3 bg-dark')
+      }
+    }
   }
 }
 </script>
@@ -81,6 +92,12 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+
+.background-page {
+  background: -moz-linear-gradient(top, #333333, #111111);
+  background: -webkit-linear-gradient(top, #333333, #111111);
+  background: linear-gradient(to bottom, #333333, #111111);
 }
 
 *,
