@@ -1,15 +1,13 @@
 <template>
   <b-container class="pt-0">
-    <b-card class="mt-3 shadow" bg-variant="light" text-variant="black">
-      <div v-for="(question, key) in questions" :key="key">
-        <radio-input
-          :question-id="question.id"
-          :keyed="question.keyed"
-          :title="question.text"
-          :callback="selectedItem"
-        />
-      </div>
-    </b-card>
+    <div v-for="(question, key) in questions" :key="key">
+      <radio-input
+        :question-id="question.id"
+        :keyed="question.keyed"
+        :title="question.text"
+        :callback="selectedItem"
+      />
+    </div>
     <b-row class="pt-3 pb-7" align-h="center">
       <b-col class="col-xs-6 col-sm-4 col-md-3">
         <b-button block variant="primary" @click="clickPrevButton(prev)"

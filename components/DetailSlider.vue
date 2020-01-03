@@ -2,7 +2,7 @@
   <div>
     <div :class="lowClass" :style="lowStyle">低い</div>
     <span class="slider-box">
-      <span class="circle" :style="positionStyle">{{ score }}</span>
+      <span class="double" :style="positionStyle">{{ score }}</span>
       <img src="score-bar-small.png" />
     </span>
     <div :class="highClass" :style="highStyle">高い</div>
@@ -180,7 +180,7 @@ export default {
   height: 100%;
 }
 
-.slider-box .circle {
+.slider-box .double {
   position: absolute;
   display: inline-block;
   background-color: #ffffff;

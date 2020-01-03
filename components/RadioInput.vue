@@ -1,20 +1,30 @@
 <template>
-  <div>
+  <div class="button-radio">
     <div class="mt-0 mt-md-4 mt-lg-4"></div>
     <div :class="className">
       <div>
         <strong>{{ title }}</strong>
       </div>
+
+      <radio-selection type="double" :name="questionId" />
+      <radio-selection type="circle" :name="questionId" />
+      <radio-selection type="bar" :name="questionId" />
+      <radio-selection type="triangle" :name="questionId" />
+      <radio-selection type="cross" :name="questionId" />
+
       <b-form-radio-group
+        id="test"
         v-model="value"
         class="mt-2 ml-3"
         :options="options"
         :state="state"
         :name="questionId"
         :stacked="stacked"
+        :plain="true"
         size="lg"
         @input="selectedRadioItem()"
       >
+        <p slot="first">a</p>
         <b-form-valid-feedback :state="state" />
       </b-form-radio-group>
     </div>
@@ -24,9 +34,13 @@
 
 <script>
 import Choices from '../assets/choices.json'
+import RadioSelection from '~/components/RadioSelection'
 
 export default {
   name: 'RadioInput',
+  components: {
+    RadioSelection
+  },
   props: {
     title: {
       type: String,
@@ -90,8 +104,47 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+$iconWidth: 2rem;
+$iconHeight: 2rem;
+$boxInnerColor: #b5b5b5;
+
 .mt-4-5 {
   margin-top: 2.5rem !important;
+}
+
+.double-circle {
+  width: $iconWidth;
+  height: $iconHeight;
+  border: double 7px $boxInnerColor;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.double {
+  width: $iconWidth;
+  height: $iconHeight;
+  border: solid 2px $boxInnerColor;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.bar-box {
+  width: $iconWidth;
+  height: $iconHeight;
+  margin: auto;
+  padding-top: 1rem;
+}
+.bar {
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+  border: 1px solid $boxInnerColor;
+}
+
+.triangle {
+  border-right: 1rem solid transparent;
+  border-bottom: 1.73rem solid $boxInnerColor;
+  border-left: 1rem solid transparent;
 }
 </style>
