@@ -3,30 +3,76 @@
     <div class="mt-0 mt-md-4 mt-lg-4"></div>
     <div :class="className">
       <div>
-        <strong>{{ title }}</strong>
+        <b-row>
+          <b-col cols="1" />
+          <b-col cols="10" class="text-left text-white mt-5 mb-4">
+            <h3>{{ title }}</h3>
+          </b-col>
+          <b-col cols="1" />
+        </b-row>
       </div>
-
-      <radio-selection type="double" :name="questionId" />
-      <radio-selection type="circle" :name="questionId" />
-      <radio-selection type="bar" :name="questionId" />
-      <radio-selection type="triangle" :name="questionId" />
-      <radio-selection type="cross" :name="questionId" />
-
-      <b-form-radio-group
-        id="test"
-        v-model="value"
-        class="mt-2 ml-3"
-        :options="options"
-        :state="state"
-        :name="questionId"
-        :stacked="stacked"
-        :plain="true"
-        size="lg"
-        @input="selectedRadioItem()"
-      >
-        <p slot="first">a</p>
-        <b-form-valid-feedback :state="state" />
-      </b-form-radio-group>
+      <b-row align-h="center" class="mt-5 mb-5">
+        <b-col cols="2">
+          <radio-selection
+            type="double"
+            :name="questionId"
+            :keyed="keyed"
+            :selected-value="value"
+            @select="selectedRadioItem2"
+          />
+        </b-col>
+        <b-col cols="2">
+          <radio-selection
+            type="circle"
+            :name="questionId"
+            :keyed="keyed"
+            :selected-value="value"
+            @select="selectedRadioItem2"
+          />
+        </b-col>
+        <b-col cols="2">
+          <radio-selection
+            type="bar"
+            :name="questionId"
+            :keyed="keyed"
+            :selected-value="value"
+            @select="selectedRadioItem2"
+          />
+        </b-col>
+        <b-col cols="2">
+          <radio-selection
+            type="triangle"
+            :name="questionId"
+            :keyed="keyed"
+            :selected-value="value"
+            @select="selectedRadioItem2"
+          />
+        </b-col>
+        <b-col cols="2">
+          <radio-selection
+            type="cross"
+            :name="questionId"
+            :keyed="keyed"
+            :selected-value="value"
+            @select="selectedRadioItem2"
+          />
+        </b-col>
+      </b-row>
+      <!--      <b-form-radio-group-->
+      <!--        id="test"-->
+      <!--        v-model="value"-->
+      <!--        class="mt-2 ml-3"-->
+      <!--        :options="options"-->
+      <!--        :state="state"-->
+      <!--        :name="questionId"-->
+      <!--        :stacked="stacked"-->
+      <!--        :plain="true"-->
+      <!--        size="lg"-->
+      <!--        @input="selectedRadioItem()"-->
+      <!--      >-->
+      <!--        <p slot="first">a</p>-->
+      <!--        <b-form-valid-feedback :state="state" />-->
+      <!--      </b-form-radio-group>-->
     </div>
     <div class="mt-4 mt-md-5 mt-lg-5"></div>
   </div>
@@ -35,6 +81,7 @@
 <script>
 import Choices from '../assets/choices.json'
 import RadioSelection from '~/components/RadioSelection'
+import Log from '~/libs/log'
 
 export default {
   name: 'RadioInput',
@@ -85,20 +132,21 @@ export default {
     }
   },
   mounted() {
-    if (process.browser) {
-      console.log(this.$nuxt.$device)
-      this.stacked = !this.$nuxt.$device.isDesktopOrTablet
-      if (!this.$nuxt.$device.isDesktopOrTablet) {
-        this.className = 'text-left'
-      }
-    }
+    console.log(this.value)
   },
   methods: {
     selectedRadioItem() {
+      Log.d(this.value)
       const selectItemInfo = this.options.find(
         (answer) => answer.text === this.value
       )
       this.callback(this.questionId, selectItemInfo.score, this.value)
+    },
+    selectedRadioItem2(value) {
+      const selectItemInfo = this.options.find(
+        (answer) => answer.text === value
+      )
+      this.callback(this.questionId, selectItemInfo.score, value)
     }
   }
 }

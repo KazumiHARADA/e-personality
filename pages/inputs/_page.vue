@@ -115,6 +115,7 @@ export default {
         score: itemScore,
         value: radioValue
       }
+      console.log(entry)
       this.$store.dispatch('inputs/selectAnswer', entry)
       this.disableNextButton = !this.isFilledCurrentPage()
     },
