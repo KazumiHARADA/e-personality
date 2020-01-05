@@ -13,6 +13,7 @@ $success: #469e70;
 $warning: #c48e38;
 $danger: #f44336;
 
+
 // Customizations
 $body-bg: $dark-shades;
 $body-color: #111;
@@ -49,6 +50,13 @@ $enable-responsive-font-sizes: true;
   border-top: 12px solid transparent;
   border-bottom: 12px solid transparent;
   border-left: 21px solid #ffffff;
+  margin-left:31%;
+}
+
+.triangle-page {
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 52px solid white;
   margin-left:31%;
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <b-container class="pt-0">
+  <b-container class="pt-5">
     <div v-for="(question, key) in questions" :key="key">
       <radio-input
         :question-id="question.id"
@@ -9,20 +9,42 @@
       />
     </div>
     <b-row class="pt-3 pb-7" align-h="center">
-      <b-col class="col-xs-6 col-sm-4 col-md-3">
-        <b-button block variant="primary" @click="clickPrevButton(prev)"
-          >&lt; Prev</b-button
-        >
+      <b-col cols="1">
+        <b-button block variant="primary" @click="clickPrevButton(prev)">
+          &lt; Prev
+        </b-button>
       </b-col>
-      <b-col class="col-xs-6 col-sm-4 col-md-3">
+      <b-col cols="10">
         <b-button
-          block
-          variant="primary"
+          :class="nextButtonClass"
+          variant="outline-secondary"
           :disabled="disableNextButton"
           @click="clickNextButton(next)"
-          >Next &gt;</b-button
         >
+          <span class="next-button-text">
+            Next
+          </span>
+          <div class="next-button-play">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63 71">
+              <defs>
+                <style>
+                  .cls-1 {
+                    fill: #ffffff;
+                    fill-rule: evenodd;
+                  }
+                </style>
+              </defs>
+              <path
+                id="play"
+                class="cls-1"
+                d="M1003,1087.5L940.007,1123v-71.01Z"
+                transform="translate(-940 -1052)"
+              />
+            </svg>
+          </div>
+        </b-button>
       </b-col>
+      <b-col cols="1"></b-col>
     </b-row>
   </b-container>
 </template>
@@ -52,7 +74,8 @@ export default {
       next: '/',
       prev: '/',
       total: Questions.length,
-      disableNextButton: true
+      disableNextButton: true,
+      nextButtonClass: ''
     }
   },
   computed: {
@@ -96,6 +119,11 @@ export default {
   },
   mounted() {
     this.disableNextButton = !this.isFilledCurrentPage()
+    if (this.isFilledCurrentPage()) {
+      this.nextButtonClass = 'next-button ' + 'next-button-hover'
+    } else {
+      this.nextButtonClass = 'next-button'
+    }
   },
   transition(to, from) {
     if (from === undefined || from.fullPath === '/') {
@@ -115,9 +143,13 @@ export default {
         score: itemScore,
         value: radioValue
       }
-      console.log(entry)
       this.$store.dispatch('inputs/selectAnswer', entry)
       this.disableNextButton = !this.isFilledCurrentPage()
+      if (this.isFilledCurrentPage()) {
+        this.nextButtonClass = 'next-button ' + 'next-button-hover'
+      } else {
+        this.nextButtonClass = 'next-button'
+      }
     },
     clickNextButton(next) {
       if (next === '/result') {
@@ -177,4 +209,35 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.next-button {
+  width: 150px;
+  height: 150px;
+  border: 8px solid;
+  border-radius: 50%;
+
+  .next-button-text {
+    color: white;
+    font-size: 4vw;
+  }
+
+  .next-button-play {
+    width: 3vw;
+    padding-top: 0.3vw;
+    margin: 0 auto;
+  }
+}
+
+.next-button-hover:hover {
+  background-color: #5ec84e;
+  border-color: #212529;
+
+  .next-button-text {
+    color: #212529;
+  }
+
+  .next-button-play path {
+    fill: #212529;
+  }
+}
+</style>
