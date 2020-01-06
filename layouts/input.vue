@@ -3,15 +3,15 @@
     <Header v-if="!isLogin" />
     <UserHeader v-if="isLogin" />
     <b-row v-scroll="handleScroll" class="p-3 bg-black row-progress">
-      <b-col cols="1" />
-      <b-col cols="10">
+      <b-col cols="2" />
+      <b-col cols="8">
         <b-progress :max="total" height="1rem" class="w-100 question-progress">
           <b-progress-bar :value="completed">
             <strong>{{ completed }} / {{ total }}</strong>
           </b-progress-bar>
         </b-progress>
       </b-col>
-      <b-col cols="1" />
+      <b-col cols="2" />
     </b-row>
     <nuxt />
   </div>

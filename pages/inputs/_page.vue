@@ -8,13 +8,11 @@
         :callback="selectedItem"
       />
     </div>
-    <b-row class="pt-3 pb-7" align-h="center">
-      <b-col cols="1">
-        <b-button block variant="primary" @click="clickPrevButton(prev)">
-          &lt; Prev
-        </b-button>
+    <b-row class="pt-3 pb-7" align-h="center" align-v="end">
+      <b-col cols="2">
+        <span class="prev" @click="clickPrevButton(prev)">←Prev</span>
       </b-col>
-      <b-col cols="10">
+      <b-col cols="8">
         <b-button
           :class="nextButtonClass"
           variant="outline-secondary"
@@ -28,7 +26,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63 71">
               <defs>
                 <style>
-                  .cls-1 {
+                  .playStyle {
                     fill: #ffffff;
                     fill-rule: evenodd;
                   }
@@ -36,7 +34,7 @@
               </defs>
               <path
                 id="play"
-                class="cls-1"
+                class="playStyle"
                 d="M1003,1087.5L940.007,1123v-71.01Z"
                 transform="translate(-940 -1052)"
               />
@@ -44,7 +42,7 @@
           </div>
         </b-button>
       </b-col>
-      <b-col cols="1"></b-col>
+      <b-col cols="2"></b-col>
     </b-row>
   </b-container>
 </template>
@@ -239,5 +237,11 @@ export default {
   .next-button-play path {
     fill: #212529;
   }
+}
+
+.prev {
+  cursor: pointer;
+  color: #ffffff;
+  margin-left: 6.5vw;
 }
 </style>
