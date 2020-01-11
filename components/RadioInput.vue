@@ -5,7 +5,11 @@
       <div>
         <b-row>
           <b-col cols="1" />
-          <b-col cols="10" class="text-left text-white mt-5 mb-4">
+          <b-col
+            :id="questionId"
+            cols="10"
+            class="text-left text-white mt-5 mb-4"
+          >
             <h3>{{ title }}</h3>
           </b-col>
           <b-col cols="1" />
@@ -66,7 +70,6 @@
 <script>
 import Choices from '../assets/choices.json'
 import RadioSelection from '~/components/RadioSelection'
-import Log from '~/libs/log'
 
 export default {
   name: 'RadioInput',
@@ -121,7 +124,6 @@ export default {
   },
   methods: {
     selectedRadioItem() {
-      Log.d(this.value)
       const selectItemInfo = this.options.find(
         (answer) => answer.text === this.value
       )
