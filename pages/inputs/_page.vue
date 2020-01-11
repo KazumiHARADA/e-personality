@@ -216,12 +216,12 @@ export default {
 
   .next-button-text {
     color: white;
-    font-size: 4vw;
+    font-size: 40px;
   }
 
   .next-button-play {
-    width: 3vw;
-    padding-top: 0.3vw;
+    width: 32px;
+    padding-top: 3px;
     margin: 0 auto;
   }
 }

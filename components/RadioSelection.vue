@@ -270,8 +270,7 @@ $hoverColor: #212529;
     bottom: 0;
   }
   .selectionText {
-    margin-bottom: 0.5vh;
-    font-size: 1.6vw;
+    margin-bottom: 0.5vw;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -303,7 +302,7 @@ $hoverColor: #212529;
 .radio-selection {
   svg {
     display: block;
-    margin: 2.75vh auto 0;
+    margin: 2.75vw auto 0;
   }
   .doubleInput svg {
     width: 3.5vw;
@@ -312,15 +311,175 @@ $hoverColor: #212529;
     width: 3.5vw;
   }
   .barInput svg {
-    margin-top: 4.5vh;
+    margin-top: 4.5vw;
     width: 3vw;
   }
   .triangleInput svg {
     width: 3.5vw;
   }
   .crossInput svg {
-    margin-top: 3vh;
+    margin-top: 3vw;
     width: 3vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  //1200px から
+  $baseWidth: 45px;
+  $baseMarginTop: 42px;
+  .radio-selection {
+    svg {
+      display: block;
+      margin: $baseMarginTop auto 0;
+    }
+    .doubleInput svg {
+      width: $baseWidth;
+    }
+    .circleInput svg {
+      width: $baseWidth;
+    }
+    .barInput svg {
+      margin-top: $baseMarginTop + 18px;
+      width: $baseWidth;
+    }
+    .triangleInput svg {
+      width: $baseWidth;
+    }
+    .crossInput svg {
+      margin-top: $baseMarginTop + 3px;
+      width: $baseWidth - 5px;
+    }
+  }
+  .selectionText {
+    font-size: 21px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  //992px から 1200pxまで
+  $baseWidth: 40px;
+  $baseMarginTop: 30px;
+  .radio-selection {
+    svg {
+      display: block;
+      margin: $baseMarginTop auto 0;
+    }
+    .doubleInput svg {
+      width: $baseWidth;
+    }
+    .circleInput svg {
+      width: $baseWidth;
+    }
+    .barInput svg {
+      margin-top: $baseMarginTop + 18px;
+      width: $baseWidth;
+    }
+    .triangleInput svg {
+      width: $baseWidth;
+    }
+    .crossInput svg {
+      margin-top: $baseMarginTop + 3px;
+      width: $baseWidth - 5px;
+    }
+  }
+  .selectionText {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  //768px から 992pxまで
+  $baseWidth: 35px;
+  $baseMarginTop: 20px;
+  .radio-selection {
+    svg {
+      display: block;
+      margin: $baseMarginTop auto 0;
+    }
+    .doubleInput svg {
+      width: $baseWidth;
+    }
+    .circleInput svg {
+      width: $baseWidth;
+    }
+    .barInput svg {
+      margin-top: $baseMarginTop + 18px;
+      width: $baseWidth;
+    }
+    .triangleInput svg {
+      width: $baseWidth;
+    }
+    .crossInput svg {
+      margin-top: $baseMarginTop + 3px;
+      width: $baseWidth - 5px;
+    }
+  }
+  .selectionText {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  //576px から 768pxまで
+  $baseWidth: 32px;
+  $baseMarginTop: 10px;
+  .radio-selection {
+    svg {
+      display: block;
+      margin: $baseMarginTop auto 0;
+    }
+    .doubleInput svg {
+      width: $baseWidth;
+    }
+    .circleInput svg {
+      width: $baseWidth;
+    }
+    .barInput svg {
+      margin-top: $baseMarginTop + 18px;
+      width: $baseWidth;
+    }
+    .triangleInput svg {
+      width: $baseWidth;
+    }
+    .crossInput svg {
+      margin-top: $baseMarginTop + 3px;
+      width: $baseWidth - 5px;
+    }
+  }
+  .selectionText {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 576px) {
+  //576px まで
+  $baseWidth: 6vw;
+  $baseMarginTop: 4vw;
+  .radio-selection {
+    svg {
+      display: block;
+      margin: $baseMarginTop auto 0;
+    }
+    .doubleInput svg {
+      width: $baseWidth;
+    }
+    .circleInput svg {
+      width: $baseWidth;
+    }
+    .barInput svg {
+      margin-top: $baseMarginTop + 2.8vw;
+      width: $baseWidth;
+    }
+    .triangleInput svg {
+      width: $baseWidth;
+    }
+    .crossInput svg {
+      margin-top: $baseMarginTop + 0.25vw;
+      width: $baseWidth - 0.5vw;
+    }
+  }
+  .selectionText {
+    display: none !important;
   }
 }
 </style>

@@ -58,21 +58,6 @@
           />
         </b-col>
       </b-row>
-      <!--      <b-form-radio-group-->
-      <!--        id="test"-->
-      <!--        v-model="value"-->
-      <!--        class="mt-2 ml-3"-->
-      <!--        :options="options"-->
-      <!--        :state="state"-->
-      <!--        :name="questionId"-->
-      <!--        :stacked="stacked"-->
-      <!--        :plain="true"-->
-      <!--        size="lg"-->
-      <!--        @input="selectedRadioItem()"-->
-      <!--      >-->
-      <!--        <p slot="first">a</p>-->
-      <!--        <b-form-valid-feedback :state="state" />-->
-      <!--      </b-form-radio-group>-->
     </div>
     <div class="mt-4 mt-md-5 mt-lg-5"></div>
   </div>
@@ -194,5 +179,25 @@ $boxInnerColor: #b5b5b5;
   border-right: 1rem solid transparent;
   border-bottom: 1.73rem solid $boxInnerColor;
   border-left: 1rem solid transparent;
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  .col-2 {
+    padding-right: 7.5px !important;
+    padding-left: 7.5px !important;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  .col-2 {
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  //576px まで
+  .col-2 {
+    padding-right: 2px !important;
+    padding-left: 2px !important;
+  }
 }
 </style>

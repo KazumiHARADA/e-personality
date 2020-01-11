@@ -43,4 +43,8 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.navbar-brand {
+  cursor: pointer;
+}
+</style>

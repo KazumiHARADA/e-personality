@@ -94,4 +94,7 @@ export default {
 .test .dropdown-toggle::after {
   display: none;
 }
+.navbar-brand {
+  cursor: pointer;
+}
 </style>
