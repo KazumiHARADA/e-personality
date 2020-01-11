@@ -6,7 +6,7 @@
         <b-row>
           <b-col cols="1" />
           <b-col
-            :id="questionId"
+            :id="selectorId"
             cols="10"
             class="text-left text-white mt-5 mb-4"
           >
@@ -89,6 +89,10 @@ export default {
       type: String,
       default: ''
     },
+    questionNumber: {
+      type: Number,
+      default: 0
+    },
     callback: {
       type: Function,
       default() {}
@@ -96,6 +100,7 @@ export default {
   },
   data() {
     return {
+      selectorId: 'question' + this.questionNumber,
       value: ((answerList, id) => {
         return ((findResult) => {
           if (findResult === undefined) {
