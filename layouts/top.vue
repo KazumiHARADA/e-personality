@@ -69,6 +69,7 @@ body,
 }
 
 .background-top {
+  background-position: center;
   background-image: url('~assets/personality_top_bg_md.png') !important;
   background-size: cover;
   height: 100%;

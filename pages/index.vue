@@ -1,11 +1,11 @@
 <template>
-  <b-container class="text-light pt-2 pt-sm-2 pt-md-2 pt-lg-2 pl-4 pr-4">
+  <b-container class="text-light pt-2 pl-4 pr-4">
     <h1 class="title pt-4">Big Five 精密 <br />パーソナリティ診断</h1>
     <h5 class="subtitle pt-1">
       Big Five 理論に基づいて、精密に自身のパーソナリティを分析できます。
     </h5>
     <b-row class="mt-box" align-h="center">
-      <b-col cols="3">
+      <b-col sm="10" md="4" lg="3" lx="3">
         <div class="squareBox top-box bg-dark-shades">
           <div class="content">
             <img class="top-icon" src="icon1.png" />
@@ -16,7 +16,12 @@
           </div>
         </div>
       </b-col>
-      <b-col cols="3" class="ml-2 mr-2"
+      <b-col
+        sm="10"
+        md="4"
+        lg="3"
+        lx="3"
+        class="ml-lg-2 mr-lg-2 ml-lx-2 mr-lx-2 ml-md-0 mr-md-0"
         ><div class="squareBox top-box bg-dark-shades">
           <div class="content">
             <img class="top-icon" src="icon2.png" style="left: 20px;" />
@@ -26,7 +31,7 @@
           </div>
         </div></b-col
       >
-      <b-col cols="3"
+      <b-col sm="10" md="4" lg="3" lx="3"
         ><div class="squareBox top-box bg-dark-shades">
           <div class="content">
             <img class="top-icon" src="icon3.png" />
@@ -38,7 +43,7 @@
       >
     </b-row>
     <b-row class="button-area mt-button-area" align-h="center" align-v="end">
-      <b-col v-if="enableResume" cols="3"
+      <b-col v-if="enableResume" sm="10" md="4" lg="3" lx="3"
         ><b-button
           class="sub-button-restart"
           variant="outline-secondary"
@@ -49,8 +54,8 @@
         <h4 class="button-title mt-1">テストを始める</h4>
         <small class="button-description">所要時間：10分</small></b-col
       >
-      <b-col v-else cols="3"></b-col>
-      <b-col v-if="enableResume" cols="4">
+      <b-col v-else sm="10" md="4" lg="3" lx="3"></b-col>
+      <b-col v-if="enableResume" sm="10" md="4" lg="4" lx="4">
         <b-button
           class="main-button"
           variant="outline-secondary"
@@ -61,7 +66,7 @@
         <h2 class="button-title mt-1">テストを再開する</h2>
         <small class="button-description">所要時間：10分</small>
       </b-col>
-      <b-col v-else cols="3">
+      <b-col v-else sm="10" md="4" lg="4" lx="4">
         <b-button
           class="main-button"
           variant="outline-secondary"
@@ -72,7 +77,7 @@
         <h2 class="button-title mt-1">テストを始める</h2>
         <small class="button-description">所要時間：10分</small>
       </b-col>
-      <b-col cols="3"
+      <b-col sm="10" md="4" lg="3" lx="3"
         ><b-button
           class="sub-button-short"
           variant="outline"
@@ -108,7 +113,12 @@ export default {
       version: Package.version,
       enableResume: false,
       resumeClass: 'd-none',
-      isLogin: this.$store.state.user.isLogin
+      isLogin: this.$store.state.user.isLogin,
+      colSize: '3',
+      windowSize: {
+        x: 0,
+        y: 0
+      }
     }
   },
   computed: {
@@ -136,8 +146,20 @@ export default {
     } else {
       this.resumeClass = 'd-none'
     }
+    // this.handleResize()
+    // window.addEventListener('resize', this.handleResize)
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.handleResize)
   },
   methods: {
+    handleResize() {
+      if (window.innerWidth < 992) {
+        this.colSize = '10'
+      } else {
+        this.colSize = '3'
+      }
+    },
     resumeTest() {
       if (this.$store.state.inputs.answerList.length !== 0) {
         this.enableResume = true
@@ -170,7 +192,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .top-box {
   border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -202,6 +224,12 @@ h5 > br {
   }
 }
 
+@media (max-width: 1200px) {
+  h2,
+  .h2 {
+    font-size: calc(1.325rem + 0.7vw);
+  }
+}
 .squareBox {
   position: relative;
 }
