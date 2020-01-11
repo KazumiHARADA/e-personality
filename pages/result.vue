@@ -1,5 +1,5 @@
 <template>
-  <b-container class="mt-n10">
+  <b-container class="mt-n10 pb-5">
     <!--    <a-->
     <!--      href="https://twitter.com/intent/tweet?text=Hello%20World&url=https%3A%2F%2Fexample.com%2F&hashtags=nature%2Csunset"-->
     <!--      target="_blank"-->
@@ -39,7 +39,6 @@
         <detail-text :result="analysedResult" factor="O" />
       </b-card>
     </client-only>
-    <img class="sample" src="result_sample.png" />
   </b-container>
 </template>
 
@@ -62,6 +61,7 @@ const w = 800
 const h = 500
 
 export default {
+  layout: 'result',
   name: 'Result',
   components: {
     MainChart,
@@ -176,5 +176,9 @@ export default {
 
 .result-detail .card-title {
   font-size: 30px;
+}
+
+#cloud-area {
+  display: none;
 }
 </style>
