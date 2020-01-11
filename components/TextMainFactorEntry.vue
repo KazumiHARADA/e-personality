@@ -2,15 +2,17 @@
   <b-list-group-item class="pl-0 pr-0 text-center">
     <div class="flex-box">
       <hr class="line" :style="lineColor" />
-      <b-card-title class="card-title"> {{ title }}</b-card-title>
+      <b-card-title class="card-title mt-3" style="font-size: 24px">
+        {{ title }}</b-card-title
+      >
     </div>
     <main-slider
-      class="mt-3 mb-4"
+      class="mt-3 mb-5"
       :score="score"
       :result-key="scoreKey"
       :factor="factor"
     />
-    <b-card-text>
+    <b-card-text class="mb-4" style="font-size: 18px">
       {{ scoreText }}
     </b-card-text>
   </b-list-group-item>
@@ -100,7 +102,7 @@ export default {
   height: 5px;
   background-color: #3b8070;
   border-top: none;
-  margin: -10px 11px 0 0;
+  margin: 6px 11px 0 0;
 }
 
 .card-title {

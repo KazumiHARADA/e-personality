@@ -1,19 +1,25 @@
 <template>
   <b-list-group-item class="pl-0 pr-0">
-    <b-card-title>{{ title }}</b-card-title>
-    <b-card-sub-title class="mb-2"
-      >結果 : <strong>{{ scoreTitle }}</strong> スコア :
-      {{ score }}
-    </b-card-sub-title>
-    <b-card-text>
+    <b-card-title class="mt-2">{{ title }}</b-card-title>
+    <detail-slider
+      class="mt-3 mb-3"
+      :score="score"
+      :result-key="scoreKey"
+      :factor="factor"
+    />
+    <b-card-text class="mb-2">
       {{ scoreText }}
     </b-card-text>
   </b-list-group-item>
 </template>
 
 <script>
+import DetailSlider from '~/components/DetailSlider.vue'
 export default {
   name: 'TextDetailFactorEntry',
+  components: {
+    DetailSlider
+  },
   props: {
     title: {
       type: String,
@@ -28,6 +34,14 @@ export default {
       default: ''
     },
     scoreText: {
+      type: String,
+      default: ''
+    },
+    scoreKey: {
+      type: String,
+      default: ''
+    },
+    factor: {
       type: String,
       default: ''
     }

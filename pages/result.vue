@@ -1,17 +1,17 @@
 <template>
-  <b-container class="mt-n10">
-    <a
-      href="https://twitter.com/intent/tweet?text=Hello%20World&url=https%3A%2F%2Fexample.com%2F&hashtags=nature%2Csunset"
-      target="_blank"
-      >tweet</a
-    >
+  <b-container class="mt-n10 pb-5">
+    <!--    <a-->
+    <!--      href="https://twitter.com/intent/tweet?text=Hello%20World&url=https%3A%2F%2Fexample.com%2F&hashtags=nature%2Csunset"-->
+    <!--      target="_blank"-->
+    <!--      >tweet</a-->
+    <!--    >-->
     <b-card
       title="分析結果"
-      class="shadow mb-5 bg-white rounded test"
+      class="shadow mb-5 bg-white rounded result-card"
       style="max-width: 100%"
     >
       <client-only>
-        <main-chart :result="analysedResult" />
+        <main-chart class="mt-4" :result="analysedResult" />
       </client-only>
       <div id="cloud-area" style="width: 100%; height: 400px" />
       <client-only>
@@ -21,43 +21,21 @@
 
     <client-only>
       <b-card
-        title="調和性"
-        class="shadow p-3 mb-5 bg-white rounded"
+        class="shadow p-3 mb-5 bg-white rounded result-detail"
         style="max-width: 100%"
       >
-        <detail-chart :result="analysedResult" factor="A" />
         <detail-text :result="analysedResult" factor="A" />
       </b-card>
-      <b-card
-        title="誠実性"
-        class="shadow p-3 mb-5 bg-white rounded"
-        style="max-width: 100%"
-      >
-        <detail-chart :result="analysedResult" factor="C" />
+      <b-card class="shadow p-3 mb-5 bg-white rounded" style="max-width: 100%">
         <detail-text :result="analysedResult" factor="C" />
       </b-card>
-      <b-card
-        title="外向性"
-        class="shadow p-3 mb-5 bg-white rounded"
-        style="max-width: 100%"
-      >
-        <detail-chart :result="analysedResult" factor="E" />
+      <b-card class="shadow p-3 mb-5 bg-white rounded" style="max-width: 100%">
         <detail-text :result="analysedResult" factor="E" />
       </b-card>
-      <b-card
-        title="神経質性"
-        class="shadow p-3 mb-5 bg-white rounded"
-        style="max-width: 100%"
-      >
-        <detail-chart :result="analysedResult" factor="N" />
+      <b-card class="shadow p-3 mb-5 bg-white rounded" style="max-width: 100%">
         <detail-text :result="analysedResult" factor="N" />
       </b-card>
-      <b-card
-        title="開放性"
-        class="shadow p-3 mb-5 bg-white rounded"
-        style="max-width: 100%"
-      >
-        <detail-chart :result="analysedResult" factor="O" />
+      <b-card class="shadow p-3 mb-5 bg-white rounded" style="max-width: 100%">
         <detail-text :result="analysedResult" factor="O" />
       </b-card>
     </client-only>
@@ -71,7 +49,6 @@ import getFeatureWords from '~/plugins/feature'
 import firebase from '~/plugins/firebase'
 import 'firebase/firestore'
 import MainChart from '~/components/MainChart.vue'
-import DetailChart from '~/components/DetailChart.vue'
 import MainText from '~/components/MainText.vue'
 import DetailText from '~/components/DetailText.vue'
 import { setting as AgreeablenessSetting } from '~/assets/factor/agreeableness'
@@ -84,10 +61,10 @@ const w = 800
 const h = 500
 
 export default {
+  layout: 'result',
   name: 'Result',
   components: {
     MainChart,
-    DetailChart,
     MainText,
     DetailText
   },
@@ -100,7 +77,14 @@ export default {
     return {
       analysedResult: {},
       host: '',
-      id: ''
+      id: '',
+      AhrStyle: 'background-color : ' + AgreeablenessSetting.iconHexColor + ';',
+      ChrStyle:
+        'background-color : ' + ConscientiousnessSetting.iconHexColor + ';',
+      EhrStyle: 'background-color : ' + ExtraversionSetting.iconHexColor + ';',
+      NhrStyle: 'background-color : ' + NeuroticismSetting.iconHexColor + ';',
+      OhrStyle:
+        'background-color : ' + OpennessToExperienceSetting.iconHexColor + ';'
     }
   },
   asyncData({ env, params, app, query, store }) {
@@ -177,7 +161,7 @@ export default {
 </script>
 
 <style scoped>
-.test .card-title {
+.result-card .card-title {
   display: inline-block;
   width: 150px;
   height: 150px;
@@ -187,5 +171,14 @@ export default {
   line-height: 134px;
   border-radius: 50%;
   border: solid 5px #7d7d7d;
+  margin-top: 1.5rem !important;
+}
+
+.result-detail .card-title {
+  font-size: 30px;
+}
+
+#cloud-area {
+  display: none;
 }
 </style>

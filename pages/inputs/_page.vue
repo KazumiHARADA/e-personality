@@ -1,30 +1,48 @@
 <template>
-  <b-container class="pt-0">
-    <b-card class="mt-3 shadow" bg-variant="light" text-variant="black">
-      <div v-for="(question, key) in questions" :key="key">
-        <radio-input
-          :question-id="question.id"
-          :keyed="question.keyed"
-          :title="question.text"
-          :callback="selectedItem"
-        />
-      </div>
-    </b-card>
-    <b-row class="pt-3 pb-7" align-h="center">
-      <b-col class="col-xs-6 col-sm-4 col-md-3">
-        <b-button block variant="primary" @click="clickPrevButton(prev)"
-          >&lt; Prev</b-button
-        >
+  <b-container class="pt-5">
+    <div v-for="(question, key) in questions" :key="key">
+      <radio-input
+        :question-id="question.id"
+        :keyed="question.keyed"
+        :title="question.text"
+        :callback="selectedItem"
+      />
+    </div>
+    <b-row class="pt-3 pb-7" align-h="center" align-v="end">
+      <b-col cols="2">
+        <span class="prev" @click="clickPrevButton(prev)">←Prev</span>
       </b-col>
-      <b-col class="col-xs-6 col-sm-4 col-md-3">
+      <b-col cols="8">
         <b-button
-          block
-          variant="primary"
+          :class="nextButtonClass"
+          variant="outline-secondary"
           :disabled="disableNextButton"
           @click="clickNextButton(next)"
-          >Next &gt;</b-button
         >
+          <span class="next-button-text">
+            Next
+          </span>
+          <div class="next-button-play">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63 71">
+              <defs>
+                <style>
+                  .playStyle {
+                    fill: #ffffff;
+                    fill-rule: evenodd;
+                  }
+                </style>
+              </defs>
+              <path
+                id="play"
+                class="playStyle"
+                d="M1003,1087.5L940.007,1123v-71.01Z"
+                transform="translate(-940 -1052)"
+              />
+            </svg>
+          </div>
+        </b-button>
       </b-col>
+      <b-col cols="2"></b-col>
     </b-row>
   </b-container>
 </template>
@@ -54,7 +72,8 @@ export default {
       next: '/',
       prev: '/',
       total: Questions.length,
-      disableNextButton: true
+      disableNextButton: true,
+      nextButtonClass: ''
     }
   },
   computed: {
@@ -98,6 +117,11 @@ export default {
   },
   mounted() {
     this.disableNextButton = !this.isFilledCurrentPage()
+    if (this.isFilledCurrentPage()) {
+      this.nextButtonClass = 'next-button ' + 'next-button-hover'
+    } else {
+      this.nextButtonClass = 'next-button'
+    }
   },
   transition(to, from) {
     if (from === undefined || from.fullPath === '/') {
@@ -119,6 +143,11 @@ export default {
       }
       this.$store.dispatch('inputs/selectAnswer', entry)
       this.disableNextButton = !this.isFilledCurrentPage()
+      if (this.isFilledCurrentPage()) {
+        this.nextButtonClass = 'next-button ' + 'next-button-hover'
+      } else {
+        this.nextButtonClass = 'next-button'
+      }
     },
     clickNextButton(next) {
       if (next === '/result') {
@@ -178,4 +207,41 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.next-button {
+  width: 150px;
+  height: 150px;
+  border: 8px solid;
+  border-radius: 50%;
+
+  .next-button-text {
+    color: white;
+    font-size: 40px;
+  }
+
+  .next-button-play {
+    width: 32px;
+    padding-top: 3px;
+    margin: 0 auto;
+  }
+}
+
+.next-button-hover:hover {
+  background-color: #5ec84e;
+  border-color: #212529;
+
+  .next-button-text {
+    color: #212529;
+  }
+
+  .next-button-play path {
+    fill: #212529;
+  }
+}
+
+.prev {
+  cursor: pointer;
+  color: #ffffff;
+  margin-left: 6.5vw;
+}
+</style>

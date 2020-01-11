@@ -1,22 +1,63 @@
 <template>
-  <div>
+  <div class="button-radio">
     <div class="mt-0 mt-md-4 mt-lg-4"></div>
     <div :class="className">
       <div>
-        <strong>{{ title }}</strong>
+        <b-row>
+          <b-col cols="1" />
+          <b-col cols="10" class="text-left text-white mt-5 mb-4">
+            <h3>{{ title }}</h3>
+          </b-col>
+          <b-col cols="1" />
+        </b-row>
       </div>
-      <b-form-radio-group
-        v-model="value"
-        class="mt-2 ml-3"
-        :options="options"
-        :state="state"
-        :name="questionId"
-        :stacked="stacked"
-        size="lg"
-        @input="selectedRadioItem()"
-      >
-        <b-form-valid-feedback :state="state" />
-      </b-form-radio-group>
+      <b-row align-h="center" class="mt-5 mb-5">
+        <b-col cols="2">
+          <radio-selection
+            type="double"
+            :name="questionId"
+            :keyed="keyed"
+            :selected-value="value"
+            @select="selectedRadioItem2"
+          />
+        </b-col>
+        <b-col cols="2">
+          <radio-selection
+            type="circle"
+            :name="questionId"
+            :keyed="keyed"
+            :selected-value="value"
+            @select="selectedRadioItem2"
+          />
+        </b-col>
+        <b-col cols="2">
+          <radio-selection
+            type="bar"
+            :name="questionId"
+            :keyed="keyed"
+            :selected-value="value"
+            @select="selectedRadioItem2"
+          />
+        </b-col>
+        <b-col cols="2">
+          <radio-selection
+            type="triangle"
+            :name="questionId"
+            :keyed="keyed"
+            :selected-value="value"
+            @select="selectedRadioItem2"
+          />
+        </b-col>
+        <b-col cols="2">
+          <radio-selection
+            type="cross"
+            :name="questionId"
+            :keyed="keyed"
+            :selected-value="value"
+            @select="selectedRadioItem2"
+          />
+        </b-col>
+      </b-row>
     </div>
     <div class="mt-4 mt-md-5 mt-lg-5"></div>
   </div>
@@ -24,9 +65,14 @@
 
 <script>
 import Choices from '../assets/choices.json'
+import RadioSelection from '~/components/RadioSelection'
+import Log from '~/libs/log'
 
 export default {
   name: 'RadioInput',
+  components: {
+    RadioSelection
+  },
   props: {
     title: {
       type: String,
@@ -71,27 +117,87 @@ export default {
     }
   },
   mounted() {
-    if (process.browser) {
-      console.log(this.$nuxt.$device)
-      this.stacked = !this.$nuxt.$device.isDesktopOrTablet
-      if (!this.$nuxt.$device.isDesktopOrTablet) {
-        this.className = 'text-left'
-      }
-    }
+    console.log(this.value)
   },
   methods: {
     selectedRadioItem() {
+      Log.d(this.value)
       const selectItemInfo = this.options.find(
         (answer) => answer.text === this.value
       )
       this.callback(this.questionId, selectItemInfo.score, this.value)
+    },
+    selectedRadioItem2(value) {
+      const selectItemInfo = this.options.find(
+        (answer) => answer.text === value
+      )
+      this.callback(this.questionId, selectItemInfo.score, value)
     }
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+$iconWidth: 2rem;
+$iconHeight: 2rem;
+$boxInnerColor: #b5b5b5;
+
 .mt-4-5 {
   margin-top: 2.5rem !important;
+}
+
+.double-circle {
+  width: $iconWidth;
+  height: $iconHeight;
+  border: double 7px $boxInnerColor;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.double {
+  width: $iconWidth;
+  height: $iconHeight;
+  border: solid 2px $boxInnerColor;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.bar-box {
+  width: $iconWidth;
+  height: $iconHeight;
+  margin: auto;
+  padding-top: 1rem;
+}
+.bar {
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+  border: 1px solid $boxInnerColor;
+}
+
+.triangle {
+  border-right: 1rem solid transparent;
+  border-bottom: 1.73rem solid $boxInnerColor;
+  border-left: 1rem solid transparent;
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  .col-2 {
+    padding-right: 7.5px !important;
+    padding-left: 7.5px !important;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  .col-2 {
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  //576px まで
+  .col-2 {
+    padding-right: 2px !important;
+    padding-left: 2px !important;
+  }
 }
 </style>

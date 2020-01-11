@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="lg" type="dark" variant="info">
+  <b-navbar toggleable="lg" class="bg-transparent" variant="info">
     <b-navbar-brand @click="clickBrandButton()"
       >ePersonality Test</b-navbar-brand
     >
@@ -93,5 +93,8 @@ export default {
 <style>
 .test .dropdown-toggle::after {
   display: none;
+}
+.navbar-brand {
+  cursor: pointer;
 }
 </style>
