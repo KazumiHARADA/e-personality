@@ -161,4 +161,12 @@ html {
   /* Set the fixed height of the footer here */
   background-color: #f5f5f5;
 }
+
+.sample {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  opacity: 0.7;
+}
 </style>
