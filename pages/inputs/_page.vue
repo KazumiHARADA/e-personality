@@ -3,6 +3,7 @@
     <div v-for="(question, key) in questions" :key="key">
       <radio-input
         :question-id="question.id"
+        :question-number="question.number"
         :keyed="question.keyed"
         :title="question.text"
         :callback="selectedItem"
@@ -147,6 +148,17 @@ export default {
         this.nextButtonClass = 'next-button ' + 'next-button-hover'
       } else {
         this.nextButtonClass = 'next-button'
+      }
+      const index = this.questions.findIndex(
+        (question) => questionId === question.id
+      )
+      console.log(index)
+      if (index < pageCount - 1) {
+        const nextIndex = index + 1
+        console.log(this.questions[nextIndex].number)
+        this.$scrollTo('#question' + this.questions[nextIndex].number, 0, {
+          offset: -100
+        })
       }
     },
     clickNextButton(next) {

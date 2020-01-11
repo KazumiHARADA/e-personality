@@ -71,8 +71,6 @@ export default {
   },
   methods: {
     handleScroll(evt, el) {
-      console.log(window.scrollY)
-      console.log(el)
       if (window.scrollY > 71) {
         el.setAttribute(
           'class',

@@ -15,6 +15,9 @@
     <b-card-text class="mb-4" style="font-size: 18px">
       {{ scoreText }}
     </b-card-text>
+    <nuxt-link v-scroll-to="anchorId" style="font-size: 16px;" to>
+      ▼ 詳しくはこちら
+    </nuxt-link>
   </b-list-group-item>
 </template>
 
@@ -59,6 +62,7 @@ export default {
   },
   data() {
     return {
+      anchorId: '#' + this.factor,
       lineColor: (() => {
         switch (this.factor) {
           case 'A':

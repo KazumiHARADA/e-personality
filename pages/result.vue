@@ -10,6 +10,7 @@
       class="shadow mb-5 bg-white rounded result-card"
       style="max-width: 100%"
     >
+      <span id="result-top" />
       <client-only>
         <main-chart class="mt-4" :result="analysedResult" />
       </client-only>

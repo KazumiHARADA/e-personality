@@ -101,17 +101,18 @@
         <h2 class="button-title mt-2">テストを始める</h2>
         <small class="button-description">所要時間：10分</small>
       </b-col>
-      <b-col sm="10" md="4" lg="3" lx="3" class="sub-button-area"
-        ><b-button
-          class="sub-button-short"
-          variant="outline"
-          @click="clickSimpleStartButton()"
-        >
-          <div class="triangle-sub-short"></div
-        ></b-button>
-        <h4 class="button-title mt-2">短縮版はこちら</h4>
-        <small class="button-description">所要時間：2分</small>
-      </b-col>
+      <b-col sm="10" md="4" lg="3" lx="3" lass="sub-button-area"></b-col>
+      <!--      <b-col sm="10" md="4" lg="3" lx="3" class="sub-button-area"-->
+      <!--        ><b-button-->
+      <!--          class="sub-button-short"-->
+      <!--          variant="outline"-->
+      <!--          @click="clickSimpleStartButton()"-->
+      <!--        >-->
+      <!--          <div class="triangle-sub-short"></div-->
+      <!--        ></b-button>-->
+      <!--        <h4 class="button-title mt-2">短縮版はこちら</h4>-->
+      <!--        <small class="button-description">所要時間：2分</small>-->
+      <!--      </b-col>-->
     </b-row>
     <b-row class="fixed-bottom p-3 bg-transparent text-right font-weight-light">
       <b-col>
