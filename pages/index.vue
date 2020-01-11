@@ -10,8 +10,12 @@
           <div class="content">
             <img class="top-icon" src="icon1.png" />
             <div class="top-text p-2">
-              <p><small>将来なりたい自分ではなく、 今の</small></p>
-              <p><small>自分はどうなのかで回答しましょう</small></p>
+              <p>
+                <small
+                  >将来なりたい自分ではなく、
+                  今の自分はどうなのかで回答しましょう</small
+                >
+              </p>
             </div>
           </div>
         </div>
@@ -43,7 +47,13 @@
       >
     </b-row>
     <b-row class="button-area mt-button-area" align-h="center" align-v="end">
-      <b-col v-if="enableResume" sm="10" md="4" lg="3" lx="3"
+      <b-col
+        v-if="enableResume"
+        class="sub-button-area"
+        sm="10"
+        md="4"
+        lg="3"
+        lx="3"
         ><b-button
           class="sub-button-restart"
           variant="outline-secondary"
@@ -51,11 +61,25 @@
         >
           <div class="triangle-sub"></div
         ></b-button>
-        <h4 class="button-title mt-1">テストを始める</h4>
+        <h4 class="button-title mt-2">テストを始める</h4>
         <small class="button-description">所要時間：10分</small></b-col
       >
-      <b-col v-else sm="10" md="4" lg="3" lx="3"></b-col>
-      <b-col v-if="enableResume" sm="10" md="4" lg="4" lx="4">
+      <b-col
+        v-else
+        sm="10"
+        md="4"
+        lg="3"
+        lx="3"
+        class="sub-button-area"
+      ></b-col>
+      <b-col
+        v-if="enableResume"
+        class="main-button-area"
+        sm="10"
+        md="4"
+        lg="4"
+        lx="4"
+      >
         <b-button
           class="main-button"
           variant="outline-secondary"
@@ -63,10 +87,10 @@
         >
           <div class="triangle-top"></div
         ></b-button>
-        <h2 class="button-title mt-1">テストを再開する</h2>
+        <h2 class="button-title mt-2">テストを再開する</h2>
         <small class="button-description">所要時間：10分</small>
       </b-col>
-      <b-col v-else sm="10" md="4" lg="4" lx="4">
+      <b-col v-else class="main-button-area" sm="10" md="4" lg="4" lx="4">
         <b-button
           class="main-button"
           variant="outline-secondary"
@@ -74,10 +98,10 @@
         >
           <div class="triangle-top"></div
         ></b-button>
-        <h2 class="button-title mt-1">テストを始める</h2>
+        <h2 class="button-title mt-2">テストを始める</h2>
         <small class="button-description">所要時間：10分</small>
       </b-col>
-      <b-col sm="10" md="4" lg="3" lx="3"
+      <b-col sm="10" md="4" lg="3" lx="3" class="sub-button-area"
         ><b-button
           class="sub-button-short"
           variant="outline"
@@ -85,7 +109,7 @@
         >
           <div class="triangle-sub-short"></div
         ></b-button>
-        <h4 class="button-title mt-1">短縮版はこちら</h4>
+        <h4 class="button-title mt-2">短縮版はこちら</h4>
         <small class="button-description">所要時間：2分</small>
       </b-col>
     </b-row>
@@ -113,12 +137,7 @@ export default {
       version: Package.version,
       enableResume: false,
       resumeClass: 'd-none',
-      isLogin: this.$store.state.user.isLogin,
-      colSize: '3',
-      windowSize: {
-        x: 0,
-        y: 0
-      }
+      isLogin: this.$store.state.user.isLogin
     }
   },
   computed: {
@@ -146,20 +165,8 @@ export default {
     } else {
       this.resumeClass = 'd-none'
     }
-    // this.handleResize()
-    // window.addEventListener('resize', this.handleResize)
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.handleResize)
   },
   methods: {
-    handleResize() {
-      if (window.innerWidth < 992) {
-        this.colSize = '10'
-      } else {
-        this.colSize = '3'
-      }
-    },
     resumeTest() {
       if (this.$store.state.inputs.answerList.length !== 0) {
         this.enableResume = true
@@ -224,50 +231,107 @@ h5 > br {
   }
 }
 
-@media (max-width: 1200px) {
-  h2,
-  .h2 {
-    font-size: calc(1.325rem + 0.7vw);
+@media screen and (max-width: 768px) {
+  //768pxまで
+  .squareBox {
+    margin-top: 10px;
+  }
+
+  .top-icon {
+    width: 20%;
+  }
+
+  .top-text {
+    margin-top: 10px;
+  }
+
+  .content {
+    padding: 20px;
+    p {
+      margin-bottom: 0;
+    }
+    .pb-4 {
+      padding-bottom: 0 !important;
+    }
+  }
+  .top-text small {
+    font-size: 70% !important;
+  }
+
+  .main-button-area {
+    margin-bottom: 20px;
+  }
+
+  .sub-button-area {
+    display: none;
   }
 }
-.squareBox {
-  position: relative;
+
+@media (max-width: 1200px) {
+  //1200px まで
+  h2,
+  .h2 {
+    font-size: calc(1.325rem + 0.6vw);
+  }
 }
 
-.squareBox::before {
-  display: block;
-  content: '';
-  padding-top: 100%;
+@media (min-width: 576px) and (max-width: 768px) {
+  //576px から 768pxまで
 }
 
-.content {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
+@media (min-width: 768px) and (max-width: 992px) {
+  //768px から 992pxまで
 }
 
-.top-icon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 35px;
-  margin: auto;
-  width: 41%;
+@media (min-width: 768px) {
+  //768px から
+  .squareBox {
+    position: relative;
+  }
+
+  .squareBox::before {
+    display: block;
+    content: '';
+    padding-top: 100%;
+  }
+
+  .content {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  .top-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 35px;
+    margin: auto;
+    width: 41%;
+  }
+
+  .top-text {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+  }
+
+  .top-text p {
+    line-height: 15px;
+  }
 }
 
-.top-text {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  margin: auto;
+@media (min-width: 992px) and (max-width: 1200px) {
+  //992px から 1200pxまで
 }
 
-.top-text p {
-  line-height: 2px;
+@media (min-width: 1200px) {
+  //1200px から
 }
 
 small {
@@ -325,9 +389,6 @@ small {
   border-left-color: #212529;
 }
 
-.button-area {
-  line-height: 2px;
-}
 .mt-box {
   margin-top: 4rem !important;
 }
