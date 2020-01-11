@@ -2,7 +2,11 @@
   <div>
     <div class="flex-box mt-n3 mb-5">
       <hr class="line" :style="lineColor" />
-      <b-card-title class="card-title mt-3" style="font-size: 30px">
+      <b-card-title
+        :id="factor"
+        class="card-title mt-3"
+        style="font-size: 30px"
+      >
         {{ title }}</b-card-title
       >
     </div>
@@ -69,6 +73,16 @@
         />
         <div />
       </b-list-group>
+      <div class="w-100 text-center mt-2">
+        <nuxt-link
+          v-scroll-to="'#result-top'"
+          class="align-content-center"
+          style="font-size: 16px;"
+          to
+        >
+          ▲ 戻る
+        </nuxt-link>
+      </div>
     </b-card-body>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <b-navbar toggleable="lg" class="bg-transparent" variant="info">
-    <b-navbar-brand @click="clickBrandButton()"
+    <b-navbar-brand class="text-white" @click="clickBrandButton()"
       >ePersonality Test</b-navbar-brand
     >
 
