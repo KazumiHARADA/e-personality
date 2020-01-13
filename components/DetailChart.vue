@@ -63,9 +63,9 @@ export default {
       data: {
         labels: [
           facet1.title,
-          facet2.title,
-          facet3.title,
           facet4.title,
+          facet3.title,
+          facet2.title,
           facet5.title,
           facet6.title
         ],
@@ -74,9 +74,9 @@ export default {
             label: 'スコア',
             data: [
               this.result[this.factor].facet[1].score,
-              this.result[this.factor].facet[2].score,
-              this.result[this.factor].facet[3].score,
               this.result[this.factor].facet[4].score,
+              this.result[this.factor].facet[3].score,
+              this.result[this.factor].facet[2].score,
               this.result[this.factor].facet[5].score,
               this.result[this.factor].facet[6].score
             ],

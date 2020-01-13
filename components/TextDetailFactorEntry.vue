@@ -1,5 +1,5 @@
 <template>
-  <b-list-group-item class="pl-0 pr-0">
+  <b-list-group-item class="pl-1 pr-1">
     <b-card-title class="mt-2">{{ title }}</b-card-title>
     <detail-slider
       class="mt-3 mb-3"
@@ -7,7 +7,7 @@
       :result-key="scoreKey"
       :factor="factor"
     />
-    <b-card-text class="mb-2">
+    <b-card-text class="mb-2" style="font-size: 18px">
       {{ scoreText }}
     </b-card-text>
   </b-list-group-item>
@@ -49,4 +49,13 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.list-group-item {
+  height: 100%;
+  border-radius: 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+</style>
