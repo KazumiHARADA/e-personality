@@ -21,58 +21,113 @@
     </div>
     <detail-chart :result="result" :factor="factor" />
     <b-card-body class="text-left pl-0 pr-0 mt-5">
-      <b-list-group flush>
-        <div />
-        <text-detail-factor-entry
-          :title="facets[0].title"
-          :score="userInfo['1'].score"
-          :score-title="getLiteral(userInfo['1'].result)"
-          :score-text="facets[0].text"
-          :score-key="userInfo['1'].result"
-          :factor="factor"
-        />
-        <text-detail-factor-entry
-          :title="facets[1].title"
-          :score="userInfo['2'].score"
-          :score-title="getLiteral(userInfo['2'].result)"
-          :score-text="facets[1].text"
-          :score-key="userInfo['2'].result"
-          :factor="factor"
-        />
-        <text-detail-factor-entry
-          :title="facets[2].title"
-          :score="userInfo['3'].score"
-          :score-title="getLiteral(userInfo['3'].result)"
-          :score-text="facets[2].text"
-          :score-key="userInfo['3'].result"
-          :factor="factor"
-        />
-        <text-detail-factor-entry
-          :title="facets[3].title"
-          :score="userInfo['4'].score"
-          :score-title="getLiteral(userInfo['4'].result)"
-          :score-text="facets[3].text"
-          :score-key="userInfo['4'].result"
-          :factor="factor"
-        />
-        <text-detail-factor-entry
-          :title="facets[4].title"
-          :score="userInfo['5'].score"
-          :score-title="getLiteral(userInfo['5'].result)"
-          :score-text="facets[4].text"
-          :score-key="userInfo['5'].result"
-          :factor="factor"
-        />
-        <text-detail-factor-entry
-          :title="facets[5].title"
-          :score="userInfo['6'].score"
-          :score-title="getLiteral(userInfo['6'].result)"
-          :score-text="facets[5].text"
-          :score-key="userInfo['6'].result"
-          :factor="factor"
-        />
-        <div />
-      </b-list-group>
+      <h3>あなたの特徴</h3>
+      <hr />
+      <b-row class="detail-list">
+        <b-col
+          sm="12"
+          md="6"
+          lg="6"
+          lx="6"
+          :class="userInfo.factorInfo.factorParentClass1"
+        >
+          <text-detail-factor-entry
+            :title="facets[0].title"
+            :score="userInfo['1'].score"
+            :score-title="getLiteral(userInfo['1'].result)"
+            :score-text="userInfo.factorInfo['1'].text"
+            :score-key="userInfo['1'].result"
+            :factor="factor"
+            :class="userInfo.factorInfo.factorClass1"
+          />
+        </b-col>
+        <b-col
+          sm="12"
+          md="6"
+          lg="6"
+          lx="6"
+          :class="userInfo.factorInfo.factorParentClass2"
+        >
+          <text-detail-factor-entry
+            :title="facets[1].title"
+            :score="userInfo['2'].score"
+            :score-title="getLiteral(userInfo['2'].result)"
+            :score-text="userInfo.factorInfo['2'].text"
+            :score-key="userInfo['2'].result"
+            :factor="factor"
+            :class="userInfo.factorInfo.factorClass2"
+          />
+        </b-col>
+        <b-col
+          sm="12"
+          md="6"
+          lg="6"
+          lx="6"
+          :class="userInfo.factorInfo.factorParentClass3"
+        >
+          <text-detail-factor-entry
+            :title="facets[2].title"
+            :score="userInfo['3'].score"
+            :score-title="getLiteral(userInfo['3'].result)"
+            :score-text="userInfo.factorInfo['3'].text"
+            :score-key="userInfo['3'].result"
+            :factor="factor"
+            :class="userInfo.factorInfo.factorClass3"
+          />
+        </b-col>
+        <b-col
+          sm="12"
+          md="6"
+          lg="6"
+          lx="6"
+          :class="userInfo.factorInfo.factorParentClass4"
+        >
+          <text-detail-factor-entry
+            :title="facets[3].title"
+            :score="userInfo['4'].score"
+            :score-title="getLiteral(userInfo['4'].result)"
+            :score-text="userInfo.factorInfo['4'].text"
+            :score-key="userInfo['4'].result"
+            :factor="factor"
+            :class="userInfo.factorInfo.factorClass4"
+          />
+        </b-col>
+        <b-col
+          sm="12"
+          md="6"
+          lg="6"
+          lx="6"
+          :class="userInfo.factorInfo.factorParentClass5"
+        >
+          <text-detail-factor-entry
+            :title="facets[4].title"
+            :score="userInfo['5'].score"
+            :score-title="getLiteral(userInfo['5'].result)"
+            :score-text="userInfo.factorInfo['5'].text"
+            :score-key="userInfo['5'].result"
+            :factor="factor"
+            :class="userInfo.factorInfo.factorClass5"
+          />
+        </b-col>
+        <b-col
+          sm="12"
+          md="6"
+          lg="6"
+          lx="6"
+          :class="userInfo.factorInfo.factorParentClass6"
+        >
+          <text-detail-factor-entry
+            :title="facets[5].title"
+            :score="userInfo['6'].score"
+            :score-title="getLiteral(userInfo['6'].result)"
+            :score-text="userInfo.factorInfo['6'].text"
+            :score-key="userInfo['6'].result"
+            :factor="factor"
+            :class="userInfo.factorInfo.factorClass6"
+          />
+        </b-col>
+      </b-row>
+      <hr />
       <div class="w-100 text-center mt-2">
         <nuxt-link
           v-scroll-to="'#result-top'"
@@ -127,8 +182,6 @@ export default {
     }
   },
   data() {
-    console.log('factor')
-    console.log(this.factor)
     return {
       title: ((factor) => {
         switch (factor) {
@@ -199,7 +252,8 @@ export default {
               '3': this.result.A.facet['3'],
               '4': this.result.A.facet['4'],
               '5': this.result.A.facet['5'],
-              '6': this.result.A.facet['6']
+              '6': this.result.A.facet['6'],
+              factorInfo: this.getFactorInfo(this.result.A, Agreeableness)
             }
           case 'C':
             return {
@@ -214,7 +268,8 @@ export default {
               '3': this.result.C.facet['3'],
               '4': this.result.C.facet['4'],
               '5': this.result.C.facet['5'],
-              '6': this.result.C.facet['6']
+              '6': this.result.C.facet['6'],
+              factorInfo: this.getFactorInfo(this.result.C, Conscientiousness)
             }
           case 'E':
             return {
@@ -229,7 +284,8 @@ export default {
               '3': this.result.E.facet['3'],
               '4': this.result.E.facet['4'],
               '5': this.result.E.facet['5'],
-              '6': this.result.E.facet['6']
+              '6': this.result.E.facet['6'],
+              factorInfo: this.getFactorInfo(this.result.E, Extraversion)
             }
           case 'N':
             return {
@@ -244,7 +300,8 @@ export default {
               '3': this.result.N.facet['3'],
               '4': this.result.N.facet['4'],
               '5': this.result.N.facet['5'],
-              '6': this.result.N.facet['6']
+              '6': this.result.N.facet['6'],
+              factorInfo: this.getFactorInfo(this.result.N, Neuroticism)
             }
           case 'O':
             return {
@@ -259,7 +316,11 @@ export default {
               '3': this.result.O.facet['3'],
               '4': this.result.O.facet['4'],
               '5': this.result.O.facet['5'],
-              '6': this.result.O.facet['6']
+              '6': this.result.O.facet['6'],
+              factorInfo: this.getFactorInfo(
+                this.result.O,
+                OpennessToExperience
+              )
             }
         }
       })(this.factor)
@@ -268,12 +329,116 @@ export default {
   methods: {
     getLiteral(scoreResult) {
       return ScoreText[scoreResult]
+    },
+    getFactorInfo(factorResult, factor) {
+      const result1 = factorResult.facet['1'].result
+      const result2 = factorResult.facet['2'].result
+      const result3 = factorResult.facet['3'].result
+      const result4 = factorResult.facet['4'].result
+      const result5 = factorResult.facet['5'].result
+      const result6 = factorResult.facet['6'].result
+
+      const factorResultList = [
+        result1,
+        result2,
+        result3,
+        result4,
+        result5,
+        result6
+      ]
+
+      const factorParentClassList = factorResultList.map((result) =>
+        getFactorParentClass(result)
+      )
+
+      const factorParentClassNumberedList = factorResultList
+        .map((result, index) => {
+          return {
+            number: index,
+            className: getFactorParentClass(result)
+          }
+        })
+        .filter((v) => v.className !== ' d-none ')
+
+      const factorClassList = ['', '', '', '', '', '']
+
+      if (factorParentClassNumberedList.length % 2 !== 0) {
+        const lastIndex = factorParentClassNumberedList.length - 1
+        const lastNumber = factorParentClassNumberedList[lastIndex].number
+        factorClassList[lastNumber] += ' b-none last-item '
+      }
+
+      if (factorParentClassNumberedList.length % 2 === 0) {
+        const lastIndex = factorParentClassNumberedList.length - 1
+        const lastBeforeIndex = factorParentClassNumberedList.length - 2
+        const lastNumber = factorParentClassNumberedList[lastIndex].number
+        const lastBeforeNumber =
+          factorParentClassNumberedList[lastBeforeIndex].number
+        factorClassList[lastNumber] += ' b-none last-item '
+        factorClassList[lastBeforeNumber] += ' b-none last-before-item '
+      }
+
+      console.log(factorParentClassNumberedList)
+
+      const featuredCount = factorResultList
+        .map((result) => getFeatured(result))
+        .reduce((a, c) => {
+          return a + c
+        })
+
+      function getFeatured(result) {
+        if (result !== 'neutral') {
+          return 1
+        } else {
+          return 0
+        }
+      }
+
+      function getFactorParentClass(result) {
+        if (result === 'neutral') {
+          return ' d-none '
+        }
+      }
+
+      return {
+        featuredCount,
+        '1': factor.shortFacets
+          .find((v) => v.facet === 1)
+          .results.find((v) => v.key === result1),
+        factorClass1: factorClassList[0],
+        factorParentClass1: factorParentClassList[0],
+        '2': factor.shortFacets
+          .find((v) => v.facet === 2)
+          .results.find((v) => v.key === result2),
+        factorClass2: factorClassList[1],
+        factorParentClass2: factorParentClassList[1],
+        '3': factor.shortFacets
+          .find((v) => v.facet === 3)
+          .results.find((v) => v.key === result3),
+        factorClass3: factorClassList[2],
+        factorParentClass3: factorParentClassList[2],
+        '4': factor.shortFacets
+          .find((v) => v.facet === 4)
+          .results.find((v) => v.key === result4),
+        factorClass4: factorClassList[3],
+        factorParentClass4: factorParentClassList[3],
+        '5': factor.shortFacets
+          .find((v) => v.facet === 5)
+          .results.find((v) => v.key === result5),
+        factorClass5: factorClassList[4],
+        factorParentClass5: factorParentClassList[4],
+        '6': factor.shortFacets
+          .find((v) => v.facet === 6)
+          .results.find((v) => v.key === result6),
+        factorClass6: factorClassList[5],
+        factorParentClass6: factorParentClassList[5]
+      }
     }
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .flex-box {
   display: flex;
   justify-content: center;
@@ -290,5 +455,31 @@ export default {
 
 .card-title {
   position: relative;
+}
+
+.b-none {
+  border: none;
+}
+
+@media (min-width: 768px) {
+  // 768pxから
+  .b-none {
+    border: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .b-none {
+    height: 100%;
+    border-radius: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  }
+  // 768pxまで
+  .last-item {
+    border: none;
+  }
 }
 </style>

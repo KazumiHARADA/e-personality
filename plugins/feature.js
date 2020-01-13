@@ -4,12 +4,6 @@ import Extraversion from '~/assets/factor/extraversion'
 import Neuroticism from '~/assets/factor/neuroticism'
 import OpennessToExperience from '~/assets/factor/openness_to_experience'
 
-const coefficients = {
-  neutral: 1,
-  high: 2,
-  very_high: 3
-}
-
 function getCoefficient(score) {
   return Math.abs(score - 12) * 10
 }
@@ -96,8 +90,6 @@ function getFeatureWords(result) {
       })
       .filter((v) => v.text !== '')
   }
-  console.log(result)
-  console.log(coefficients)
   cloudWords.push(
     extractWords(Agreeableness, result.A.facet).map((v) => {
       v.type = 'A'
