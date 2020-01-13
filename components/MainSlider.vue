@@ -3,7 +3,7 @@
     <div :class="lowClass" :style="lowStyle">低い</div>
     <span class="slider-box">
       <span class="double" :style="positionStyle">{{ score }}</span>
-      <img src="score-bar-big.png" />
+      <img class="barImage" src="score-bar-big.png" />
     </span>
     <div :class="highClass" :style="highStyle">高い</div>
   </div>
@@ -172,7 +172,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .slider-box {
   position: relative;
   height: 100%;
@@ -216,5 +216,60 @@ export default {
   line-height: 52px;
   border-radius: 50%;
   border: solid 5px #aaaaaa;
+}
+
+@media (max-width: 576px) {
+  // 576pxまで
+}
+
+@media (max-width: 450px) {
+  // 450pxまで
+  $baseCircleSize: 13.5vw;
+  $baseLineHeight: 11vw;
+  $baseFontSize: 4.5vw;
+  .slider-box .double {
+    position: absolute;
+    display: inline-block;
+    background-color: #ffffff;
+    width: 6vw;
+    height: 6vw;
+    text-align: center;
+    color: #000000;
+    font-size: 3vw;
+    line-height: 5vw;
+    border-radius: 50%;
+    border: solid 2px #000000;
+    margin-top: 3px;
+    top: 0;
+    left: 100%;
+  }
+
+  .result-circle-active {
+    display: inline-block;
+    font-weight: bold;
+    width: $baseCircleSize;
+    height: $baseCircleSize;
+    text-align: center;
+    font-size: $baseFontSize;
+    line-height: $baseLineHeight;
+    border-radius: 50%;
+  }
+
+  .result-circle-inactive {
+    display: inline-block;
+    font-weight: bold;
+    width: $baseCircleSize;
+    height: $baseCircleSize;
+    text-align: center;
+    color: #aaaaaa;
+    font-size: $baseFontSize;
+    line-height: $baseLineHeight;
+    border-radius: 50%;
+    border: solid 5px #aaaaaa;
+  }
+
+  .barImage {
+    width: 30vw;
+  }
 }
 </style>

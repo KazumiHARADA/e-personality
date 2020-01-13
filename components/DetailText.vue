@@ -469,6 +469,7 @@ export default {
 }
 
 @media (max-width: 768px) {
+  // 768pxまで
   .b-none {
     height: 100%;
     border-radius: 0;
@@ -477,7 +478,6 @@ export default {
     border-right: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
   }
-  // 768pxまで
   .last-item {
     border: none;
   }

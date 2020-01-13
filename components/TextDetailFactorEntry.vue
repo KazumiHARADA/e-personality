@@ -7,7 +7,7 @@
       :result-key="scoreKey"
       :factor="factor"
     />
-    <b-card-text class="mb-2">
+    <b-card-text class="mb-2" style="font-size: 18px">
       {{ scoreText }}
     </b-card-text>
   </b-list-group-item>
