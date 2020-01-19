@@ -5,7 +5,7 @@ import Neuroticism from '~/assets/factor/neuroticism'
 import OpennessToExperience from '~/assets/factor/openness_to_experience'
 
 function getCoefficient(score) {
-  return Math.abs(score - 12) * 10
+  return Math.abs(score - 12) * 15
 }
 
 function getFeatureWords(result) {

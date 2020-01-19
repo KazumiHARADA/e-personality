@@ -67,7 +67,7 @@ export default {
           key: 'low',
           text: `自己肯定感が低く、自分の人生をコントロールできていないと感じるかもしれません。`,
           feature: '自信ない',
-          shortFeature: ''
+          shortFeature: '自信ない'
         },
         {
           key: 'neutral',
