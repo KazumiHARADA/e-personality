@@ -117,7 +117,7 @@
     <b-row class="fixed-bottom p-3 bg-transparent text-right font-weight-light">
       <b-col>
         <span style="font-size:15px"
-          ><nuxt-link class="text-light" to="/result/?id=177LI3975Wk78cuHqgLi"
+          ><nuxt-link class="text-light" to="/result/?id=5MqaY9DpKQlIntxKT6gR"
             >v{{ version }}</nuxt-link
           ></span
         >

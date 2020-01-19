@@ -2,7 +2,7 @@
   <div>
     <b-navbar toggleable="lg" class="bg-transparent" variant="info">
       <b-navbar-brand class="text-white" @click="clickBrandButton()"
-        >ePersonality Test</b-navbar-brand
+        >ePersonality</b-navbar-brand
       >
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
