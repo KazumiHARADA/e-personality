@@ -2,7 +2,7 @@
   <div>
     <div :class="lowClass" :style="lowStyle">低い</div>
     <span class="slider-box">
-      <span class="double" :style="positionStyle">{{ score }}</span>
+      <span class="double" :style="positionStyle"> </span>
       <img src="score-bar-small.png" />
     </span>
     <div :class="highClass" :style="highStyle">高い</div>
@@ -184,15 +184,15 @@ export default {
   position: absolute;
   display: inline-block;
   background-color: #ffffff;
-  width: 27px;
-  height: 27px;
+  width: 15px;
+  height: 15px;
   text-align: center;
   color: #000000;
   font-size: 16px;
   line-height: 23px;
   border-radius: 50%;
   border: solid 2px #000000;
-  top: 0;
+  top: 6px;
   left: 100%;
 }
 
