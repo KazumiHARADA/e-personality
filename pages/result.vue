@@ -58,7 +58,7 @@ import { setting as ExtraversionSetting } from '~/assets/factor/extraversion'
 import { setting as NeuroticismSetting } from '~/assets/factor/neuroticism'
 import { setting as OpennessToExperienceSetting } from '~/assets/factor/openness_to_experience'
 
-const w = 800
+const w = 600
 const h = 400
 
 export default {
