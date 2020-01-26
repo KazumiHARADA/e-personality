@@ -78,6 +78,7 @@ export default {
     return {
       analysedResult: {},
       cloudInnerHTML: '',
+      imageUrl: '',
       host: '',
       userId: '',
       AhrStyle: 'background-color : ' + AgreeablenessSetting.iconHexColor + ';',
@@ -102,7 +103,8 @@ export default {
         return {
           userId: query.id,
           analysedResult: v.get('answers'),
-          cloudInnerHTML: v.get('cloudInnerHTML')
+          cloudInnerHTML: v.get('cloudInnerHTML'),
+          imageUrl: v.get('imageUrl')
         }
       })
       .catch((e) => {
@@ -136,7 +138,7 @@ export default {
             .style('font-size', function(d) {
               return d.size + 'px'
             })
-            .style('font-family', 'Impact')
+            .style('font-weight', 'bold')
             .style('fill', function(d, i) {
               switch (d.type) {
                 case 'A':
@@ -169,6 +171,36 @@ export default {
               },
               { merge: true }
             )
+          let apiUrl = ''
+          let localFlag = false
+          if (process.env.NODE_ENV === 'development') {
+            apiUrl = 'http://localhost:5001/e-personality/us-central1/svg'
+            localFlag = true
+          } else {
+            apiUrl = 'https://us-central1-e-personality.cloudfunctions.net/svg'
+            localFlag = false
+          }
+          this.$axios
+            .$get(apiUrl, {
+              params: {
+                svgHTML: document.getElementById('cloud-area').innerHTML,
+                userId: this.userId,
+                isLocal: localFlag
+              }
+            })
+            .then((v) => {
+              db.collection('results')
+                .doc(this.userId)
+                .set(
+                  {
+                    imageUrl: v.url
+                  },
+                  { merge: true }
+                )
+            })
+            .catch((e) => {
+              console.log(e)
+            })
         }) // 描画関数の読み込み
         .start()
     } else {
