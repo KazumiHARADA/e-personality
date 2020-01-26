@@ -13,17 +13,6 @@ admin.initializeApp({
   storageBucket: 'e-personality.appspot.com'
 })
 
-//const nuxtServer = require('./nuxt-server')
-
-exports.devlog = functions.https.onRequest((request, response) => {
-  response.set('Access-Control-Allow-Origin', 'http://localhost:3000')
-  response.set('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS, POST')
-  response.set('Access-Control-Allow-Headers', 'Content-Type, authorization')
-  console.info('yobareta')
-  console.info(request.query.message)
-  response.json({ data: 'test message' })
-})
-
 exports.log = functions.https.onRequest((request, response) => {
   response.set(
     'Access-Control-Allow-Origin',
@@ -35,45 +24,42 @@ exports.log = functions.https.onRequest((request, response) => {
   response.json({ data: 'test message' })
 })
 
-exports.svg = functions.https.onRequest((request, response) => {
-  response.set('Access-Control-Allow-Origin', 'http://localhost:3000')
+exports.svg = functions.https.onRequest(async (request, response) => {
+  if (request.query.isLocal === 'true') {
+    response.set('Access-Control-Allow-Origin', 'http://localhost:3000')
+  } else {
+    response.set(
+      'Access-Control-Allow-Origin',
+      'https://e-personality.firebaseapp.com'
+    )
+  }
+
   response.set('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS, POST')
   response.set('Access-Control-Allow-Headers', 'Content-Type, authorization')
 
-  console.info(request.body.svgHTML)
+  const svgStyledHTML = request.query.svgHTML
+    .replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg" ')
+    .replace('width="100%"', 'width="600px"')
+    .replace('height="100%"', 'height="400px"')
 
-  svg2img(request.body.svgHTML, (e, buffer) => {
-    fs.writeFileSync('foo1.png', buffer)
+  const fileName = request.query.userId + '-cloud.png'
+  await svg2img(svgStyledHTML, (e, buffer) => {
+    const file = admin
+      .storage()
+      .bucket()
+      .file(fileName)
+    return file.save(buffer, { metadata: { contentType: 'image/jpeg' } })
   })
 
-  const bucket = admin.storage().bucket()
-  const filePath = 'test.txt'
-  const file = bucket.file(filePath)
-  const txt = 'sample text'
-  file
-    .save(txt)
-    .then(() => {
-      return file.setMetadata({ contentType: 'text/html' })
-    })
-    .catch((e) => {
-      console.log(e)
-    })
-  const text = admin
+  const res = await admin
     .storage()
     .bucket()
-    .file(filePath)
-  text
+    .file(fileName)
     .getSignedUrl({
       action: 'read',
       expires: '03-09-2491'
     })
-    .then((signedUrls) => {
-      console.log(signedUrls[0])
-      return response.json({ url: signedUrls[0] })
-    })
-    .catch((e) => {
-      return console.log(e)
-    })
+  response.json({
+    url: res[0]
+  })
 })
-
-//exports.nuxtServer = functions.https.onRequest(nuxtServer)
