@@ -25,15 +25,14 @@ exports.log = functions.https.onRequest((request, response) => {
 })
 
 exports.svg = functions.https.onRequest(async (request, response) => {
-  console.info(request.headers.host)
-  // if (request.query.isLocal) {
-  //   response.set('Access-Control-Allow-Origin', 'http://localhost:3000')
-  // } else {
-  response.set(
-    'Access-Control-Allow-Origin',
-    'https://e-personality.firebaseapp.com'
-  )
-  //}
+  if (request.query.isLocal === 'true') {
+    response.set('Access-Control-Allow-Origin', 'http://localhost:3000')
+  } else {
+    response.set(
+      'Access-Control-Allow-Origin',
+      'https://e-personality.firebaseapp.com'
+    )
+  }
 
   response.set('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS, POST')
   response.set('Access-Control-Allow-Headers', 'Content-Type, authorization')
@@ -44,22 +43,14 @@ exports.svg = functions.https.onRequest(async (request, response) => {
     .replace('height="100%"', 'height="400px"')
 
   const fileName = request.query.userId + '-cloud.png'
-  const localFilePath = os.tmpdir() + '/' + fileName
-  console.log('kita1')
-  svg2img(svgStyledHTML, (e, buffer) => {
-    console.log('kita2')
-    fs.writeFile(localFilePath, buffer, (e) => {
-      if (e) {
-        console.log(JSON.stringify(e))
-      } else {
-        console.log('success')
-      }
-    })
+  await svg2img(svgStyledHTML, (e, buffer) => {
+    const file = admin
+      .storage()
+      .bucket()
+      .file(fileName)
+    return file.save(buffer, { metadata: { contentType: 'image/jpeg' } })
   })
 
-  const bucket = admin.storage().bucket()
-  const uploadResult = await bucket.upload(localFilePath)
-  console.log(JSON.stringify(uploadResult))
   const res = await admin
     .storage()
     .bucket()
