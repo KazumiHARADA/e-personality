@@ -111,69 +111,78 @@ export default {
   },
   mounted() {
     this.$store.dispatch('inputs/resetAnswers')
-    if (this.cloudInnerHTML === '' || this.cloudInnerHTML === undefined) {
-      cloud()
-        .size([w, h])
-        .words(getFeatureWords(this.analysedResult))
-        .font('Impact')
-        .rotate(0)
-        .fontSize(function(d) {
-          return d.size
-        })
-        .on('end', (words) => {
-          d3.select('#cloud-area')
-            .append('svg')
-            .attr('class', 'ui fluid image') // style using semantic ui
-            .attr('viewBox', '0 0 ' + w + ' ' + h) // ViewBox : x, y, width, height
-            .attr('width', '100%') // 表示サイズの設定
-            .attr('height', '100%') // 表示サイズの設定
-            .append('g')
-            .attr('transform', 'translate(' + w / 2 + ',' + h / 2 + ')')
-            .selectAll('text')
-            .data(words)
-            .enter()
-            .append('text')
-            .style('font-size', function(d) {
-              return d.size + 'px'
-            })
-            .style('font-family', 'Impact')
-            .style('fill', function(d, i) {
-              switch (d.type) {
-                case 'A':
-                  return AgreeablenessSetting.borderHexColor
-                case 'C':
-                  return ConscientiousnessSetting.borderHexColor
-                case 'E':
-                  return ExtraversionSetting.borderHexColor
-                case 'N':
-                  return NeuroticismSetting.borderHexColor
-                case 'O':
-                  return OpennessToExperienceSetting.borderHexColor
-              }
-              return d3.schemeCategory10[i % 10]
-            })
-            .attr('text-anchor', 'middle')
-            .attr('transform', function(d) {
-              return 'translate(' + [d.x, d.y] + ')rotate(' + d.rotate + ')'
-            })
-            .text(function(d) {
-              return d.text
-            })
-          // 描画完了時にSVGをFirebaseに保存する
-          const db = firebase.firestore()
-          db.collection('results')
-            .doc(this.userId)
-            .set(
-              {
-                cloudInnerHTML: document.getElementById('cloud-area').innerHTML
-              },
-              { merge: true }
-            )
-        }) // 描画関数の読み込み
-        .start()
-    } else {
-      document.getElementById('cloud-area').innerHTML = this.cloudInnerHTML
-    }
+    // if (this.cloudInnerHTML === '' || this.cloudInnerHTML === undefined) {
+    cloud()
+      .size([w, h])
+      .words(getFeatureWords(this.analysedResult))
+      .font('Impact')
+      .rotate(0)
+      .fontSize(function(d) {
+        return d.size
+      })
+      .on('end', (words) => {
+        d3.select('#cloud-area')
+          .append('svg')
+          .attr('class', 'ui fluid image') // style using semantic ui
+          .attr('viewBox', '0 0 ' + w + ' ' + h) // ViewBox : x, y, width, height
+          .attr('width', '100%') // 表示サイズの設定
+          .attr('height', '100%') // 表示サイズの設定
+          .append('g')
+          .attr('transform', 'translate(' + w / 2 + ',' + h / 2 + ')')
+          .selectAll('text')
+          .data(words)
+          .enter()
+          .append('text')
+          .style('font-size', function(d) {
+            return d.size + 'px'
+          })
+          .style('font-family', 'Test')
+          .style('fill', function(d, i) {
+            switch (d.type) {
+              case 'A':
+                return AgreeablenessSetting.borderHexColor
+              case 'C':
+                return ConscientiousnessSetting.borderHexColor
+              case 'E':
+                return ExtraversionSetting.borderHexColor
+              case 'N':
+                return NeuroticismSetting.borderHexColor
+              case 'O':
+                return OpennessToExperienceSetting.borderHexColor
+            }
+            return d3.schemeCategory10[i % 10]
+          })
+          .attr('text-anchor', 'middle')
+          .attr('transform', function(d) {
+            return 'translate(' + [d.x, d.y] + ')rotate(' + d.rotate + ')'
+          })
+          .text(function(d) {
+            return d.text
+          })
+        // 描画完了時にSVGをFirebaseに保存する
+        const db = firebase.firestore()
+        db.collection('results')
+          .doc(this.userId)
+          .set(
+            {
+              cloudInnerHTML: document.getElementById('cloud-area').innerHTML
+            },
+            { merge: true }
+          )
+        console.log(document.getElementById('cloud-area').innerHTML)
+        this.$axios.$get(
+          'http://localhost:5001/e-personality/us-central1/svg',
+          {
+            params: {
+              svgHTML: document.getElementById('cloud-area').innerHTML
+            }
+          }
+        )
+      }) // 描画関数の読み込み
+      .start()
+    // } else {
+    //   document.getElementById('cloud-area').innerHTML = this.cloudInnerHTML
+    // }
   }
 }
 </script>
