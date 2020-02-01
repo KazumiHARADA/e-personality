@@ -1,7 +1,7 @@
 {
   "name": "e-personality",
   "version": "0.0.25",
-  "description": "My spectacular Nuxt.js project",
+  "description": "judge users personalities",
   "author": "Kazumi Harada",
   "private": true,
   "scripts": {
