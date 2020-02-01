@@ -48,7 +48,7 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="scss">
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -62,10 +62,21 @@ html {
   height: 100%;
 }
 
-body,
-#__nuxt,
-#__layout {
-  height: 100%;
+@media (min-height: 842px) {
+  //842pxから
+  body,
+  #__nuxt,
+  #__layout {
+    height: 100%;
+  }
+}
+
+@media (max-height: 841px) {
+  //841pxまで
+  body,
+  #__nuxt,
+  #__layout {
+  }
 }
 
 .background-top {
