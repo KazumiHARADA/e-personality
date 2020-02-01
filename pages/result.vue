@@ -11,15 +11,12 @@
       style="max-width: 100%"
     >
       <span id="result-top" />
-      <!--      <client-only>-->
-      <!--        <main-chart class="mt-4" :result="analysedResult" />-->
-      <!--      </client-only>-->
-      <FeatureCloud
-        id="cloud-area"
-        :result="analysedResult"
-        :inner-h-t-m-l="cloudInnerHTML"
-        :user-id="userId"
-      />
+      <!--      <FeatureCloud-->
+      <!--        id="cloud-area"-->
+      <!--        :result="analysedResult"-->
+      <!--        :inner-h-t-m-l="cloudInnerHTML"-->
+      <!--        :user-id="userId"-->
+      <!--      />-->
       <client-only>
         <main-text :result="analysedResult" />
       </client-only>
@@ -54,7 +51,7 @@ import 'firebase/firestore'
 // import MainChart from '~/components/MainChart.vue'
 import MainText from '~/components/MainText.vue'
 import DetailText from '~/components/DetailText.vue'
-import FeatureCloud from '~/components/FeatureCloud.vue'
+// import FeatureCloud from '~/components/FeatureCloud.vue'
 import { setting as AgreeablenessSetting } from '~/assets/factor/agreeableness'
 import { setting as ConscientiousnessSetting } from '~/assets/factor/conscientiousness'
 import { setting as ExtraversionSetting } from '~/assets/factor/extraversion'
@@ -67,8 +64,8 @@ export default {
   components: {
     // MainChart,
     MainText,
-    DetailText,
-    FeatureCloud
+    DetailText
+    // FeatureCloud
   },
   head() {
     return {

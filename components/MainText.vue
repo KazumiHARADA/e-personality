@@ -1,6 +1,5 @@
 <template>
   <b-card-body class="text-left">
-    <div />
     <b-list-group flush>
       <text-main-factor-entry
         :title="agreeableness.title"
