@@ -325,6 +325,10 @@ h5 > br {
   .top-text p {
     line-height: 15px;
   }
+
+  .main-button-area {
+    margin-bottom: 50px;
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
