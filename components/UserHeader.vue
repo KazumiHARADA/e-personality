@@ -10,7 +10,7 @@
       <b-collapse id="nav-collapse" is-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-nav-item to="/about" right>About</b-nav-item>
+          <b-nav-item class="about" to="/about" right>About</b-nav-item>
           <b-nav-item-dropdown right class="test">
             <template slot="button-content">
               <b-img
@@ -98,5 +98,10 @@ export default {
 }
 .navbar-brand {
   cursor: pointer;
+}
+
+.about a {
+  margin: 7px;
+  color: #fff !important;
 }
 </style>
