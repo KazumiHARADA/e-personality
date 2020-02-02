@@ -96,21 +96,15 @@ export default {
       notes: ReleaseNote
     }
   },
+  head() {
+    return {
+      title: 'このアプリについて',
+      meta: []
+    }
+  },
   computed: {
     state() {
       return Boolean(this.value)
-    }
-  },
-  head() {
-    return {
-      title: this.title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'My custom description'
-        }
-      ]
     }
   },
   mounted() {}

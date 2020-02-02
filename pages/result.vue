@@ -69,6 +69,7 @@ export default {
   },
   head() {
     return {
+      title: '分析結果',
       meta: [{ hid: 'robots', name: 'robots', content: 'noindex' }]
     }
   },
