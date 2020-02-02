@@ -1,7 +1,7 @@
 {
   "name": "e-personality",
-  "version": "0.1.1",
-  "description": "judge users personalities",
+  "version": "0.1.2",
+  "description": "Big Five 理論に基づいて、精密に自身のパーソナリティを分析できます",
   "author": "Kazumi Harada",
   "private": true,
   "scripts": {

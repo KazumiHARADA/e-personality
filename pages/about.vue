@@ -27,7 +27,7 @@
     <h5 class="mt-2">Kazumi HARADA</h5>
     <p class="mt-2">Full stack engineer</p>
     <b-row class="mt-box" align-h="center">
-      <b-col sm="1" md="1" lg="1" lx="1">
+      <b-col class="ssm" sm="2" md="2" lg="1" lx="1">
         <a class="icon-button" href="https://github.com/KazumiHARADA">
           <b-img
             width="60"
@@ -38,7 +38,7 @@
           />
         </a>
       </b-col>
-      <b-col sm="1" md="1" lg="1" lx="1">
+      <b-col class="ssm" sm="2" md="2" lg="1" lx="1">
         <a class="icon-button" href="https://twitter.com/kazu04r">
           <b-img
             width="60"
@@ -49,7 +49,7 @@
           />
         </a>
       </b-col>
-      <b-col sm="1" md="1" lg="1" lx="1">
+      <b-col class="ssm" sm="2" md="2" lg="1" lx="1">
         <a class="icon-button" href="https://qiita.com/kazu04r">
           <b-img
             width="60"
@@ -96,21 +96,15 @@ export default {
       notes: ReleaseNote
     }
   },
+  head() {
+    return {
+      title: 'このアプリについて',
+      meta: []
+    }
+  },
   computed: {
     state() {
       return Boolean(this.value)
-    }
-  },
-  head() {
-    return {
-      title: this.title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'My custom description'
-        }
-      ]
     }
   },
   mounted() {}
@@ -134,5 +128,23 @@ export default {
   right: 10px;
   top: 4px;
   font-size: 17px;
+}
+
+@media screen and (min-width: 446px) and (max-width: 576px) {
+  .ssm {
+    position: relative;
+    width: 20%;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+@media screen and (max-width: 445px) {
+  .ssm {
+    position: relative;
+    width: 30%;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
 }
 </style>

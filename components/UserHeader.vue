@@ -104,4 +104,8 @@ export default {
   margin: 7px;
   color: #fff !important;
 }
+
+.test a {
+  margin: 4px;
+}
 </style>

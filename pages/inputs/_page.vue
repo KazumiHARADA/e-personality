@@ -65,6 +65,7 @@ export default {
   },
   head() {
     return {
+      title: '入力 ' + this.current + 'ページ',
       meta: [{ hid: 'robots', name: 'robots', content: 'noindex' }]
     }
   },
@@ -72,6 +73,7 @@ export default {
     return {
       next: '/',
       prev: '/',
+      current: 0,
       total: Questions.length,
       disableNextButton: true,
       nextButtonClass: ''
@@ -84,6 +86,7 @@ export default {
   },
   asyncData({ params, store }) {
     return {
+      current: params.page,
       next: ((page) => {
         const next = Number(page) + 1
         const maxPage = Questions.length / pageCount
