@@ -93,3 +93,7 @@ plugins/firebase.js
 .firebaserc
 firebase.json
 .firebase/
+
+nuxt
+
+public

@@ -11,14 +11,14 @@
     </div>
     <b-row class="pt-3 pb-7" align-h="center" align-v="end">
       <b-col cols="2">
-        <span class="prev" @click="clickPrevButton(prev)">←Prev</span>
+        <span @click="clickPrevButton(prev)" class="prev">←Prev</span>
       </b-col>
       <b-col cols="8">
         <b-button
           :class="nextButtonClass"
-          variant="outline-secondary"
           :disabled="disableNextButton"
           @click="clickNextButton(next)"
+          variant="outline-secondary"
         >
           <span class="next-button-text">
             Next
@@ -258,5 +258,10 @@ export default {
   cursor: pointer;
   color: #ffffff;
   margin-left: 6.5vw;
+}
+
+.playStyle {
+  fill: #ffffff;
+  fill-rule: evenodd;
 }
 </style>

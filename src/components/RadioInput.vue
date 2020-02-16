@@ -18,47 +18,47 @@
       <b-row align-h="center" class="mt-5 mb-5">
         <b-col cols="2">
           <radio-selection
+            :name="questionId"
+            :keyed="keyed"
+            :selected-value="value"
+            @select="selectedRadioItem2"
             type="double"
-            :name="questionId"
-            :keyed="keyed"
-            :selected-value="value"
-            @select="selectedRadioItem2"
           />
         </b-col>
         <b-col cols="2">
           <radio-selection
+            :name="questionId"
+            :keyed="keyed"
+            :selected-value="value"
+            @select="selectedRadioItem2"
             type="circle"
-            :name="questionId"
-            :keyed="keyed"
-            :selected-value="value"
-            @select="selectedRadioItem2"
           />
         </b-col>
         <b-col cols="2">
           <radio-selection
+            :name="questionId"
+            :keyed="keyed"
+            :selected-value="value"
+            @select="selectedRadioItem2"
             type="bar"
-            :name="questionId"
-            :keyed="keyed"
-            :selected-value="value"
-            @select="selectedRadioItem2"
           />
         </b-col>
         <b-col cols="2">
           <radio-selection
+            :name="questionId"
+            :keyed="keyed"
+            :selected-value="value"
+            @select="selectedRadioItem2"
             type="triangle"
-            :name="questionId"
-            :keyed="keyed"
-            :selected-value="value"
-            @select="selectedRadioItem2"
           />
         </b-col>
         <b-col cols="2">
           <radio-selection
-            type="cross"
             :name="questionId"
             :keyed="keyed"
             :selected-value="value"
             @select="selectedRadioItem2"
+            type="cross"
           />
         </b-col>
       </b-row>

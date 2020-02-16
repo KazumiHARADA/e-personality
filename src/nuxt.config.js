@@ -1,7 +1,7 @@
-import Questions from './assets/ja-edited-questions.json'
+// import Questions from './assets/ja-edited-questions.json'
 
-export default {
-  mode: 'spa',
+module.exports = {
+  mode: 'universal',
   /*
    ** Headers of the page
    */
@@ -53,7 +53,6 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/device',
     '@nuxtjs/sitemap',
     ['@nuxtjs/google-gtag', { id: 'UA-154214086-2', debug: true }]
   ],
@@ -78,10 +77,11 @@ export default {
       config.devtool = ctx.isClient ? 'eval-source-map' : 'inline-source-map'
     }
   },
+  buildDir: 'nuxt',
 
   generate: {
     routes() {
-      const count = Questions.length / 8
+      const count = 120 / 8 // Questions.length / 8
       const result = []
       for (let i = 1; i <= count; i++) {
         result.push('/inputs/' + i)
@@ -94,24 +94,13 @@ export default {
     mongoUrl:
       'mongodb://heroku_g43j8m44:6iagj8up9rud4alsnncug1t8dc@ds251158.mlab.com:51158/heroku_g43j8m44'
   },
-
-  serverMiddleware: [
-    {
-      path: '/api/v1/save',
-      handler: '~/api/v1/save.js'
-    },
-    {
-      path: '/api/v1/find',
-      handler: '~/api/v1/find.js'
-    }
-  ],
   layoutTransition: 'page',
 
   sitemap: {
     path: '/sitemap.xml',
     hostname: 'https://e-personality.firebaseapp.com/',
     routes() {
-      const count = Questions.length / 8
+      const count = 120 / 8
       const result = []
       for (let i = 1; i <= count; i++) {
         result.push('/inputs/' + i)

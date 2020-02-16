@@ -2,7 +2,7 @@
   <div>
     <div :class="lowClass" :style="lowStyle">低い</div>
     <span class="slider-box">
-      <span class="double" :style="positionStyle"> </span>
+      <span :style="positionStyle" class="double"> </span>
       <img src="score-bar-small.png" />
     </span>
     <div :class="highClass" :style="highStyle">高い</div>

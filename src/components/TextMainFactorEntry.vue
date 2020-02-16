@@ -1,16 +1,16 @@
 <template>
   <b-list-group-item class="pl-0 pr-0 text-center">
     <div class="flex-box">
-      <hr class="line" :style="lineColor" />
+      <hr :style="lineColor" class="line" />
       <b-card-title class="card-title mt-3" style="font-size: 24px">
         {{ title }}</b-card-title
       >
     </div>
     <main-slider
-      class="mt-3 mb-5"
       :score="score"
       :result-key="scoreKey"
       :factor="factor"
+      class="mt-3 mb-5"
     />
     <b-card-text class="mb-4" style="font-size: 18px">
       {{ scoreText }}

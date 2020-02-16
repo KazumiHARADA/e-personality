@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-navbar toggleable="lg" class="bg-transparent" variant="info">
-      <b-navbar-brand class="text-white" @click="clickBrandButton()"
+      <b-navbar-brand @click="clickBrandButton()" class="text-white"
         >ePersonality</b-navbar-brand
       >
 
@@ -14,11 +14,11 @@
           <b-nav-item-dropdown right class="test">
             <template slot="button-content">
               <b-img
+                :src="imageUrl"
                 width="30"
                 height="30"
                 thumbnail
                 rounded="circle"
-                :src="imageUrl"
                 alt="UserImage"
               ></b-img>
             </template>
