@@ -482,4 +482,35 @@ $hoverColor: #212529;
     display: none !important;
   }
 }
+// svg style
+.double {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2px;
+}
+
+.circle {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2px;
+}
+
+.bar {
+  fill: #fff;
+  fill-rule: evenodd;
+}
+
+.triangle {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2px;
+  fill-rule: evenodd;
+}
+
+.cross {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2px;
+  fill-rule: evenodd;
+}
 </style>

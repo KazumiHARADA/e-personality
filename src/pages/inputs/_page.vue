@@ -259,4 +259,9 @@ export default {
   color: #ffffff;
   margin-left: 6.5vw;
 }
+
+.playStyle {
+  fill: #ffffff;
+  fill-rule: evenodd;
+}
 </style>
