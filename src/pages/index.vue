@@ -55,9 +55,9 @@
         lg="3"
         lx="3"
         ><b-button
+          @click="clickStartButton()"
           class="sub-button-restart"
           variant="outline-secondary"
-          @click="clickStartButton()"
         >
           <div class="triangle-sub"></div
         ></b-button>
@@ -81,9 +81,9 @@
         lx="4"
       >
         <b-button
+          @click="clickResumetButton()"
           class="main-button"
           variant="outline-secondary"
-          @click="clickResumetButton()"
         >
           <div class="triangle-top"></div
         ></b-button>
@@ -92,9 +92,9 @@
       </b-col>
       <b-col v-else class="main-button-area" sm="10" md="4" lg="4" lx="4">
         <b-button
+          @click="clickStartButton()"
           class="main-button"
           variant="outline-secondary"
-          @click="clickStartButton()"
         >
           <div class="triangle-top"></div
         ></b-button>

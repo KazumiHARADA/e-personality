@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-navbar toggleable="lg" class="bg-transparent" variant="info">
-      <b-navbar-brand class="text-white" @click="clickBrandButton()"
+      <b-navbar-brand @click="clickBrandButton()" class="text-white"
         >ePersonality</b-navbar-brand
       >
 
@@ -11,7 +11,7 @@
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-item class="about" to="/about" right>About</b-nav-item>
-          <b-nav-item right @click="clickLoginButton()"
+          <b-nav-item @click="clickLoginButton()" right
             ><b-button variant="outline-secondary">Login</b-button></b-nav-item
           >
         </b-navbar-nav>

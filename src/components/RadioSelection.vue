@@ -2,15 +2,15 @@
   <span class="radio-selection">
     <div
       v-if="type === 'double'"
-      class="doubleInput"
       @input="selectedRadioItem(doubleValue)"
+      class="doubleInput"
     >
       <input
         :id="'double' + name"
         v-model="value"
-        type="radio"
         :name="name"
         :value="doubleValue"
+        type="radio"
       />
       <label :for="'double' + name">
         <div class="content">
@@ -47,15 +47,15 @@
     </div>
     <div
       v-else-if="type === 'circle'"
-      class="circleInput"
       @input="selectedRadioItem(circleValue)"
+      class="circleInput"
     >
       <input
         :id="'circle' + name"
         v-model="value"
-        type="radio"
         :name="name"
         :value="circleValue"
+        type="radio"
       />
       <label :for="'circle' + name">
         <div class="content">
@@ -85,15 +85,15 @@
     </div>
     <div
       v-else-if="type === 'bar'"
-      class="barInput"
       @input="selectedRadioItem(barValue)"
+      class="barInput"
     >
       <input
         :id="'bar' + name"
         v-model="value"
-        type="radio"
         :name="name"
         :value="barValue"
+        type="radio"
       />
       <label :for="'bar' + name">
         <div class="content">
@@ -121,15 +121,15 @@
     </div>
     <div
       v-else-if="type === 'triangle'"
-      class="triangleInput"
       @input="selectedRadioItem(triangleValue)"
+      class="triangleInput"
     >
       <input
         :id="'triangle' + name"
         v-model="value"
-        type="radio"
         :name="name"
         :value="triangleValue"
+        type="radio"
       />
       <label :for="'triangle' + name">
         <div class="content">
@@ -159,15 +159,15 @@
     </div>
     <div
       v-else-if="type === 'cross'"
-      class="crossInput"
       @input="selectedRadioItem(crossValue)"
+      class="crossInput"
     >
       <input
         :id="'cross' + name"
         v-model="value"
-        type="radio"
         :name="name"
         :value="crossValue"
+        type="radio"
       />
       <label :for="'cross' + name">
         <div class="content">

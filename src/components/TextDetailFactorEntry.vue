@@ -2,10 +2,10 @@
   <b-list-group-item class="pl-1 pr-1">
     <b-card-title class="mt-2">{{ title }}</b-card-title>
     <detail-slider
-      class="mt-3 mb-3"
       :score="score"
       :result-key="scoreKey"
       :factor="factor"
+      class="mt-3 mb-3"
     />
     <b-card-text class="mb-2" style="font-size: 18px">
       {{ scoreText }}

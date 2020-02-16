@@ -13,10 +13,10 @@
     <b-row class="pt-3 pb-7" align-h="center">
       <b-col class="col-xs-6 col-sm-4 col-md-3">
         <b-button
-          block
-          variant="primary"
           :disabled="disableNextButton"
           @click="clickResultButton()"
+          block
+          variant="primary"
           >Result</b-button
         >
       </b-col>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex-box mt-n3 mb-5">
-      <hr class="line" :style="lineColor" />
+      <hr :style="lineColor" class="line" />
       <b-card-title
         :id="factor"
         class="card-title mt-3"
@@ -11,10 +11,10 @@
       >
     </div>
     <main-slider
-      class="mt-3 mb-5"
       :score="userInfo.score"
       :result-key="userInfo.scoreKey"
       :factor="factor"
+      class="mt-3 mb-5"
     />
     <div class="text-left mb-5">
       {{ userInfo.scoreText }}
@@ -25,11 +25,11 @@
       <hr />
       <b-row class="detail-list">
         <b-col
+          :class="userInfo.factorInfo.factorParentClass1"
           sm="12"
           md="6"
           lg="6"
           lx="6"
-          :class="userInfo.factorInfo.factorParentClass1"
         >
           <text-detail-factor-entry
             :title="facets[0].title"
@@ -42,11 +42,11 @@
           />
         </b-col>
         <b-col
+          :class="userInfo.factorInfo.factorParentClass2"
           sm="12"
           md="6"
           lg="6"
           lx="6"
-          :class="userInfo.factorInfo.factorParentClass2"
         >
           <text-detail-factor-entry
             :title="facets[1].title"
@@ -59,11 +59,11 @@
           />
         </b-col>
         <b-col
+          :class="userInfo.factorInfo.factorParentClass3"
           sm="12"
           md="6"
           lg="6"
           lx="6"
-          :class="userInfo.factorInfo.factorParentClass3"
         >
           <text-detail-factor-entry
             :title="facets[2].title"
@@ -76,11 +76,11 @@
           />
         </b-col>
         <b-col
+          :class="userInfo.factorInfo.factorParentClass4"
           sm="12"
           md="6"
           lg="6"
           lx="6"
-          :class="userInfo.factorInfo.factorParentClass4"
         >
           <text-detail-factor-entry
             :title="facets[3].title"
@@ -93,11 +93,11 @@
           />
         </b-col>
         <b-col
+          :class="userInfo.factorInfo.factorParentClass5"
           sm="12"
           md="6"
           lg="6"
           lx="6"
-          :class="userInfo.factorInfo.factorParentClass5"
         >
           <text-detail-factor-entry
             :title="facets[4].title"
@@ -110,11 +110,11 @@
           />
         </b-col>
         <b-col
+          :class="userInfo.factorInfo.factorParentClass6"
           sm="12"
           md="6"
           lg="6"
           lx="6"
-          :class="userInfo.factorInfo.factorParentClass6"
         >
           <text-detail-factor-entry
             :title="facets[5].title"
