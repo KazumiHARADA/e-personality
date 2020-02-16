@@ -5,6 +5,8 @@ const svg2img = require('svg2img')
 const functions = require('firebase-functions')
 const admin = require('firebase-admin')
 const spawn = require('child-process-promise').spawn
+const { Nuxt } = require('nuxt-start')
+const nuxtConfig = require('./nuxt.config.js')
 const serviceAccount = require('./e-personality-firebase-adminsdk-8qnev-1131b8d3d2.json')
 
 admin.initializeApp({
@@ -62,4 +64,16 @@ exports.svg = functions.https.onRequest(async (request, response) => {
   response.json({
     url: res[0]
   })
+})
+
+const config = {
+  ...nuxtConfig,
+  dev: false,
+  buildDir: 'nuxt'
+}
+const nuxt = new Nuxt(config)
+
+exports.ssrapp = functions.https.onRequest(async (req, res) => {
+  await nuxt.ready()
+  nuxt.render(req, res)
 })

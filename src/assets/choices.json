@@ -1,0 +1,56 @@
+{
+  "plus": [
+    {
+      "text": "とてもそう",
+      "score": 5,
+      "color": 5
+    },
+    {
+      "text": "少しそう",
+      "score": 4,
+      "color": 4
+    },
+    {
+      "text": "どちらでもない",
+      "score": 3,
+      "color": 3
+    },
+    {
+      "text": "少し違う",
+      "score": 2,
+      "color": 2
+    },
+    {
+      "text": "全然違う",
+      "score": 1,
+      "color": 1
+    }
+  ],
+  "minus": [
+    {
+      "text": "とてもそう",
+      "score": 1,
+      "color": 5
+    },
+    {
+      "text": "少しそう",
+      "score": 2,
+      "color": 4
+    },
+    {
+      "text": "どちらでもない",
+      "score": 3,
+      "color": 3
+    },
+    {
+      "text": "少し違う",
+      "score": 4,
+      "color": 2
+    },
+    {
+      "text": "全然違う",
+      "score": 5,
+      "color": 1
+    }
+  ]
+}
