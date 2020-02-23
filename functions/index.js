@@ -67,7 +67,7 @@ exports.svg = functions.https.onRequest(async (request, response) => {
 })
 
 const config = {
-  ...nuxtConfig,
+  nuxtConfig,
   dev: false,
   buildDir: 'nuxt'
 }
