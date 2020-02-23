@@ -99,13 +99,6 @@ module.exports = {
   sitemap: {
     path: '/sitemap.xml',
     hostname: 'https://e-personality.firebaseapp.com/',
-    routes() {
-      const count = 120 / 8
-      const result = []
-      for (let i = 1; i <= count; i++) {
-        result.push('/inputs/' + i)
-      }
-      return result
-    }
+    exclude: ['/result', '/inputs/1', '/simple/**']
   }
 }

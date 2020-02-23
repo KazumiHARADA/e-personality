@@ -65,8 +65,7 @@ export default {
   },
   head() {
     return {
-      title: '入力 ' + this.current + 'ページ',
-      meta: [{ hid: 'robots', name: 'robots', content: 'noindex' }]
+      title: '入力 ' + this.current + 'ページ'
     }
   },
   data() {
