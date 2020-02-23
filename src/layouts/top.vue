@@ -81,7 +81,7 @@ html {
 
 .background-top {
   background-position: center;
-  background-image: url('/personality_top_bg_md.png') !important;
+  background-image: url('/personality_top_bg_md.webp') !important;
   background-size: cover;
   height: 100%;
 }
