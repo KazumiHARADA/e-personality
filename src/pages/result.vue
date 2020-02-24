@@ -57,6 +57,7 @@ import { setting as ConscientiousnessSetting } from '~/assets/factor/conscientio
 import { setting as ExtraversionSetting } from '~/assets/factor/extraversion'
 import { setting as NeuroticismSetting } from '~/assets/factor/neuroticism'
 import { setting as OpennessToExperienceSetting } from '~/assets/factor/openness_to_experience'
+import MailApi from '~/libs/mailApi'
 
 export default {
   layout: 'result',
@@ -112,6 +113,11 @@ export default {
   },
   mounted() {
     this.$store.dispatch('inputs/resetAnswers')
+    MailApi.send(
+      this.$axios,
+      '【通知】完了画面到達',
+      '診断結果を表示しました。'
+    )
   }
 }
 </script>

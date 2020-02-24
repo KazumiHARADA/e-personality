@@ -8,6 +8,17 @@ const spawn = require('child-process-promise').spawn
 const { Nuxt } = require('nuxt-start')
 const nuxtConfig = require('./nuxt.config.js')
 const serviceAccount = require('./e-personality-firebase-adminsdk-8qnev-1131b8d3d2.json')
+const nodemailer = require('nodemailer')
+const gmailEmail = functions.config().gmail.email
+const gmailPassword = functions.config().gmail.password
+const mailTransport = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: gmailEmail,
+    pass: gmailPassword
+  }
+})
+
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -22,7 +33,6 @@ exports.log = functions.https.onRequest((request, response) => {
   )
   response.set('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS, POST')
   response.set('Access-Control-Allow-Headers', 'Content-Type, authorization')
-  console.info(request.query.message)
   response.json({ data: 'test message' })
 })
 
@@ -76,4 +86,36 @@ const nuxt = new Nuxt(config)
 exports.ssrapp = functions.https.onRequest(async (req, res) => {
   await nuxt.ready()
   nuxt.render(req, res)
+})
+
+
+exports.sendMail = functions.https.onRequest( (request, response) => {
+  if (request.query.isLocal === 'true') {
+    response.set('Access-Control-Allow-Origin', 'http://localhost:3000')
+  } else {
+    response.set(
+      'Access-Control-Allow-Origin',
+      'https://e-personality.firebaseapp.com'
+    )
+  }
+
+  response.set('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS, POST')
+  response.set('Access-Control-Allow-Headers', 'Content-Type, authorization')
+
+  const title = request.query.title
+  const message = request.query.message
+
+  let email = {
+    from: gmailEmail,
+    to: 'kazumi.h.apple48@gmail.com',
+    subject: title,
+    text: message
+  }
+
+  mailTransport.sendMail(email, (err, info) => {
+    if (err) {
+      response.json({ status: 'failure' })
+    }
+    response.json({ status: 'success' })
+  })
 })
