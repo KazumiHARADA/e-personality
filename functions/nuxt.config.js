@@ -99,6 +99,6 @@ module.exports = {
   sitemap: {
     path: '/sitemap.xml',
     hostname: 'https://e-personality.firebaseapp.com/',
-    exclude: ['/result', '/inputs/1', '/simple/**']
+    exclude: ['/result', '/inputs/**', '/simple/**']
   }
 }
